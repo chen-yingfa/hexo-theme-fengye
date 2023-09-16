@@ -27,10 +27,10 @@
             </p>
             <p class="line-clamp-4">
               Created <%- date(post.date, 'YYYY-MM-DD') %>
-              |
-              Updated <%= date(post.updated, 'YYYY-MM-DD') %>
+              <span class="text-gray-400">·</span>
+              Edit: <%= date(post.updated, 'YYYY-MM-DD') %>
               <!-- <%= min2read(post.content) %> min -->
-              |
+              <span class="text-gray-400">·</span>
               <%= wordcount(post.content) %> words
           </p>
         </section>
