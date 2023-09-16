@@ -1,1 +1,82 @@
-<%- partial('archive', {pagination: config.archive, index: true}) %>
+<div class="index-info-container pt-6">
+  <div class="flex flex-col items-center justify-center">
+      <img class="w-24 h-24 rounded-full" src="<%- theme.logo %>" alt="<%- config.title %>" />
+      <h1 class="site-title text-4xl leading-relaxed">
+        <%= config.title %>
+      </h1>
+      <p class="text-gray-500 mt-2">
+        <%= config.subtitle %>
+      </p>
+      <p class="text-gray-500 mt-2">
+        Beijing · 北京
+        · <a href="/pdf/cv.pdf">My CV (Dec, 2022)</a>
+      </p>
+      <!-- Description from config -->
+      <div class="description-container max-w-prose mx-auto grid grid-cols-1">
+        <div class="text-left p-8">
+          <p class="text-gray-500">
+            <%- config.description.replace(/(?:\r\n|\r|\n)/g, '<br>') %>
+          </p>
+        </div>
+      </div>
+      <!-- get content from index.md -->
+      <div class="post-content mt-4">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 分割线 -->
+<div class="items-center justify-center border-t border-gray-200 dark:border-zinc-700">
+  <p class="text-center p-4 text-gray-400 text-2xl">Recent Works</p>
+</div>
+
+<section class="px-6 py-8 max-w-prose mx-auto gap-4 grid grid-cols-1">
+  <% var last_year = ''; %>
+  <% page.posts.each(function (post, index) { %>
+    <% if (post.featured) { %>
+      <!-- Large year background -->
+      <% var cur_year = post.date.year(); %>
+      <% if(last_year !== cur_year){ %>
+        <div class="relative pointer-events-none">
+          <span class="text-9xl opacity-10 absolute -left-11 -top-6 font-bold"><%- cur_year %></span>
+        </div>
+      <% last_year = cur_year; } %>
+      <!-- The post -->
+      <div class="post-container">
+        <a style="<%- '--stagger:' + index %>" href="<%- url_for(post.path) %>" data-animate>
+          <header>
+            <h2 class="font-bold text-lg">
+              <%- post.title %>
+            </h2>
+          </header>
+          <section class="text-gray-400 text-sm time">
+            <p class="line-clamp-4">
+              <% if (post.excerpt) { %>
+                <div class="py-2">
+                  <%- post.excerpt %>
+                </div>
+                <% } %>
+              </p>
+              <p class="line-clamp-4">
+                <%- date(post.date, 'MMM DD') %>
+                ·
+                <%= wordcount(post.content) %> words
+                ·
+                <%= min2read(post.content) %> min
+            </p>
+          </section>
+        </a>
+        <!-- <div class="border-gray-200 flex flex-wrap gap-1">
+          <% if (post.tags && post.tags.length) { %>
+            <% post.tags.forEach(function (tag) { %>
+              <span class="bg-gray-100 dark:bg-zinc-800 px-2 py-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+                <a href="<%- url_for(tag.path) %>"><%- tag.name %></a>
+              </span>
+            <% }); %>
+          <% } %>
+        </div> -->
+      </div>
+    <% } %>
+  <% }) %>
+</section>

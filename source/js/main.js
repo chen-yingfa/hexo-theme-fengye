@@ -78,8 +78,12 @@ function registerCopyCode() {
     // set style
     $(copyIcon).css("position", "absolute");
     $(copyIcon).css("left", `${left}px`);
-    $(copyIcon).css("top", "15px");
+    $(copyIcon).css("top", `8px`);
     $(copyIcon).css("cursor", "pointer");
+    // $(copyIcon).css("background-color", "#fff");
+    $(copyIcon).css("box-shadow", "0 0 5px rgba(0, 0, 0, 0.3)");
+    $(copyIcon).css("border-radius", "3px");
+    $(copyIcon).css("padding", "4px");
     // add icon
     $(this).append(copyIcon);
     // copy code

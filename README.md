@@ -3,17 +3,17 @@
 </p>
 
 <p align='center'>
-concise but not simple hexo theme.
+Minimalistic but powerful Hexo theme
 </p>
 
 <br>
 
 <p align='center'>
-<a href="https://xbmlz.github.io">Live Demo</a>
+<a href="https://chen-yingfa.github.io">Live Demo</a>
 </p>
 
 <p align='center'>
-<b>English</b> | <a href="https://github.com/xbmlz/hexo-theme-maple/blob/main/README.zh-CN.md">简体中文</a>
+<b>English</b> | <a href="https://github.com/chen-yingfa/hexo-theme-fengye/blob/main/README.zh-CN.md">简体中文</a>
 
 </p>
 
@@ -107,3 +107,6 @@ giscus:
   mapping:
 ```
 
+## Acknowledgments
+
+This is adopted from the [Maple theme](https://www.github.com/xbmlz/hexo-theme-maple) by [xbmlz](https://www.github.com/xbmlz).

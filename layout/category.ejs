@@ -15,23 +15,26 @@ how to add a category page:
     ---
  %>
 
-<% if(is_category()){ %>
-<div class="flex">
-  <div class="flex-col w-auto bg-gray-100 px-4 py-2 border-1">
-    <h2>Categories: <%-page.category%></h2>
+<% if (is_category()) { %>
+  <!-- 已经选择了category，显示给定category的所有文章 -->
+  <div class="text-gray-400 dark:text-gray-400 flex flex-row h-8 justify-center items-center dark:bg-zinc-900 px-4 py-2 border-1">
+    <iconify-icon width="32" icon="icon-park-outline:box" class="mr-2"></iconify-icon>
+    <span>
+      <p class="text-2xl">Category: <%-page.category%></span>
+    </span>
   </div>
-</div>
-<%- partial('archive', {pagination: config.category, index: true}) %>
+  <%- partial('archive', {pagination: config.category, index: true}) %>
 <% } else { %>
-<div class="px-6 max-w-prose mx-auto md:px-0 mt-6">
-  <h2 class="font-bold text-2xl">Categories</h2>
-  <ul class="mt-2">
-    <% site.categories.forEach(category =>{ %>
-      <li class="mt-2">
-        <a href="<%- url_for(category.path) %>"> <%- category.name %></a>
-        <span>(<%- category.posts.length %>)</span>
-      </li>
-    <% }) %>
-  </ul>
-</div>
+  <!-- 显示所有存在的 category -->
+  <div class="px-6 max-w-prose mx-auto md:px-0 mt-6">
+    <h2 class="font-bold text-2xl">Categories</h2>
+    <ul class="mt-2">
+      <% site.categories.forEach(category =>{ %>
+        <li class="mt-2">
+          <a href="<%- url_for(category.path) %>"> <%- category.name %></a>
+          <span>(<%- category.posts.length %>)</span>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
 <% } %>

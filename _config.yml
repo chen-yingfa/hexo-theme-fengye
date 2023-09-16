@@ -1,11 +1,14 @@
 # Header
 nav:
+  Home: /index
   Posts: /archives
-  # Categories: /category
-  # Tags: /tag
+  Categories: /category
+  Tags: /tag
+
+home_description: "Welcome to my blog!"
 
 # favicon
-favicon: /favicon.png
+favicon: /favicon.ico
 
 # logo
 logo: /images/logo.svg

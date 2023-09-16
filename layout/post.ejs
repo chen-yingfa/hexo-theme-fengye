@@ -9,11 +9,13 @@
   <!-- header -->
   <header class="overflow-hidden pt-6 pb-6 md:pt-12">
     <div class="pt-4 md:pt-6">
-      <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
-        <%- page.title %>
-      </h1>
+      <!-- Title -->
+      <div id="article-title" class="leading-snug mb-4 md:mb-6">
+        <p class="text-3xl font-bold"><%- page.title %></p>
+      </div>
       <div>
         <section class="flex items-center gap-3 text-sm">
+          <!-- Date, read time, word count, and category -->
           <span class="flex items-center gap-1">
             <iconify-icon width="18" icon="carbon-calendar" ></iconify-icon>
             <time><%- date(page.updated, "YYYY-MM-DD") %></time>
@@ -28,6 +30,7 @@
             <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
             <span><%= wordcount(page.content) %> words</span>
           </span>
+          <!-- Categories -->
           <% if (page.categories && page.categories.length) { %>
             <span class="text-gray-400">·</span>
             <span class="flex items-center gap-1">
@@ -39,42 +42,42 @@
                 separator: '/'
               }) %>
             </span>
+            <% } %>
+          </section>
+        </div>
+        <!-- tags -->
+        <div class="flex flex-wrap gap-1 pt-2">
+          <% if (page.tags && page.tags.length) { %>
+            <% page.tags.forEach(function (tag) { %>
+              <span class="bg-gray-100 dark:bg-zinc-800 px-2 py-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+                <a href="<%- url_for(tag.path) %>"><%- tag.name %></a>
+              </span>
+            <% }); %>
           <% } %>
-        </section>
+        </div>
       </div>
-    </div>
-  </header>
-  <!-- content -->
-  <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
-    <%- page.content %>
-  </article>
-  <!-- tag -->
-  <div class="mt-12 pt-6 border-t border-gray-200">
-    <% if (page.tags && page.tags.length) { %>
-      <% page.tags.forEach(function (tag) { %>
-        <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 m-1 text-sm rounded-md transition-colors hover:bg-gray-200">
-          <a href="<%- url_for(tag.path) %>"><%- tag.name %></a>
-        </span>
-      <% }); %>
-    <% } %>
-  </div>
-  <!-- prev and next -->
-  <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
-    <div>
-      <% if (page.prev) { %>
-        <a href="<%- url_for(page.prev.path) %>" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+    </header>
+    <!-- content -->
+    <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
+      <%- page.content %>
+    </article>
+    <!-- prev and next -->
+    <div class="flex justify-between mt-4 pt-4 border-t border-gray-200 test-sm align-middle gap-2">
+      <div>
+        <% if (page.prev) { %>
+          <a href="<%- url_for(page.prev.path) %>" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
           <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
           <%- page.prev.title %>
         </a>
-      <% } %>
-    </div>
-    <div>
-      <% if (page.next) { %>
+        <% } %>
+      </div>
+      <div class="border-l border-1 border-gray-400 pl-2">
+        <% if (page.next) { %>
         <a href="<%- url_for(page.next.path) %>" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
           <%- page.next.title %>
           <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
         </a>
-      <% } %>
+        <% } %>
     </div>
   </div>
   <!-- comment -->
