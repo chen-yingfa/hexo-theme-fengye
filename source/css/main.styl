@@ -1,0 +1,102 @@
+@import 'highlight.styl'
+
+
+:root {
+  --c-bg: #ffffff
+  --c-scrollbar: #d9d9d9
+  --c-scrollbar-hover: #bbbbbb
+}
+
+html.dark
+  --c-bg: #212121
+  --c-scrollbar: #333333
+  --c-scrollbar-hover: #555555
+
+a:hover
+  color: #de7441
+  cursor: pointer
+
+::-webkit-scrollbar-track
+  background-color: var(--c-bg);
+
+
+::-webkit-scrollbar
+  width: 6px;
+  height: 6px;
+
+
+::-webkit-scrollbar-thumb
+    background-color: var(--c-scroll);
+    border-radius: 4px;
+
+.maple
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 0px;
+  left: 0px;
+  background-image: url(../img/logo.svg);
+  background-size: cover;
+  will-change: transform;
+
+
+@keyframes fall
+  0%
+    transform: translate(0px, 0px);
+
+  100%
+    transform: translate(calc(100vw * var(--maple-fall-offset)), var(--maple-fall-height));
+
+
+.toc-list
+  li
+    margin-bottom: 0.3rem
+
+  ol
+    margin-top: 0.3rem
+
+.back-to-top
+  -webkit-transform: translateZ(0)
+  transition-property: bottom
+  transition-duration: 0.2s
+  transition-timing-function: ease-in-out
+  transition-delay: 0s
+
+.back-to-top.back-to-top-on
+  bottom: 30px
+
+@keyframes enter
+  0%
+    opacity: 0
+    transform: translateY(10px)
+
+  to
+    opacity: 1
+    transform: none
+
+[data-animate]
+  --stagger: 0
+  --delay: 120ms
+  --start: 0ms
+
+@media (prefers-reduced-motion:no-preference)
+  [data-animate]
+    animation: enter .6s both
+    animation-delay: calc(var(--stagger) * var(--delay) + var(--start))
+
+[data-animation-controller=false] [data-animate]
+  animation: none;
+
+.slide-enter-content
+  counter-reset: enter-count
+
+.slide-enter-content > *
+  --stagger: 0
+  --delay: 150ms
+  --start: 0ms
+  animation: enter 1s both 1
+  animation-delay: calc(var(--start) + var(--stagger) * var(--delay))
+
+.slide-enter-content > p
+  counter-increment: enter-count
+  --stagger: counter(enter-count)

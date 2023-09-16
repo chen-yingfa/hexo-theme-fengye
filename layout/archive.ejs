@@ -1,0 +1,52 @@
+<section class="px-6 max-w-prose mx-auto gap-12 grid grid-cols-1">
+  <div class="flex flex-col h-48 items-center justify-center">
+    <img class="w-24 h-24 rounded-full mt-12" src="<%- theme.logo %>" alt="<%- config.title %>" />
+    <h1 class="site-title text-4xl leading-relaxed">
+      <%= config.title %>
+    </h1>
+    <p class="text-gray-500 mt-2">
+      <%= config.subtitle %>
+    </p>
+    <!-- General information in the home page -->
+    <div class="home-content">
+      <p class="text-gray-500 mt-2">
+        <%= config.author %> 
+        · 北京 
+        · <%= config.email %>
+      </p>
+      <!-- get content from index.md -->
+    </div>
+  </div>
+  <% var last_year = ''; %>
+  <% page.posts.each(function (post, index) { %>
+    <% var cur_year = post.date.year(); %>
+    <% if(last_year !== cur_year){ %>
+      <div class="relative pointer-events-none">
+        <span class="text-9xl opacity-10 absolute -left-11 -top-6 font-bold"><%- cur_year %></span>
+      </div>
+    <% last_year = cur_year; } %>
+    <a style="<%- '--stagger:' + index %>" href="<%- url_for(post.path) %>" data-animate>
+      <header>
+        <h2 class="font-bold text-xl">
+          <%- post.title %>
+        </h2>
+      </header>
+      <section class="text-gray-400 my-2 text-sm time">
+        <p class="line-clamp-4">
+          <% if (post.excerpt) { %>
+            <div class="py-2">
+              <%- post.excerpt %>
+            </div>
+          <% } %>
+        </p>
+        <p class="line-clamp-4">
+          <%- date(post.date, 'MMM DD') %>
+          ·
+          <%= wordcount(post.content) %> words
+          ·
+          <%= min2read(post.content) %> min
+        </p>
+      </section>
+    </a>
+  <% }) %>
+</section>

@@ -1,0 +1,90 @@
+<!-- css -->
+<%- css('lib/fancybox/fancybox.min.css') %>
+<%- css('lib/tocbot/tocbot.min.css') %>
+<!-- toc -->
+<% if (toc(page.content).length !== 0) { %>
+  <%- partial('_partial/toc') %>
+<% } %>
+<section class="px-6 max-w-prose mx-auto md:px-0">
+  <!-- header -->
+  <header class="overflow-hidden pt-6 pb-6 md:pt-12">
+    <div class="pt-4 md:pt-6">
+      <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
+        <%- page.title %>
+      </h1>
+      <div>
+        <section class="flex items-center gap-3 text-sm">
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="carbon-calendar" ></iconify-icon>
+            <time><%- date(page.updated, "YYYY-MM-DD") %></time>
+          </span>
+          <span class="text-gray-400">·</span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="ic:round-access-alarm" ></iconify-icon>
+            <span><%= min2read(page.content) %> min</span>
+          </span>
+          <span class="text-gray-400">·</span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
+            <span><%= wordcount(page.content) %> words</span>
+          </span>
+          <% if (page.categories && page.categories.length) { %>
+            <span class="text-gray-400">·</span>
+            <span class="flex items-center gap-1">
+              <iconify-icon width="16" icon="icon-park-outline:box" class="mr-2"></iconify-icon>
+              <%- list_categories(page.categories, {
+                show_count: false,
+                class: 'article-category',
+                style: 'none',
+                separator: '/'
+              }) %>
+            </span>
+          <% } %>
+        </section>
+      </div>
+    </div>
+  </header>
+  <!-- content -->
+  <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
+    <%- page.content %>
+  </article>
+  <!-- tag -->
+  <div class="mt-12 pt-6 border-t border-gray-200">
+    <% if (page.tags && page.tags.length) { %>
+      <% page.tags.forEach(function (tag) { %>
+        <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 m-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+          <a href="<%- url_for(tag.path) %>"><%- tag.name %></a>
+        </span>
+      <% }); %>
+    <% } %>
+  </div>
+  <!-- prev and next -->
+  <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
+    <div>
+      <% if (page.prev) { %>
+        <a href="<%- url_for(page.prev.path) %>" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+          <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
+          <%- page.prev.title %>
+        </a>
+      <% } %>
+    </div>
+    <div>
+      <% if (page.next) { %>
+        <a href="<%- url_for(page.next.path) %>" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+          <%- page.next.title %>
+          <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
+        </a>
+      <% } %>
+    </div>
+  </div>
+  <!-- comment -->
+  <div class="article-comments mt-12">
+    <%- partial('_plugins/giscus') %>
+  </div>
+</section>
+<!-- js inspect -->
+<%- js('lib/clipboard.min') %>
+<%- partial('_plugins/mathjax') %>
+<%- partial('_plugins/mermaid') %>
+<%- partial('_plugins/fancybox') %>
+<%- partial('_plugins/tocbot') %>
