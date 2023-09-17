@@ -1,23 +1,17 @@
 <p align='center'>
-  <img src='https://raw.githubusercontent.com/chen-yingfa/hexo-theme-fengye/main/source/images/logo.svg' alt='Hexo-theme-fengye' width='120'/>
+  <img src='https://raw.githubusercontent.com/chen-yingfa/hexo-theme-fengye/main/source/images/logo.svg' alt='Hexo-theme-fengye' width='80'/>
 </p>
-
 <p align='center'>
-一款简约的 Hexo 主题
+  一款简约的 Hexo 主题
 </p>
-
-<br>
-
 <p align='center'>
-<a href="https://chen-yingfa.github.io">演示站点</a>
+  <a href="https://chen-yingfa.github.io">演示站点</a>
 </p>
 
 <p align='center'>
 <a href="https://github.com/chen-yingfa/hexo-theme-fengye/blob/main/README.md">English</a> | <b>中文</b>
 
 </p>
-
-<br>
 
 ## 特性
 
@@ -31,20 +25,16 @@
 - 🦜 [Giscus Support](https://giscus.app/zh-CN)
 - 📊 [ECharts 支持](https://echarts.apache.org/)
 
-![Maple](https://cdn.jsdelivr.net/gh/xbmlz/static@main/img/Maple.png)
-
 ## 安装
 
-Local git install:
+- Step 1: 从 GitHub 上拉取仓库
 
 ```bash
 cd your-blog/themes
 git clone https://github.com/xbmlz/hexo-theme-fengye.git themes/fengye
 ```
 
-## 开启
-
-修改 `theme` setting in `_config.yml` to `fengye`.
+- Step 2: 在 `_config.yml` 将 `theme` 改成 `fengye`.
 
 ```diff
 _config.yml
@@ -52,21 +42,19 @@ _config.yml
 + theme: fengye
 ```
 
-## 更新
-
-```bash
-cd themes/fengye
-git pull
-```
-
 ## 配置
 
 ```yaml
 # Header
 nav:
+  Home: /index  # 不会渲染 `source/index.md`
   Posts: /archives
   Categories: /category
   Tags: /tag
+  Publications: /publications  # 渲染 `source/about.md`
+  "About Me": /about  # 渲染 `source/about.md`
+
+email: "chenyingfa1999@qq.com"
 
 # favicon
 favicon: /favicon.ico

@@ -1,23 +1,18 @@
 <p align='center'>
-  <img src='https://raw.githubusercontent.com/chen-yingfa/hexo-theme-fengye/main/source/images/logo.svg' alt='Hexo-theme-fengye' width='120'/>
+  <img src='https://raw.githubusercontent.com/chen-yingfa/hexo-theme-fengye/main/source/images/logo.svg' alt='Hexo-theme-fengye' width='80'/>
 </p>
 
 <p align='center'>
 Minimalistic but powerful Hexo theme
 </p>
 
-<br>
-
 <p align='center'>
-<a href="https://chen-yingfa.github.io">Live Demo</a>
+<a href="https://chen-yingfa.github.io">Demo</a>
 </p>
 
 <p align='center'>
-<b>English</b> | <a href="https://github.com/chen-yingfa/hexo-theme-fengye/blob/main/README.zh-CN.md">中文</a>
-
+  <b>English</b> | <a href="https://github.com/chen-yingfa/hexo-theme-fengye/blob/main/README.zh-CN.md">中文</a>
 </p>
-
-<br>
 
 ## Features
 
@@ -31,20 +26,16 @@ Minimalistic but powerful Hexo theme
 - 🦜 [Giscus Support](https://giscus.app/zh-CN)
 - 📊 [ECharts Support](https://echarts.apache.org/)
 
-![fengye](https://cdn.jsdelivr.net/gh/xbmlz/static@main/img/Maple.png)
-
 ## Installation
 
-Local git install:
+- Step 1: pull the repo from GitHub
 
 ```bash
 cd your-blog/themes
 git clone https://github.com/chen-yingfa/hexo-theme-fengye.git themes/fengye
 ```
 
-## Enable
-
-Modify `theme` setting in `_config.yml` to `fengye`.
+- Step 2: Modify `theme` setting in `_config.yml` to `fengye`.
 
 ```diff
 _config.yml
@@ -52,21 +43,19 @@ _config.yml
 + theme: fengye
 ```
 
-## Update
-
-```bash
-cd themes/fengye
-git pull
-```
-
 ## Configuration
 
 ```yaml
 # Header
 nav:
+  Home: /index
   Posts: /archives
   Categories: /category
   Tags: /tag
+  Publications: /publications
+  "About Me": /about  # This renders `source/about.md`
+
+email: "chenyingfa1999@qq.com"
 
 # favicon
 favicon: /favicon.ico
@@ -76,7 +65,7 @@ logo: /images/logo.svg
 
 # links
 links:
-  Github: https://github.com/xbmlz
+  Github: https://github.com/chen-yingfa
   # ZhiHu:
   # Twitter:
   # Weibo:
