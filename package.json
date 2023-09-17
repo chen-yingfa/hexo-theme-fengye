@@ -1,12 +1,12 @@
 {
-  "name": "hexo-theme-maple",
-  "version": "0.1.5",
-  "description": "It is concise but not simple. 一款简约而不简单的Hexo主题",
-  "repository": "xbmlz/hexo-theme-maple",
+  "name": "hexo-theme-fengye",
+  "version": "0.1.0",
+  "description": "一个简约的 Hexo 主题",
+  "repository": "chen-yingfa/hexo-theme-fengye",
   "keywords": [
     "hexo",
     "theme",
-    "maple"
+    "fengye"
   ],
   "license": "MIT",
   "files": [

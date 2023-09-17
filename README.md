@@ -1,5 +1,5 @@
 <p align='center'>
-  <img src='https://raw.githubusercontent.com/xbmlz/hexo-theme-maple/main/source/images/logo.svg' alt='Hexo-theme-maple' width='120'/>
+  <img src='https://raw.githubusercontent.com/chen-yingfa/hexo-theme-fengye/main/source/images/logo.svg' alt='Hexo-theme-fengye' width='120'/>
 </p>
 
 <p align='center'>
@@ -13,7 +13,7 @@ Minimalistic but powerful Hexo theme
 </p>
 
 <p align='center'>
-<b>English</b> | <a href="https://github.com/chen-yingfa/hexo-theme-fengye/blob/main/README.zh-CN.md">简体中文</a>
+<b>English</b> | <a href="https://github.com/chen-yingfa/hexo-theme-fengye/blob/main/README.zh-CN.md">中文</a>
 
 </p>
 
@@ -31,7 +31,7 @@ Minimalistic but powerful Hexo theme
 - 🦜 [Giscus Support](https://giscus.app/zh-CN)
 - 📊 [ECharts Support](https://echarts.apache.org/)
 
-![maple](https://cdn.jsdelivr.net/gh/xbmlz/static@main/img/Maple.png)
+![fengye](https://cdn.jsdelivr.net/gh/xbmlz/static@main/img/Maple.png)
 
 ## Installation
 
@@ -39,23 +39,23 @@ Local git install:
 
 ```bash
 cd your-blog/themes
-git clone https://github.com/xbmlz/hexo-theme-maple.git themes/maple
+git clone https://github.com/chen-yingfa/hexo-theme-fengye.git themes/fengye
 ```
 
 ## Enable
 
-Modify `theme` setting in `_config.yml` to `maple`.
+Modify `theme` setting in `_config.yml` to `fengye`.
 
 ```diff
 _config.yml
 - theme: some-theme
-+ theme: maple
++ theme: fengye
 ```
 
 ## Update
 
 ```bash
-cd themes/maple
+cd themes/fengye
 git pull
 ```
 
@@ -109,4 +109,4 @@ giscus:
 
 ## Acknowledgments
 
-This is adopted from the [Maple theme](https://www.github.com/xbmlz/hexo-theme-maple) by [xbmlz](https://www.github.com/xbmlz).
+This is mostly based on the [Maple theme](https://www.github.com/xbmlz/hexo-theme-maple) by [xbmlz](https://www.github.com/xbmlz).

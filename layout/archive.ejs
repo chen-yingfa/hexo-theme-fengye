@@ -9,7 +9,7 @@
       </div>
     <% last_year = cur_year; } %>
     <!-- The post -->
-    <div class="post-container border-1 p-4 rounded-md">
+    <div class="flex flex-col gap-2 post-container p-2 rounded-md">
       <a style="<%- '--stagger:' + index %>" href="<%- url_for(post.path) %>" data-animate>
         <!-- Post title -->
         <header>
@@ -19,26 +19,38 @@
         </header>
         <section class="text-gray-400 my-2 text-sm time">
           <p class="line-clamp-4">
+            <!-- Post excerpt -->
             <% if (post.excerpt) { %>
-              <div class="py-2">
+              <div>
                 <%- post.excerpt %>
               </div>
-              <% } %>
-            </p>
-            <p class="line-clamp-4">
-              Created <%- date(post.date, 'YYYY-MM-DD') %>
-              <span class="text-gray-400">·</span>
-              Edit: <%= date(post.updated, 'YYYY-MM-DD') %>
-              <!-- <%= min2read(post.content) %> min -->
-              <span class="text-gray-400">·</span>
-              <%= wordcount(post.content) %> words
+            <% } %>
           </p>
         </section>
       </a>
-      <div class="border-gray-200 flex flex-wrap gap-1">
+      <!-- Line sep -->
+      <!-- <div class="border-1 border-t mr-1/2"></div> -->
+      <!-- Statistics -->
+      <p class="text-xs text-gray-400 line-clamp-4">
+        Created: <%- date(post.date, 'YYYY-MM-DD') %>
+        <span class="text-gray-400">·</span>
+        Updated: <%= date(post.updated, 'YYYY-MM-DD') %>
+        <!-- <%= min2read(post.content) %> min -->
+        <span class="text-gray-400">·</span>
+        <%= wordcount(post.content) %> words
+        <!-- Categories -->
+        <% if (post.categories && post.categories.length) { %>
+          <span class="text-gray-400">·</span>
+          <% post.categories.forEach(function (item) { %>
+            <a class="text-gray-400" href="<%- url_for(item.path) %>"><%- item.name %></a>
+          <% }); %>
+        <% } %>
+      </p>
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-2">
         <% if (post.tags && post.tags.length) { %>
           <% post.tags.forEach(function (tag) { %>
-            <span class="bg-gray-100 dark:bg-zinc-800 px-2 py-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+            <span class="bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 hover:dark:bg-zinc-700 px-2 py-1 text-sm rounded-md transition-colors">
               <a href="<%- url_for(tag.path) %>"><%- tag.name %></a>
             </span>
           <% }); %>
