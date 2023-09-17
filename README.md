@@ -98,4 +98,4 @@ giscus:
 
 ## Acknowledgments
 
-This is mostly based on the [Maple theme](https://www.github.com/xbmlz/hexo-theme-maple) by [xbmlz](https://www.github.com/xbmlz).
+This is mostly based on the [Maple theme](https://www.github.com/xbmlz/hexo-theme-maple) by [xbmlz](https://www.github.com/xbmlz). There is much leftover code from this repo.
