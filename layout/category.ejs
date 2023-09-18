@@ -30,7 +30,7 @@ how to add a category page:
     <h2 class="font-bold text-2xl">Categories</h2>
     <ul class="mt-2">
       <% site.categories.forEach(category =>{ %>
-        <li class="mt-2">
+        <li class="mt-2 hover:translate-x-2 transition-all">
           <a href="<%- url_for(category.path) %>"> <%- category.name %></a>
           <span>(<%- category.posts.length %>)</span>
         </li>

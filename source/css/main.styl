@@ -4,7 +4,7 @@
 :root {
   --c-theme: #de7441
   --c-bg: #ffffff
-  --c-bg-code: #e4e4e7
+  --c-bg-code: #ebebef
   --c-scrollbar: #d9d9d9
   --c-scrollbar-hover: #bbbbbb
   --c-sep: #d1d5db
@@ -167,19 +167,36 @@ hr
     background-color: var(--c-bg-code)
     border-radius: 4px
     padding: 0.2em 0.3em
+    font-size: 0.9em
+    font-weight: 400
   a
     color: var(--c-theme)
     transition: color 0.2s ease-in-out
-    &:hover
-      color: var(--c-theme)
   blockquote
     ::before
       content: ''
   .footnotes
     font-size: 0.8rem
+  .fancybox-img
+    img
+      margin-bottom: 0.5rem
+  .fancybox-alt
+    font-size: 0.9rem
+    text-align: center
+    color: #aaa
+    margin: 0px 0px
+    padding: 0px 0px
+    font-style: normal
+    width: 100%
+    display: block
+
+
 
 li.task-list-item
   list-style-type: none
 
 li.task-list-item .task-list-item-checkbox
   margin: 0 0.2em 0.25em -1.6em;
+
+.post-title:hover
+  color: var(--c-theme)

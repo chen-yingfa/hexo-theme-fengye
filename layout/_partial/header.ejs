@@ -1,23 +1,23 @@
 <header class="fixed w-full pl-1 pr-2 py-1 z-10 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5">
   <div class="max-auto">
     <!-- The navigation bar -->
-    <nav class="flex flex-row items-center text-base gap-1 h-6">
+    <nav class="flex flex-row items-center text-base gap-2 h-6 text-zinc-700 dark:text-zinc-200">
       <!-- Top-left logo and title -->
       <a href="<%- config.root %>">
         <div class="flex flex-row items-center w-max group">
-          <div class="font-medium align-middle pl-1 overflow-hidden">
-            <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[60deg]" id="logo"
+          <div class="align-middle pl-1 overflow-hidden">
+            <img class="w-6 mr-2 inline-block transition-transform group-hover:rotate-[60deg] group-hover:scale-110" id="logo"
             src="<%- theme.logo %>" alt="<%- config.title %>" />
           </div>
           <!-- Site Title on the top left -->
-          <div class="title-container align-middle font-bold">
+          <div class="title-container align-middle font-extrabold">
             <%= config.title %>
           </div>
         </div>
       </a>
-      <!-- Title -->
+      <!-- Post Title, shown when scrolled down -->
       <div id="header-title"
-        class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
+        class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis text-zinc-500 dark:text-zinc:500">
         <%- page.title %>
       </div>
       <div class="flex-1"></div>
@@ -62,13 +62,13 @@
   </div>
 </header>
 <!-- Dropdown menu on small screens -->
-<div id="menu-panel" class="h-0 overflow-hidden sm:hidden fixed left-0 right-0 top-8 bottom-0 z-10">
+<div id="menu-panel" class="h-0 overflow-hidden sm:hidden fixed w-full top-8 bottom-0 z-10">
   <div id="menu-content"
-    class="drop-shadow-lg shadow-zinc-500/50 relative z-20 bg-white/70 dark:bg-zinc-900/80 px-6 sm:px-8 py-2 backdrop-blur-md -translate-y-full transition-transform duration-200">
+    class="drop-shadow-lg backdrop-blur-md backdrop-saturate-150 shadow-zinc-500/50 relative z-20 bg-white/80 dark:bg-zinc-900/80 px-6 sm:px-8 py-2 -translate-y-full transition-transform duration-200">
     <ul class="nav flex flex-col sm:flex-row text-md font-medium">
       <% for (var i in theme.nav){ %>
-        <li class="nav-portfolio sm:mx-2 border-b sm:border-0 border-black/5 last:border-0 hover:text-main">
-          <a href="<%- url_for(theme.nav[i]) %>" class="flex h-12 sm:h-auto items-center">
+        <li class="nav-portfolio sm:mx-2 border-b sm:border-0 border-black/10 last:border-0 hover:text-main">
+          <a href="<%- url_for(theme.nav[i]) %>" class="flex h-12 sm:h-auto items-center hover:translate-x-2 transition-all">
             <%= i %>
           </a>
         </li>
@@ -76,5 +76,5 @@
     </ul>
   </div>
   <!-- Mask for making the page dark -->
-  <div class="mask z-10 bg-black/20 absolute inset-0"></div>
+  <div class="mask z-10 bg-black/10 absolute inset-0"></div>
 </div>

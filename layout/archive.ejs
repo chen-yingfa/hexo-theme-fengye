@@ -1,19 +1,23 @@
-<section class="px-6 py-8 max-w-prose mx-auto gap-10 grid grid-cols-1">
+<section class="px-0 py-8 max-w-prose mx-auto gap-10 grid grid-cols-1">
   <% var last_year = ''; %>
   <% page.posts.each(function (post, index) { %>
     <% var cur_year = post.date.year(); %>
     <% if(last_year !== cur_year){ %>
       <!-- Large text showing the year in the background -->
       <div class="relative pointer-events-none">
-        <span class="text-9xl opacity-10 absolute -right-11 -top-4 font-bold"><%- cur_year %></span>
+        <div class="absolute -top-6 w-[100%]">
+          <p class="text-clip overflow-hidden -translate-x-2 text-9xl font-extrabold opacity-10">
+            <%- cur_year %>
+          </p>
+        </div>
       </div>
     <% last_year = cur_year; } %>
     <!-- The post -->
-    <div class="flex flex-col gap-1 post-container">
-      <a style="<%- '--stagger:' + index %>" href="<%- url_for(post.path) %>" data-animate>
+    <div class="flex flex-col gap-1 px-6 post-container">
+      <a class="group" style="<%- '--stagger:' + index %>" href="<%- url_for(post.path) %>" data-animate>
         <!-- Post title -->
         <header>
-          <h2 class="font-bold text-xl">
+          <h2 class="font-bold text-xl group-hover:translate-x-2 transition-all">
             <%- post.title %>
           </h2>
         </header>
@@ -64,7 +68,8 @@
       <div class="flex flex-wrap gap-2">
         <% if (post.tags && post.tags.length) { %>
           <% post.tags.forEach(function (tag) { %>
-            <a href="<%- url_for(tag.path) %>" class="transition-all hover:scale-110 bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 hover:dark:bg-zinc-700 px-1 py-0.5 text-sm rounded-md hover:drop-shadow-lg">
+            <a href="<%- url_for(tag.path) %>" 
+              class="transition-all hover:scale-110 bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 hover:dark:bg-zinc-700 px-2 py-1 text-sm rounded-md hover:drop-shadow-md hover:rotate-[3deg]">
               <p><%- tag.name %></p>
             </a>
           <% }); %>

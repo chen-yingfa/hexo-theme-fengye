@@ -16,8 +16,8 @@
             <iconify-icon width="18" icon="mingcute:home-2-fill"></iconify-icon>
             <p>Beijing 北京</p>
           </span>
-          <a href="/pdf/cv.pdf" class="flex flex-row items-center gap-1">
-            <iconify-icon width="18" icon="mingcute:document-fill"></iconify-icon>
+          <a href="/pdf/cv.pdf" class="flex flex-row items-center gap-1 group">
+            <iconify-icon class="transition-all group-hover:rotate-[8deg] group-hover:scale-125" width="18" icon="mingcute:document-fill"></iconify-icon>
             <p>CV 简历 (Dec, 2022)</p>
           </a>
         </div>
@@ -40,13 +40,13 @@
   <div class="flex flex-col items-center justify-center0">
     <hr class="w-1/2 my-8 h-[1px] bg-gray-200 dark:bg-zinc-700 mr-1/2"></hr>
     <div class="flex flex-row items-center gap-1 text-zinc-300 dark:text-zinc-600">
-      <iconify-icon width="26" icon="mingcute:news-fill"></iconify-icon>
+      <iconify-icon width="28" icon="mingcute:news-fill"></iconify-icon>
       <p class="text-center text-3xl">Recent Works</p>
     </div>
   </div>
 
   <!-- List of featured posts -->
-  <section class="px-6 py-8 max-w-prose mx-auto gap-12 grid grid-cols-1">
+  <section class="flex flex-col items-center py-8 max-w-prose mx-auto gap-12 grid grid-cols-1">
     <% var last_year = ''; %>
     <% site.posts.each(function (post, index) { %>
       <% if (post.featured) { %>
@@ -54,15 +54,19 @@
         <% var cur_year = post.date.year(); %>
         <% if(last_year !== cur_year){ %>
           <div class="relative pointer-events-none">
-            <span class="text-9xl opacity-10 absolute -right-11 -top-6 font-bold"><%- cur_year %></span>
+            <div class="absolute -top-6 w-[100%]">
+              <p class="text-clip overflow-hidden -translate-x-2 text-9xl font-extrabold opacity-10">
+                <%- cur_year %>
+              </p>
+            </div>
           </div>
         <% last_year = cur_year; } %>
         <!-- The post -->
-        <div class="flex flex-col gap-1 post-container">
+        <div class="flex flex-col px-6 gap-1 post-container">
           <a style="<%- '--stagger:' + index %>" href="<%- url_for(post.path) %>" data-animate>
             <!-- Post Title -->
             <header>
-              <h2 class="font-bold text-lg text-zinc-600 dark:text-zinc-300">
+              <h2 class="post-title font-bold text-lg text-zinc-600 dark:text-zinc-300 hover:translate-x-2 transition-all">
                 <%- post.title %>
               </h2>
             </header>
