@@ -54,9 +54,9 @@
       <div class="flex flex-wrap gap-1 pt-2">
         <% if (page.tags && page.tags.length) { %>
           <% page.tags.forEach(function (tag) { %>
-            <span class="bg-gray-100 dark:bg-zinc-800 px-2 py-1 text-sm rounded-md transition-colors hover:bg-gray-200">
-              <a href="<%- url_for(tag.path) %>"><%- tag.name %></a>
-            </span>
+            <a href="<%- url_for(tag.path) %>" class="transition-transform hover:scale-110 bg-gray-100 dark:bg-zinc-800 px-2 py-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+              <p><%- tag.name %></p>
+            </a>
           <% }); %>
         <% } %>
       </div>

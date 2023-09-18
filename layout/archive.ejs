@@ -5,7 +5,7 @@
     <% if(last_year !== cur_year){ %>
       <!-- Large text showing the year in the background -->
       <div class="relative pointer-events-none">
-        <span class="text-9xl opacity-10 absolute -left-11 -top-6 font-bold"><%- cur_year %></span>
+        <span class="text-9xl opacity-10 absolute -right-11 -top-6 font-bold"><%- cur_year %></span>
       </div>
     <% last_year = cur_year; } %>
     <!-- The post -->
@@ -30,7 +30,7 @@
           </p>
         </section>
       </a>
-      <!-- Statistics -->
+      <!-- Post Statistics -->
       <p class="text-xs text-gray-400 line-clamp-4">
         Created: <%- date(post.date, 'YYYY-MM-DD') %>
         <span class="text-gray-400">·</span>
@@ -50,9 +50,9 @@
       <div class="flex flex-wrap gap-2">
         <% if (post.tags && post.tags.length) { %>
           <% post.tags.forEach(function (tag) { %>
-            <span class="bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 hover:dark:bg-zinc-700 px-1 py-0.5 text-sm rounded-md transition-colors">
-              <a href="<%- url_for(tag.path) %>"><%- tag.name %></a>
-            </span>
+            <a href="<%- url_for(tag.path) %>" class="transition-transform hover:scale-110 bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 hover:dark:bg-zinc-700 px-1 py-0.5 text-sm rounded-md transition-colors">
+              <p><%- tag.name %></p>
+            </a>
           <% }); %>
         <% } %>
       </div>

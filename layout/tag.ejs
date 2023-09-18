@@ -32,10 +32,10 @@ how to add a tag page:
     <h2 class="font-bold text-2xl mb-4">Tags</h2>
     <div class="tags-container flex flex-wrap gap-2">
       <% site.tags.sort('length', 'desc').each(item => { %>
-        <div class="bg-gray-100 dark:bg-zinc-800 hover:bg-gray-200 hover:dark:bg-zinc-700 px-2 py-1 rounded-md transition-colors" href="<%-url_for(item.path)%>">
-          <a href="<%-url_for(item.path)%>"><%- item.name%></a>
+        <a href="<%-url_for(item.path)%>" class="transition-transform hover:scale-110 bg-gray-100 dark:bg-zinc-800 hover:bg-gray-200 hover:dark:bg-zinc-700 px-2 py-1 rounded-md transition-colors" href="<%-url_for(item.path)%>">
+          <%- item.name%>
           <span class="text-gray-400 px-1 text-xs">×<%-item.length%></span>
-        </div>
+        </a>
       <% }) %>
     </div>
   </div>

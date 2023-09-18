@@ -4,12 +4,12 @@
     <nav class="flex items-center text-base gap-1">
       <!-- Top-left logo and title -->
       <a href="<%- config.root %>">
-        <div class="flex flex-row items-center w-max">
-          <div class="font-medium align-middle pl-1 overflow-hidden group">
+        <div class="flex flex-row items-center w-max group">
+          <div class="font-medium align-middle pl-1 overflow-hidden">
             <img class="w-6 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" id="logo"
             src="<%- theme.logo %>" alt="<%- config.title %>" />
           </div>
-          <!-- Title -->
+          <!-- Site Title on the top left -->
           <div class="title-container align-middle font-bold">
             <%= config.title %>
           </div>
@@ -35,33 +35,35 @@
           <% if (theme.links !==undefined) { %>
             <% for (var key in theme.links) { %>
               <a class="w-5 h-5 hidden sm:flex" title="<%- key %>" href="<%= theme.links[key] %>">
-                <iconify-icon width="20" icon="simple-icons:<%- key.toLowerCase() %>"></iconify-icon>
+                <iconify-icon class="transition-transform hover:rotate-[10deg]" width="20" icon="simple-icons:<%- key.toLowerCase() %>"></iconify-icon>
               </a>
             <% } %>
           <% } %>
           <!-- <a class="w-5 h-5 hidden sm:flex" title="<%- key %>" href="rss2.xml">
             <iconify-icon width="20" icon="ri:rss-line"></iconify-icon>
           </a> -->
+
+          <!-- Dark/light toggle icon -->
           <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
-            <iconify-icon width="20" icon="" id="theme-icon"></iconify-icon>
+            <iconify-icon class="transition-transform hover:rotate-[45deg]" width="20" icon="" id="theme-icon"></iconify-icon>
           </a>
         </div>
         <!-- Icon for dropout menu on small screens -->
         <div class="flex items-center justify-center gap-1 ml-1 sm:hidden">
-          <span class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
+          <a class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
             <iconify-icon width="20" icon="ic:menu"></iconify-icon>
-          </span>
-          <span class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
+          </a>
+          <a class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
             <iconify-icon width="20" icon="ic:close"></iconify-icon>
-          </span>
+          </a>
         </div>
       </div>
     </nav>
   </div>
 </header>
-<div id="menu-panel" class="h-0 overflow-hidden sm:hidden fixed left-0 right-0 top-12 bottom-0 z-10">
+<div id="menu-panel" class="h-0 overflow-hidden sm:hidden fixed left-0 right-0 top-8 bottom-0 z-10">
   <div id="menu-content"
-    class="shadow-blue-500/80 relative z-20 bg-white/100 dark:bg-zinc-900 px-6 sm:px-8 py-2 backdrop-blur-lg -translate-y-full transition-transform duration-300">
+    class="backdrop-saturate-150  shadow-zinc-500/80 relative z-20 bg-white/70 dark:bg-zinc-900/80 px-6 sm:px-8 py-2 backdrop-blur-xl -translate-y-full transition-transform duration-200">
     <ul class="nav flex flex-col sm:flex-row text-sm font-medium">
       <% for (var i in theme.nav){ %>
         <li class="nav-portfolio sm:mx-2 border-b sm:border-0 border-black/5 last:border-0 hover:text-main">
