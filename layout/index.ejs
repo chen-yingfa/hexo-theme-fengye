@@ -13,7 +13,7 @@
         </p>
         <div class="flex flex-row items-center gap-6 mt-3">
           <span class="flex flex-row items-center gap-1">
-            <iconify-icon width="18" icon="mingcute:home-2-fill"></iconify-icon>
+            <iconify-icon class="transition-all hover:-translate-y-1"  width="18" icon="mingcute:home-2-fill"></iconify-icon>
             <p>Beijing 北京</p>
           </span>
           <a href="/pdf/cv.pdf" class="flex flex-row items-center gap-1 group">
@@ -40,7 +40,7 @@
   <div class="flex flex-col items-center justify-center0">
     <hr class="w-1/2 my-8 h-[1px] bg-gray-200 dark:bg-zinc-700 mr-1/2"></hr>
     <div class="flex flex-row items-center gap-1 text-zinc-300 dark:text-zinc-600">
-      <iconify-icon width="28" icon="mingcute:news-fill"></iconify-icon>
+      <iconify-icon class="transition-all hover:-translate-y-1" width="28" icon="mingcute:news-fill"></iconify-icon>
       <p class="text-center text-3xl">Recent Works</p>
     </div>
   </div>
@@ -66,7 +66,7 @@
           <a style="<%- '--stagger:' + index %>" href="<%- url_for(post.path) %>" data-animate>
             <!-- Post Title -->
             <header>
-              <h2 class="post-title font-bold text-lg text-zinc-600 dark:text-zinc-300 hover:translate-x-2 transition-all">
+              <h2 class="post-title font-bold text-lg text-zinc-600 dark:text-zinc-300 dark:hover:text-[#de7441] hover:translate-x-2 transition-all">
                 <%- post.title %>
               </h2>
             </header>
@@ -88,7 +88,7 @@
                 <%- date(post.date, 'MMM DD, YYYY') %>
               </span>
               <span class="flex flex-row items-center gap-1">
-                <iconify-icon width="18" icon="ant-design:read-filled" ></iconify-icon>
+                <iconify-icon width="18" icon="mingcute:book-6-fill" ></iconify-icon>
                 <%= wordcount(post.content) %> words, <%= min2read(post.content) %> min
               </span>
             </div>

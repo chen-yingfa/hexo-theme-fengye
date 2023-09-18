@@ -178,6 +178,14 @@ hr
   .footnotes
     font-size: 0.8rem
   .fancybox-img
+    img:hover
+      transform: scale(1.04)
+      filter: drop-shadow(0 1px 4px rgb(0 0 0 / 0.01))
+      transition-property: transform;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
+
+
     img
       margin-bottom: 0.5rem
   .fancybox-alt
@@ -190,13 +198,15 @@ hr
     width: 100%
     display: block
 
-
-
 li.task-list-item
   list-style-type: none
 
 li.task-list-item .task-list-item-checkbox
   margin: 0 0.2em 0.25em -1.6em;
+
+  input:checked
+    color: var(--c-theme)
+    text-decoration: line-through
 
 .post-title:hover
   color: var(--c-theme)

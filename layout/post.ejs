@@ -15,26 +15,26 @@
       </div>
       <!-- Meta data -->
       <div>
-        <section class="flex flex-wrap items-center gap-1 text-sm">
+        <section class="flex flex-wrap items-center gap-x-2 text-sm text-zinc-500 dark:text-zinc-400">
           <!-- Dates -->
           <span class="flex items-center gap-1">
-            <iconify-icon width="18" icon="mingcute:file-new-fill" ></iconify-icon>
+            <iconify-icon class="transition-all hover:-translate-y-1" width="18" icon="mingcute:file-new-fill" ></iconify-icon>
             Created: <time class="w-max"><%- date(page.date, "YYYY-MM-DD") %></time>
           </span>
           <span class="flex items-center gap-1">
-            <iconify-icon width="18" icon="mingcute:edit-2-fill" ></iconify-icon>
+            <iconify-icon class="transition-all hover:-translate-y-1" width="18" icon="mingcute:edit-2-fill" ></iconify-icon>
             Edited: <time class="w-max"><%- date(page.updated, "YYYY-MM-DD") %></time>
           </span>
           <!-- Word count -->
           <span class="flex items-center gap-1">
-            <iconify-icon width="18" icon="mingcute:book-6-fill" ></iconify-icon>
+            <iconify-icon class="transition-all hover:-translate-y-1" width="18" icon="mingcute:book-6-fill" ></iconify-icon>
             <span><%= wordcount(page.content) %> words, <%= min2read(page.content) %> min</span>
           </span>
           <!-- Categories -->
           <% if (page.categories && page.categories.length) { %>
             <!-- <span class="text-gray-400">·</span> -->
             <span class="flex items-center gap-1">
-              <iconify-icon width="18" icon="mingcute:classify-2-fill" class="mr-0"></iconify-icon>
+              <iconify-icon class="transition-all hover:-translate-y-1" width="18" icon="mingcute:classify-2-fill" class="mr-0"></iconify-icon>
               <%- list_categories(page.categories, {
                 show_count: false,
                 class: 'article-category',
@@ -49,7 +49,7 @@
       <div class="flex flex-wrap gap-1 pt-2">
         <% if (page.tags && page.tags.length) { %>
           <% page.tags.forEach(function (tag) { %>
-            <a href="<%- url_for(tag.path) %>" class="transition-transform hover:scale-110 bg-gray-100 dark:bg-zinc-800 px-2 py-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+            <a href="<%- url_for(tag.path) %>" class="transition-transform hover:scale-110 hover:rotate-[3deg] bg-gray-100 dark:bg-zinc-800 px-2 py-1 text-sm rounded-md transition-colors hover:bg-gray-200">
               <p><%- tag.name %></p>
             </a>
           <% }); %>
@@ -66,7 +66,7 @@
   <div class="flex justify-between mt-4 pt-4 border-t border-zinc-200 dark:border-zinc-700 test-sm align-middle gap-2">
     <div>
       <% if (page.prev) { %>
-        <a href="<%- url_for(page.prev.path) %>" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+        <a href="<%- url_for(page.prev.path) %>" class="text-sm text-gray-400 hover:text-gray-500 hover:-translate-x-1 transition-all flex justify-center">
           <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
           <%- page.prev.title %>
         </a>
@@ -74,7 +74,7 @@
     </div>
     <div class="border-l border-1 border-gray-400 pl-2">
       <% if (page.next) { %>
-        <a href="<%- url_for(page.next.path) %>" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+        <a href="<%- url_for(page.next.path) %>" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center hover:translate-x-1 transition-all">
           <%- page.next.title %>
           <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
         </a>
