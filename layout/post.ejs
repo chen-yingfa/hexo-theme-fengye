@@ -15,11 +15,14 @@
       </div>
       <!-- Meta data -->
       <div>
-        <section class="flex flex-wrap items-center gap-3 text-sm">
+        <section class="flex flex-wrap items-center gap-1 text-sm">
           <!-- Dates -->
           <span class="flex items-center gap-1">
-            <iconify-icon width="18" icon="carbon-calendar" ></iconify-icon>
-            Created: <time class="w-max"><%- date(page.date, "YYYY-MM-DD") %>,</time>
+            <iconify-icon width="18" icon="ic:round-create" ></iconify-icon>
+            Created: <time class="w-max"><%- date(page.date, "YYYY-MM-DD") %></time>
+          </span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="ic:round-update" ></iconify-icon>
             Updated: <time class="w-max"><%- date(page.updated, "YYYY-MM-DD") %></time>
           </span>
           <!-- Word count -->
@@ -29,14 +32,14 @@
           </span>
           <!-- Time to read -->
           <span class="flex items-center gap-1">
-            <iconify-icon width="18" icon="ic:round-access-alarm" ></iconify-icon>
+            <iconify-icon width="18" icon="mingcute:time-fill" ></iconify-icon>
             <span><%= min2read(page.content) %> min</span>
           </span>
           <!-- Categories -->
           <% if (page.categories && page.categories.length) { %>
             <!-- <span class="text-gray-400">·</span> -->
             <span class="flex items-center gap-1">
-              <iconify-icon width="16" icon="icon-park-outline:box" class="mr-2"></iconify-icon>
+              <iconify-icon width="16" icon="ic:round-category" class="mr-0"></iconify-icon>
               <%- list_categories(page.categories, {
                 show_count: false,
                 class: 'article-category',

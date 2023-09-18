@@ -5,11 +5,12 @@
       <!-- Top-left logo and title -->
       <a href="<%- config.root %>">
         <div class="flex flex-row items-center w-max">
-          <div class="font-medium align-middle p-1 overflow-hidden">
+          <div class="font-medium align-middle pl-1 overflow-hidden group">
             <img class="w-6 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" id="logo"
             src="<%- theme.logo %>" alt="<%- config.title %>" />
           </div>
-          <div class="title-container align-middle">
+          <!-- Title -->
+          <div class="title-container align-middle font-bold">
             <%= config.title %>
           </div>
         </div>
@@ -20,9 +21,9 @@
         <%- page.title %>
       </div>
       <div class="flex-1"></div>
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-1">
         <!-- Page links -->
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2 text-sm">
           <% for (var i in theme.nav){ %>
             <a class="hidden sm:flex w-max" href="<%- url_for(theme.nav[i]) %>">
               <%= i %>
@@ -30,27 +31,28 @@
             <% } %>
         </div>
         <!-- Icons, for external links -->
-        <div class="flex items-center gap-1">
+        <div class="flex items-center gap-2 ml-2">
           <% if (theme.links !==undefined) { %>
             <% for (var key in theme.links) { %>
               <a class="w-5 h-5 hidden sm:flex" title="<%- key %>" href="<%= theme.links[key] %>">
-                <iconify-icon width="20" icon="ri:<%- key.toLowerCase() %>-line"></iconify-icon>
+                <iconify-icon width="20" icon="simple-icons:<%- key.toLowerCase() %>"></iconify-icon>
               </a>
-              <% } %>
-                <% } %>
-                  <!-- <a class="w-5 h-5 hidden sm:flex" title="<%- key %>" href="rss2.xml">
-                <iconify-icon width="20" icon="ri:rss-line"></iconify-icon>
-              </a> -->
-            <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
-              <iconify-icon width="20" icon="" id="theme-icon"></iconify-icon>
-            </a>
+            <% } %>
+          <% } %>
+          <!-- <a class="w-5 h-5 hidden sm:flex" title="<%- key %>" href="rss2.xml">
+            <iconify-icon width="20" icon="ri:rss-line"></iconify-icon>
+          </a> -->
+          <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
+            <iconify-icon width="20" icon="" id="theme-icon"></iconify-icon>
+          </a>
         </div>
-        <div class="flex items-center justify-center gap-3 ml-3 sm:hidden">
+        <!-- Icon for dropout menu on small screens -->
+        <div class="flex items-center justify-center gap-1 ml-1 sm:hidden">
           <span class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
-            <iconify-icon width="20" icon="carbon:menu"></iconify-icon>
+            <iconify-icon width="20" icon="ic:menu"></iconify-icon>
           </span>
           <span class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
-            <iconify-icon width="20" icon="carbon:close"></iconify-icon>
+            <iconify-icon width="20" icon="ic:close"></iconify-icon>
           </span>
         </div>
       </div>

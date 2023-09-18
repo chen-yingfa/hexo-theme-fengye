@@ -15,7 +15,7 @@
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches;
     const isDark = document.documentElement.classList.contains("dark");
-    $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
+    $("#theme-icon").attr("icon", isDark ? "ic:round-dark-mode" : "ic:round-light-mode");
 
     function toggleGiscusTheme() {
       const isDark = document.documentElement.classList.contains("dark");
@@ -41,7 +41,7 @@
       const setting = localStorage.getItem("hexo-color-scheme") || "auto";
       isDark = !isDark;
       document.documentElement.classList.toggle("dark", isDark);
-      $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
+      $("#theme-icon").attr("icon", isDark ? "ic:round-dark-mode" : "ic:round-light-mode");
       if (prefersDark === isDark) {
         localStorage.setItem("hexo-color-scheme", "auto");
       } else {
@@ -60,7 +60,7 @@
           document.documentElement.classList.toggle("dark", e.matches);
           $("#theme-icon").attr(
             "icon",
-            e.matches ? "ri:moon-line" : "ri:sun-line"
+            e.matches ? "ic:round-dark-mode" : "ic:round-light-mode"
           );
           toggleGiscusTheme();
         }
