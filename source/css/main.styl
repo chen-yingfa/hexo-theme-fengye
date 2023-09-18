@@ -2,18 +2,30 @@
 
 
 :root {
+  --c-theme: #de7441
   --c-bg: #ffffff
+  --c-bg-code: #e4e4e7
   --c-scrollbar: #d9d9d9
   --c-scrollbar-hover: #bbbbbb
+  --c-sep: #d1d5db
 }
 
 html.dark
+  --c-theme: #de7441
   --c-bg: #212121
+  --c-bg-code: #3f3f46
   --c-scrollbar: #333333
   --c-scrollbar-hover: #555555
+  --c-sep: #3f3f46
+
+a
+  color: var(--c-theme)
+  transition: color 0.2s ease-in-out
+  &:hover
+    color: var(--c-theme)
 
 a:hover
-  color: #de7441
+  color: var(--c-theme)
   cursor: pointer
 
 ::-webkit-scrollbar-track
@@ -101,32 +113,64 @@ a:hover
   counter-increment: enter-count
   --stagger: counter(enter-count)
 
-.post-content {
-  hr {
+.post-content
+  hr.footnotes-sep
+    background-color: var(--c-sep)
+    margin-bottom: 1.0rem
+    margin-right: 50%;
+  hr
+    background-color: var(--c-sep)
     height: 1px
     margin: 1.5rem 0
-    background: #eaecef
-  }
   border-bottom: 0
-  blockquote {
+  blockquote
     padding-left: 8px
-    p {
+    p
       margin: 0px 8px
       font-style: normal
       color: #aaa
-    }
-  }
-}
+  code
+    ::before
+      content: ''
 
 hr
   border: 0px
 
 .prose
+  p
+    margin: 0.8rem 0px
+    line-height: 1.5
   li
     margin: 0px
   ul
     margin: 0px
   ol
     margin: 0px
+    p
+      margin: 0px
   input
     margin: 0px
+  code::before
+    content: ''
+  code::after
+    content: ''
+  code
+    background-color: var(--c-bg-code)
+    border-radius: 4px
+    padding: 0.2em 0.3em
+  a
+    color: var(--c-theme)
+    transition: color 0.2s ease-in-out
+    &:hover
+      color: var(--c-theme)
+  blockquote
+    ::before
+      content: ''
+  .footnotes
+    font-size: 0.8rem
+
+li.task-list-item
+  list-style-type: none
+
+li.task-list-item .task-list-item-checkbox
+  margin: 0 0.2em 0.25em -1.6em;

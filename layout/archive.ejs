@@ -1,15 +1,15 @@
 <section class="px-6 py-8 max-w-prose mx-auto gap-8 grid grid-cols-1">
   <% var last_year = ''; %>
   <% page.posts.each(function (post, index) { %>
-    <!-- Large text showing the year in the background -->
     <% var cur_year = post.date.year(); %>
     <% if(last_year !== cur_year){ %>
+      <!-- Large text showing the year in the background -->
       <div class="relative pointer-events-none">
         <span class="text-9xl opacity-10 absolute -left-11 -top-6 font-bold"><%- cur_year %></span>
       </div>
     <% last_year = cur_year; } %>
     <!-- The post -->
-    <div class="flex flex-col gap-2 post-container p-2 rounded-md">
+    <div class="flex flex-col gap-1 post-container">
       <a style="<%- '--stagger:' + index %>" href="<%- url_for(post.path) %>" data-animate>
         <!-- Post title -->
         <header>
@@ -17,19 +17,19 @@
             <%- post.title %>
           </h2>
         </header>
-        <section class="text-gray-400 my-2 text-sm time">
+        <section class="text-gray-400 mt-1 text-sm time">
           <p class="line-clamp-4">
             <!-- Post excerpt -->
             <% if (post.excerpt) { %>
               <div>
                 <%- post.excerpt %>
               </div>
+              <!-- Line sep -->
+              <hr class="mt-1 h-[1px] bg-gray-200 dark:bg-zinc-700 mr-1/2"></hr>
             <% } %>
           </p>
         </section>
       </a>
-      <!-- Line sep -->
-      <!-- <div class="border-1 border-t mr-1/2"></div> -->
       <!-- Statistics -->
       <p class="text-xs text-gray-400 line-clamp-4">
         Created: <%- date(post.date, 'YYYY-MM-DD') %>
@@ -50,7 +50,7 @@
       <div class="flex flex-wrap gap-2">
         <% if (post.tags && post.tags.length) { %>
           <% post.tags.forEach(function (tag) { %>
-            <span class="bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 hover:dark:bg-zinc-700 px-2 py-1 text-sm rounded-md transition-colors">
+            <span class="bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 hover:dark:bg-zinc-700 px-1 py-0.5 text-sm rounded-md transition-colors">
               <a href="<%- url_for(tag.path) %>"><%- tag.name %></a>
             </span>
           <% }); %>

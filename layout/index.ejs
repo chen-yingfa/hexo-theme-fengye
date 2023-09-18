@@ -33,7 +33,7 @@
 
 <section class="px-6 py-8 max-w-prose mx-auto gap-4 grid grid-cols-1">
   <% var last_year = ''; %>
-  <% page.posts.each(function (post, index) { %>
+  <% site.posts.each(function (post, index) { %>
     <% if (post.featured) { %>
       <!-- Large year background -->
       <% var cur_year = post.date.year(); %>
@@ -67,6 +67,7 @@
             </p>
           </section>
         </a>
+        <!-- Tags -->
         <!-- <div class="border-gray-200 flex flex-wrap gap-1">
           <% if (post.tags && post.tags.length) { %>
             <% post.tags.forEach(function (tag) { %>

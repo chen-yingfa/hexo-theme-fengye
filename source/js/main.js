@@ -62,7 +62,7 @@ function registerGoTop() {
   });
 
   $top.on('click', function () {
-    $('body').velocity('scroll');
+      window.scrollTo({top: 0, behavior: 'smooth'});
   });
 }
 
