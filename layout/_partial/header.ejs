@@ -1,12 +1,12 @@
 <header class="fixed w-full pl-1 pr-2 py-1 z-10 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5">
   <div class="max-auto">
     <!-- The navigation bar -->
-    <nav class="flex items-center text-base gap-1">
+    <nav class="flex flex-row items-center text-base gap-1 h-6">
       <!-- Top-left logo and title -->
       <a href="<%- config.root %>">
         <div class="flex flex-row items-center w-max group">
           <div class="font-medium align-middle pl-1 overflow-hidden">
-            <img class="w-6 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" id="logo"
+            <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[60deg]" id="logo"
             src="<%- theme.logo %>" alt="<%- config.title %>" />
           </div>
           <!-- Site Title on the top left -->
@@ -34,8 +34,8 @@
         <div class="flex items-center gap-2 ml-2">
           <% if (theme.links !==undefined) { %>
             <% for (var key in theme.links) { %>
-              <a class="w-5 h-5 hidden sm:flex" title="<%- key %>" href="<%= theme.links[key] %>">
-                <iconify-icon class="transition-transform hover:rotate-[10deg]" width="20" icon="simple-icons:<%- key.toLowerCase() %>"></iconify-icon>
+              <a class="w-5 h-5 sm:flex" title="<%- key %>" href="<%= theme.links[key] %>">
+                <iconify-icon class="transition-transform hover:rotate-[10deg] hover:scale-125" width="20" icon="simple-icons:<%- key.toLowerCase() %>"></iconify-icon>
               </a>
             <% } %>
           <% } %>
@@ -45,26 +45,27 @@
 
           <!-- Dark/light toggle icon -->
           <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
-            <iconify-icon class="transition-transform hover:rotate-[45deg]" width="20" icon="" id="theme-icon"></iconify-icon>
+            <iconify-icon class="transition-transform hover:rotate-[45deg] hover:scale-125" width="20" icon="" id="theme-icon"></iconify-icon>
           </a>
         </div>
         <!-- Icon for dropout menu on small screens -->
         <div class="flex items-center justify-center gap-1 ml-1 sm:hidden">
           <a class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
-            <iconify-icon width="20" icon="ic:menu"></iconify-icon>
+            <iconify-icon width="20" icon="mingcute:menu-fill" class="transition-transform hover:scale-125 hover:rotate-[5deg]"></iconify-icon>
           </a>
           <a class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
-            <iconify-icon width="20" icon="ic:close"></iconify-icon>
+            <iconify-icon width="20" icon="mingcute:close-circle-fill" class="transition-transform hover:scale-125 hover:rotate-[80deg]"></iconify-icon>
           </a>
         </div>
       </div>
     </nav>
   </div>
 </header>
+<!-- Dropdown menu on small screens -->
 <div id="menu-panel" class="h-0 overflow-hidden sm:hidden fixed left-0 right-0 top-8 bottom-0 z-10">
   <div id="menu-content"
-    class="backdrop-saturate-150  shadow-zinc-500/80 relative z-20 bg-white/70 dark:bg-zinc-900/80 px-6 sm:px-8 py-2 backdrop-blur-xl -translate-y-full transition-transform duration-200">
-    <ul class="nav flex flex-col sm:flex-row text-sm font-medium">
+    class="drop-shadow-lg shadow-zinc-500/50 relative z-20 bg-white/70 dark:bg-zinc-900/80 px-6 sm:px-8 py-2 backdrop-blur-md -translate-y-full transition-transform duration-200">
+    <ul class="nav flex flex-col sm:flex-row text-md font-medium">
       <% for (var i in theme.nav){ %>
         <li class="nav-portfolio sm:mx-2 border-b sm:border-0 border-black/5 last:border-0 hover:text-main">
           <a href="<%- url_for(theme.nav[i]) %>" class="flex h-12 sm:h-auto items-center">
@@ -74,5 +75,6 @@
         <% } %>
     </ul>
   </div>
+  <!-- Mask for making the page dark -->
   <div class="mask z-10 bg-black/20 absolute inset-0"></div>
 </div>
