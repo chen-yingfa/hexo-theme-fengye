@@ -12,8 +12,8 @@
           <%= config.subtitle %>
         </p>
         <div class="flex flex-row items-center gap-6 mt-3">
-          <span class="flex flex-row items-center gap-1">
-            <iconify-icon class="transition-all hover:-translate-y-1"  width="18" icon="mingcute:home-2-fill"></iconify-icon>
+          <span class="flex flex-row items-center gap-1 group">
+            <iconify-icon class="transition-all group-hover:-translate-y-1"  width="18" icon="mingcute:home-2-fill"></iconify-icon>
             <p>Beijing 北京</p>
           </span>
           <a href="/pdf/cv.pdf" class="flex flex-row items-center gap-1 group">
@@ -39,8 +39,8 @@
   <!-- 分割线 -->
   <div class="flex flex-col items-center justify-center0">
     <hr class="w-1/2 my-8 h-[1px] bg-gray-200 dark:bg-zinc-700 mr-1/2"></hr>
-    <div class="flex flex-row items-center gap-1 text-zinc-300 dark:text-zinc-600">
-      <iconify-icon class="transition-all hover:-translate-y-1" width="28" icon="mingcute:news-fill"></iconify-icon>
+    <div class="flex flex-row items-center gap-2 text-zinc-300 dark:text-zinc-600 group">
+      <iconify-icon class="transition-all group-hover:-translate-y-1 group-hover:scale-125" width="28" icon="mingcute:news-fill"></iconify-icon>
       <p class="text-center text-3xl">Recent Works</p>
     </div>
   </div>
@@ -83,12 +83,12 @@
             </section>
             <!-- Post statistics -->
             <div class="flex flex-row items-center gap-4 text-sm text-zinc-500 dark:text-zinc-400">
-              <span class="flex flex-row items-center gap-1">
-                <iconify-icon width="18" icon="mingcute:edit-2-fill" ></iconify-icon>
+              <span class="flex flex-row items-center gap-1 group">
+                <iconify-icon class="group-hover:scale-125 group-hover:rotate-[10deg] transition-transform" width="18" icon="mingcute:edit-2-fill" ></iconify-icon>
                 <%- date(post.date, 'MMM DD, YYYY') %>
               </span>
-              <span class="flex flex-row items-center gap-1">
-                <iconify-icon width="18" icon="mingcute:book-6-fill" ></iconify-icon>
+              <span class="flex flex-row items-center gap-1 group">
+                <iconify-icon class="group-hover:scale-125 group-hover:rotate-[10deg] transition-transform" width="18" icon="mingcute:book-6-fill" ></iconify-icon>
                 <%= wordcount(post.content) %> words, <%= min2read(post.content) %> min
               </span>
             </div>
