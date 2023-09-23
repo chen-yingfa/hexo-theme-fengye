@@ -84,8 +84,12 @@
             <!-- Post statistics -->
             <div class="flex flex-row items-center gap-4 text-sm text-zinc-500 dark:text-zinc-400">
               <span class="flex flex-row items-center gap-1 group">
-                <iconify-icon class="group-hover:scale-125 group-hover:rotate-[10deg] transition-transform" width="18" icon="mingcute:edit-2-fill" ></iconify-icon>
+                <iconify-icon class="group-hover:scale-125 group-hover:rotate-[10deg] transition-transform" width="18" icon="mingcute:file-new-fill" ></iconify-icon>
                 <%- date(post.date, 'MMM DD, YYYY') %>
+              </span>
+              <span class="flex flex-row items-center gap-1 group">
+                <iconify-icon class="group-hover:scale-125 group-hover:rotate-[10deg] transition-transform" width="18" icon="mingcute:edit-2-fill" ></iconify-icon>
+                <%- date(post.updated, 'MMM DD, YYYY') %>
               </span>
               <span class="flex flex-row items-center gap-1 group">
                 <iconify-icon class="group-hover:scale-125 group-hover:rotate-[10deg] transition-transform" width="18" icon="mingcute:book-6-fill" ></iconify-icon>
