@@ -63,7 +63,7 @@
         <% last_year = cur_year; } %>
         <!-- The post -->
         <div class="flex flex-col px-6 gap-1 post-container">
-          <a style="<%- '--stagger:' + index %>" href="<%- url_for(post.path) %>" data-animate>
+          <a style="<%- '--stagger:' + index %>" href="<%- url_for(post.path) %>">
             <!-- Post Title -->
             <header>
               <h2 class="post-title font-bold text-lg text-zinc-600 dark:text-zinc-300 dark:hover:text-[#de7441] hover:translate-x-2 transition-all">
@@ -97,16 +97,6 @@
               </span>
             </div>
           </a>
-          <!-- Tags -->
-          <!-- <div class="border-gray-200 flex flex-wrap gap-1">
-            <% if (post.tags && post.tags.length) { %>
-              <% post.tags.forEach(function (tag) { %>
-                <span class="bg-gray-100 dark:bg-zinc-800 px-2 py-1 text-sm rounded-md transition-colors hover:bg-gray-200">
-                  <a href="<%- url_for(tag.path) %>"><%- tag.name %></a>
-                </span>
-              <% }); %>
-            <% } %>
-          </div> -->
         </div>
       <% } %>
     <% }) %>

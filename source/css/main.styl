@@ -41,25 +41,6 @@ a:hover
     background-color: var(--c-scroll);
     border-radius: 4px;
 
-.maple
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  top: 0px;
-  left: 0px;
-  background-image: url(../img/logo.svg);
-  background-size: cover;
-  will-change: transform;
-
-
-@keyframes fall
-  0%
-    transform: translate(0px, 0px);
-
-  100%
-    transform: translate(calc(100vw * var(--maple-fall-offset)), var(--maple-fall-height));
-
-
 .toc-list
   li
     margin-bottom: 0.3rem
@@ -113,7 +94,7 @@ a:hover
 
 .slide-enter-content > *
   --stagger: 0
-  --delay: 150ms
+  --delay: 10ms
   --start: 0ms
   animation: enter 1s both 1
   animation-delay: calc(var(--start) + var(--stagger) * var(--delay))

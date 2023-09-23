@@ -6,11 +6,11 @@
   <%- partial('_partial/toc') %>
 <% } %>
 <section class="px-6 max-w-prose mx-auto md:px-0">
-  <!-- header -->
-  <header class="overflow-hidden pt-6 pb-6 md:pt-12">
-    <div class="pt-4 md:pt-6">
+  <!-- Post header before content -->
+  <header class="py-4">
+    <div class="flex flex-col gap-2 pt-4 md:pt-6">
       <!-- Title -->
-      <div id="article-title" class="leading-snug mb-4 md:mb-6">
+      <div id="article-title" class="leading-snug">
         <p class="text-3xl font-bold"><%- page.title %></p>
       </div>
       <!-- Meta data -->
@@ -46,15 +46,7 @@
         </section>
       </div>
       <!-- tags -->
-      <div class="flex flex-wrap gap-1 pt-2">
-        <% if (page.tags && page.tags.length) { %>
-          <% page.tags.forEach(function (tag) { %>
-            <a href="<%- url_for(tag.path) %>" class="transition-transform hover:scale-110 hover:rotate-[3deg] bg-gray-100 dark:bg-zinc-800 px-2 py-1 text-sm rounded-md transition-colors hover:bg-gray-200">
-              <p><%- tag.name %></p>
-            </a>
-          <% }); %>
-        <% } %>
-      </div>
+      <%- partial('_partial/tag-list', {tags: page.tags}) %>
     </div>
   </header>
   <!-- content -->

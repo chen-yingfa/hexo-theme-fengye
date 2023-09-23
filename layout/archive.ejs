@@ -1,9 +1,9 @@
 <section class="px-0 py-8 max-w-prose mx-auto gap-10 grid grid-cols-1">
-  <% var last_year = ''; %>
+  <% var last_year = ''; var last_month = ''; var last_day = ''; %>
   <% page.posts.each(function (post, index) { %>
     <% var cur_year = post.date.year(); %>
+    <!-- Large text showing the year in the background -->
     <% if(last_year !== cur_year){ %>
-      <!-- Large text showing the year in the background -->
       <div class="relative pointer-events-none">
         <div class="absolute -top-6 w-[100%]">
           <p class="text-clip overflow-hidden -translate-x-2 text-9xl font-extrabold opacity-10">
@@ -14,7 +14,7 @@
     <% last_year = cur_year; } %>
     <!-- The post -->
     <div class="flex flex-col gap-1 px-6 post-container">
-      <a class="group" style="<%- '--stagger:' + index %>" href="<%- url_for(post.path) %>" data-animate>
+      <a class="group" style="<%- '--stagger:' + index %>" href="<%- url_for(post.path) %>">
         <!-- Post title -->
         <header>
           <h2 class="font-bold text-xl group-hover:translate-x-2 transition-all">
@@ -35,7 +35,7 @@
         </section>
       </a>
       <!-- Post Statistics -->
-      <div class="flex flex-wrap items-center gap-x-2 gap-y-0 text-sm text-gray-400 line-clamp-4">
+      <div class="flex flex-wrap items-center gap-x-2 text-sm text-gray-400 line-clamp-4">
         <span class="flex flex-row items-center gap-1 group">
           <iconify-icon class="group-hover:scale-125 group-hover:rotate-[10deg] transition-transform" width="16" icon="mingcute:file-new-fill" ></iconify-icon>
           <time class="w-max">
@@ -65,16 +65,7 @@
         </span>
       </div>
       <!-- Tags -->
-      <div class="flex flex-wrap gap-2">
-        <% if (post.tags && post.tags.length) { %>
-          <% post.tags.forEach(function (tag) { %>
-            <a href="<%- url_for(tag.path) %>" 
-              class="transition-all hover:scale-110 bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 hover:dark:bg-zinc-700 px-2 py-1 text-sm rounded-md hover:drop-shadow-md hover:rotate-[3deg]">
-              <p><%- tag.name %></p>
-            </a>
-          <% }); %>
-        <% } %>
-      </div>
+      <%- partial('_partial/tag-list', {tags: post.tags}) %>
     </div>
   <% }) %>
 </section>

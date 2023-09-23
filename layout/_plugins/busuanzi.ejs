@@ -1,17 +1,17 @@
 <% if (theme.busuanzi){ %>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <!-- Busuanzi Analytics -->
-<div class="flex items-center gap-2">
-  <span class="flex items-center">
-    <iconify-icon width="14" icon="ic:round-person" width="18"></iconify-icon>
+<div class="flex flex-col items-center mb-2">
+  <div class="flex flex-row items-center">
+    <iconify-icon width="16" icon="ic:round-person" width="18"></iconify-icon>
     <span class="mr-1">访客 Visitors: </span>
     <span id="busuanzi_value_site_uv"></span>
-  </span>
-  <span class="flex items-center">
-    <iconify-icon width="14" icon="carbon:view-filled" width="18"></iconify-icon>
+  </div>
+  <div class="flex flex-row items-center">
+    <iconify-icon width="16" icon="carbon:view-filled" width="18"></iconify-icon>
     <span class="mx-1">浏览量 Page View:</span>
     <span id="busuanzi_value_site_pv"></span>
-  </span>
+  </div>
 </div>
 <!-- End Busuanzi Analytics -->
 <% } %>
