@@ -1,27 +1,26 @@
-<%#
-This page has two versions, which is shown is based on whether current page is 'tag':
+<!-- 
+This page has two versions, which is shown is based on whether current page
+is "tag".
 
-- url:'http://localhost:4000/tag/' return false.
+  - url:'http://localhost:4000/tag/' return false.
 - url:'http://localhost:4000/tags/test/' return true.
 
 The '/tag/' page shows all tags and is where you land on when you click
-on the "Tags" in the navigation bar.
-
-Otherwise if you enter 'tags' by clicking on of the tag elements in some
+on the "Tags" in the navigation bar. Otherwise if you enter 'tags' by clicking on of the tag elements in some
 posts, and it shows all posts with that tag.
 
-To add a "Tags" page:
+To add a "Tags" page.
 
 1. hexo new page "tag"
 2. cd source/tag/index.md
-3. Add the following front matter:
+3. Add the following front matter.
 
 ---
 title: '''tag'''
 date: 2019-06-09 09:56:49
 layout: tag
 ---
- %>
+-->
 <% if(is_tag()){ %>
   <!-- 已经选择了一个tag，显示一个 tag 的所有 post -->
   <div>

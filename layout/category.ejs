@@ -1,27 +1,20 @@
 <%#
 this page has two versions, which is shown is based on whether current page is 'category':
-
-- url:'http://localhost:4000/category/' return false.
-- url:'http://localhost:4000/categories/*/' return true.
-
-The `/category/` page will shown all categories, and is the page you
+    - url:'http://localhost:4000/category/' return false.
+    - url:'http://localhost:4000/categories/*/' return true.
+  The `/category/` page will shown all categories, and is the page you
 land on when you click on the "Categories" in the navigdation bar.
-
-The '/categories/*/' by click post header link will show the single category of this post.
-
-How to add a category page:
-
-1. hexo new page "category"
-2. cd source/category/index.md
-3. Add the following front matter:
-
----
-title: '''category'''
-date: 2019-06-09 09:56:49
-layout: category
----
-
-
+  The '/categories/*/' shows all posts with that category and is where you land
+when you click a category link on a post.
+  How to add a category page:
+    1. hexo new page "category"
+    2. cd source/category/index.md
+    3. Add the following front matter:
+      ---
+      title: '''category'''
+      date: 2019-06-09 09:56:49
+      layout: category
+      ---
  %>
 
 <% if (is_category()) { %>
