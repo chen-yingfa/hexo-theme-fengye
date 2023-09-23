@@ -96,6 +96,10 @@ giscus:
   mapping:
 ```
 
+## Add Category and Tag Page
+
+See the file `your-blog/themes/fengye/layout/category.ejs` and `your-blog/themes/fengye/layout/tag.ejs`.
+
 ## Acknowledgments
 
 This is mostly based on the [Maple theme](https://www.github.com/xbmlz/hexo-theme-maple) by [xbmlz](https://www.github.com/xbmlz). There is much leftover code from this repo.
