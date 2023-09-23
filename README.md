@@ -32,7 +32,7 @@ Minimalistic but powerful Hexo theme
 
 ```bash
 cd your-blog/themes
-git clone https://github.com/chen-yingfa/hexo-theme-fengye.git themes/fengye
+git clone git@github.com:chen-yingfa/hexo-theme-fengye.git themes/fengye
 ```
 
 - Step 2: Modify `theme` setting in `_config.yml` to `fengye`.
@@ -52,7 +52,7 @@ nav:
   Posts: /archives
   Categories: /category
   Tags: /tag
-  Publications: /publications
+  Publications: /publications  # This renders `source/publications.md`
   "About Me": /about  # This renders `source/about.md`
 
 email: "chenyingfa1999@qq.com"
@@ -66,7 +66,7 @@ logo: /images/logo.svg
 # links
 links:
   Github: https://github.com/chen-yingfa
-  # ZhiHu:
+  ZhiHu: https://www.zhihu.com/people/chen-ying-fa-34
   # Twitter:
   # Weibo:
 
