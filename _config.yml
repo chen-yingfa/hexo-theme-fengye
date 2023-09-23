@@ -4,7 +4,8 @@ nav:
   Posts: /archives
   Categories: /category
   Tags: /tag
-  About: /about
+  # Publications: /publications  # This renders `source/publications.md`
+  # "About Me": /about  # This renders `source/about.md`
 
 email: example@xxx.com
 home_description: "Welcome to my blog!"
@@ -18,7 +19,7 @@ logo: /images/logo.svg
 # links
 links:
   Github: https://github.com/chen-yingfa
-  # ZhiHu:
+  ZhiHu: https://www.zhihu.com/people/chen-ying-fa-34
   # Twitter:
   # Weibo:
 

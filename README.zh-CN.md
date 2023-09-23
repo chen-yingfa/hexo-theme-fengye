@@ -65,7 +65,7 @@ logo: /images/logo.svg
 # links
 links:
   Github: https://github.com/xbmlz
-  # ZhiHu:
+  ZhiHu: https://www.zhihu.com/people/chen-ying-fa-34
   # Twitter:
   # Weibo:
 
