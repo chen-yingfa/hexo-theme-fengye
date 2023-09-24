@@ -26,20 +26,24 @@ layout: category
 
 <% if (is_category()) { %>
   <!-- 已经选择了category，显示给定category的所有文章 -->
-  <div class="text-gray-400 dark:text-gray-400 flex flex-row h-8 justify-center items-center dark:bg-zinc-900 px-4 py-2 border-1">
-    <iconify-icon width="32" icon="icon-park-outline:box" class="mr-2"></iconify-icon>
+  <div class="flex flex-wrap items-center justify-center text-2xl h-8
+    dark:bg-zinc-900 px-4 py-2 border-1">
+    <iconify-icon width="30" icon="mingcute:classify-2-fill" class="mr-2"></iconify-icon>
     <span>
-      <p class="text-2xl">Category: <%-page.category%></span>
+      <p>Category: <%-page.category%></span>
     </span>
   </div>
   <%- partial('archive', {pagination: config.category, index: true}) %>
 <% } else { %>
   <!-- 显示所有存在的 category -->
-  <div class="px-6 max-w-prose mx-auto md:px-0 mt-6">
-    <h2 class="font-bold text-2xl">Categories</h2>
+  <div class="flex flex-col gap-2 px-6 max-w-prose mx-auto md:px-0 mt-6">
+    <div class="flex flex-row items-center gap-2">
+      <iconify-icon width="30" icon="mingcute:classify-2-fill"></iconify-icon>
+      <h2 class="font-bold text-2xl">Categories</h2>
+    </div>
     <div class="mt-2 flex flex-col">
       <% site.categories.forEach(category =>{ %>
-        <a href="<%- url_for(category.path) %>" class="py-2 group">
+        <a href="<%- url_for(category.path.toLowerCase()) %>" class="py-2 group">
           <div class="flex flex-row gap-1 group-hover:translate-x-2 transition-all">
             <p> <%- category.name %></p>
             <span>(<%- category.posts.length %>)</span>

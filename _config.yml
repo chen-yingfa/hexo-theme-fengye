@@ -1,6 +1,6 @@
 # Header
 nav:
-  Home: /index
+  # Home: /index
   Posts: /archives
   Categories: /category
   Tags: /tag
@@ -8,7 +8,6 @@ nav:
   # "About Me": /about  # This renders `source/about.md`
 
 email: example@xxx.com
-home_description: "Welcome to my blog!"
 
 # favicon
 favicon: /favicon.ico

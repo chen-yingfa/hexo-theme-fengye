@@ -24,22 +24,29 @@ layout: tag
 <% if(is_tag()){ %>
   <!-- 已经选择了一个tag，显示一个 tag 的所有 post -->
   <div>
-    <div class="flex flex-row gap-2 justify-center items-center text-gray-400">
+    <div class="flex flex-row gap-2 justify-center items-center">
       <div class="text-xl align-middle">
         Tag:
       </div>
       <div class="bg-gray-100 dark:bg-zinc-800 px-2 py-1 text-xl rounded-md transition-colors">
-        <%-page.tag%>
+        #<%-page.tag%>
       </div>
   </div>
   <%- partial('archive', {pagination: config.tag, index: true}) %>
 <% } else { %>
   <!-- 显示所有tag，让用户选择 -->
-  <div class="px-6 max-w-prose mx-auto md:px-0 mt-6">
-    <h2 class="font-bold text-2xl mb-4">Tags</h2>
+  <div class="flex flex-col gap-2 px-6 max-w-prose mx-auto md:px-0 mt-6">
+    <div class="flex flex-row items-center gap-2">
+      <iconify-icon width="30" icon="mingcute:tag-fill"></iconify-icon>
+      <h2 class="font-bold text-2xl">Tags</h2>
+    </div>
     <div class="tags-container flex flex-wrap gap-2">
       <% site.tags.sort('length', 'desc').each(item => { %>
-        <a href="<%-url_for(item.path)%>" class="transition-all hover:scale-110 hover:rotate-[3deg] bg-gray-100 dark:bg-zinc-800 hover:bg-gray-200 hover:dark:bg-zinc-700 px-2 py-1 rounded-md hover:drop-shadow-lg drop-shadow" href="<%-url_for(item.path)%>">
+        <a href="<%-url_for(item.path)%>"
+          class="transition-all hover:scale-110 hover:rotate-[3deg] bg-gray-100
+            dark:bg-zinc-800 hover:bg-gray-200 hover:dark:bg-zinc-700
+            px-2 py-1 rounded-md hover:drop-shadow-lg drop-shadow hover:z-10"
+          href="<%-url_for(item.path)%>">
           <%- item.name%>
           <span class="text-gray-400 px-1 text-xs">×<%-item.length%></span>
         </a>

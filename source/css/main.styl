@@ -2,7 +2,7 @@
 
 
 :root {
-  --c-theme: #de7441
+  --c-theme: #3478f6
   --c-bg: #ffffff
   --c-bg-code: #ebebef
   --c-scrollbar: #d9d9d9
@@ -11,7 +11,7 @@
 }
 
 html.dark
-  --c-theme: #de7441
+  --c-theme: #3478f6
   --c-bg: #212121
   --c-bg-code: #3f3f46
   --c-scrollbar: #333333
@@ -116,7 +116,7 @@ a:hover
   blockquote
     padding-left: 8px
     p
-      margin: 0px 8px
+      margin: 0px 4px
       font-style: normal
       color: #aaa
   code
@@ -125,6 +125,10 @@ a:hover
 
 hr
   border: 0px
+
+::selection
+  background-color: var(--c-theme)
+  color: var(--c-bg)
 
 .prose
   p
@@ -158,13 +162,17 @@ hr
       content: ''
   .footnotes
     font-size: 0.8rem
+  .footnote-backref
+    color: var(--c-theme)
+    text-decoration: none
+    &:hover
+      color: var(--c-theme)
   .fancybox-img
     img:hover
       transform: scale(1.01)
       transition-property: transform;
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      transition-duration: 300ms;
-
+      transition-duration: 200ms;
 
     img
       margin-bottom: 0.5rem
@@ -190,3 +198,7 @@ li.task-list-item .task-list-item-checkbox
 
 .post-title:hover
   color: var(--c-theme)
+
+.post-excerpt:hover > a {
+  color: var(--c-theme)
+}

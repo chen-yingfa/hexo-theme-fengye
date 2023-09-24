@@ -18,23 +18,23 @@
         <section class="flex flex-wrap items-center gap-x-2 text-sm text-zinc-500 dark:text-zinc-400">
           <!-- Dates -->
           <span class="flex items-center gap-1 group">
-            <iconify-icon class="transition-all group-hover:-translate-y-1 group-hover:scale-125" width="18" icon="mingcute:file-new-fill" ></iconify-icon>
+            <iconify-icon class="transition-all group-hover:scale-125" width="18" icon="mingcute:file-new-fill" ></iconify-icon>
             Created: <time class="w-max"><%- date(page.date, "YYYY-MM-DD") %></time>
           </span>
           <span class="flex items-center gap-1 group">
-            <iconify-icon class="transition-all group-hover:-translate-y-1 group-hover:scale-125" width="18" icon="mingcute:edit-2-fill" ></iconify-icon>
+            <iconify-icon class="transition-all group-hover:scale-125" width="18" icon="mingcute:edit-2-fill" ></iconify-icon>
             Edited: <time class="w-max"><%- date(page.updated, "YYYY-MM-DD") %></time>
           </span>
           <!-- Word count -->
           <span class="flex items-center gap-1 group">
-            <iconify-icon class="transition-all group-hover:-translate-y-1 group-hover:scale-125" width="18" icon="mingcute:book-6-fill" ></iconify-icon>
+            <iconify-icon class="transition-all group-hover:scale-125" width="18" icon="mingcute:book-6-fill" ></iconify-icon>
             <span><%= wordcount(page.content) %> words, <%= min2read(page.content) %> min</span>
           </span>
           <!-- Categories -->
           <% if (page.categories && page.categories.length) { %>
             <!-- <span class="text-gray-400">·</span> -->
             <span class="flex items-center gap-1 group">
-              <iconify-icon class="transition-all group-hover:-translate-y-1 group-hover:scale-125" width="18" icon="mingcute:classify-2-fill" class="mr-0"></iconify-icon>
+              <iconify-icon class="transition-all group-hover:scale-125" width="18" icon="mingcute:classify-2-fill" class="mr-0"></iconify-icon>
               <%- list_categories(page.categories, {
                 show_count: false,
                 class: 'article-category',

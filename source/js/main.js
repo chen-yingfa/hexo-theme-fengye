@@ -74,7 +74,7 @@ function registerGoTop() {
 function registerCopyCode() {
   $("figure.highlight").each(function () {
     const copyIcon = $(
-      "<iconify-icon id='copy-icon' width='18' icon='carbon:copy'></iconify-icon>"
+      "<iconify-icon id='copy-icon' width='18' icon='mingcute:copy-fill'></iconify-icon>"
     );
     const leftOffset = 25;
     // left
@@ -144,11 +144,19 @@ function registerCopyCode() {
   });
 }
 
+function changeFootenoteBackref() {
+  const backref = document.querySelectorAll(".footnote-backref");
+  backref.forEach((item) => {
+    item.innerHTML = "<iconify-icon icon='mingcute:back-fill'></iconify-icon>";
+  });
+}
+
 $(document).ready(function () {
   registerMobileMenu();
   registerGoTop();
   if ($("#article-title").length > 0) {
     registerHeaderPageTitle();
     registerCopyCode();
+    changeFootenoteBackref();
   }
 });

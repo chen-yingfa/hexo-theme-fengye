@@ -3,7 +3,9 @@
   <% if (tags && tags.length) { %>
     <% tags.forEach(function (tag) { %>
       <a href="<%- url_for(tag.path) %>" 
-        class="transition-all text-zinc-500 hover:scale-110 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 hover:dark:bg-zinc-700 px-2 py-1 text-sm rounded-lg hover:drop-shadow-md hover:rotate-[3deg]">
+        class="transition-all text-zinc-500 bg-zinc-100
+          hover:bg-zinc-200 dark:bg-zinc-800 hover:dark:bg-zinc-700 px-[6px] py-[3px]
+          text-sm rounded-lg hover:drop-shadow">
         <p>#<%- tag.name %></p>
       </a>
     <% }); %>

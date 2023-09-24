@@ -2,9 +2,13 @@
   <div class="index-info-container pt-6 text-zinc-600 dark:text-zinc-300">
     <!-- Home page info, short text about me -->
     <div class="flex flex-col items-center justify-center">
-        <img class="w-24 h-24 rounded-full" src="<%- theme.logo %>" alt="<%- config.title %>" />
+        <!-- <img class="w-24 h-24 rounded-full" src="<%- theme.logo %>" alt="<%- config.title %>" /> -->
+        <img 
+          class="rounded-3xl w-48 hover:scale-110 transition-transform drop-shadow-lg" 
+          src="<%- theme.portrait %>" alt="<%- config.title %>" 
+        />
         <!-- Site title -->
-        <h1 class="site-title text-4xl font-extrabold text-gray-800 dark:text-zinc-200">
+        <h1 class="site-title text-4xl mt-4 font-extrabold text-gray-800 dark:text-zinc-200">
           <%= config.title %>
         </h1>
         <!-- Sub-title -->
@@ -12,8 +16,8 @@
           <%= config.subtitle %>
         </p>
         <div class="flex flex-row items-center gap-6 mt-3">
-          <span class="flex flex-row items-center gap-1 group">
-            <iconify-icon class="transition-all group-hover:-translate-y-1"  width="18" icon="mingcute:home-2-fill"></iconify-icon>
+          <span class="flex flex-row items-center gap-1">
+            <iconify-icon  width="18" icon="mingcute:home-2-fill"></iconify-icon>
             <p>Beijing 北京</p>
           </span>
           <a href="/pdf/cv.pdf" class="flex flex-row items-center gap-1 group">
@@ -39,14 +43,14 @@
   <!-- 分割线 -->
   <div class="flex flex-col items-center justify-center0">
     <hr class="w-1/2 my-8 h-[1px] bg-gray-200 dark:bg-zinc-700 mr-1/2"></hr>
-    <div class="flex flex-row items-center gap-2 text-zinc-300 dark:text-zinc-600 group">
-      <iconify-icon class="transition-all group-hover:-translate-y-1 group-hover:scale-125" width="28" icon="mingcute:news-fill"></iconify-icon>
+    <div class="flex flex-row items-center gap-2 text-zinc-300 dark:text-zinc-600">
+      <iconify-icon width="28" icon="mingcute:news-fill"></iconify-icon>
       <p class="text-center text-3xl">Recent Works</p>
     </div>
   </div>
 
   <!-- List of featured posts -->
-  <section class="flex flex-col items-center py-8 max-w-prose mx-auto gap-12 grid grid-cols-1">
+  <section class="flex flex-wrap items-center py-8 max-w-prose mx-auto gap-12 grid grid-cols-1">
     <% var last_year = ''; %>
     <% site.posts.each(function (post, index) { %>
       <% if (post.featured) { %>
@@ -62,11 +66,11 @@
           </div>
         <% last_year = cur_year; } %>
         <!-- The post -->
-        <div class="flex flex-col px-6 gap-1 post-container">
+        <div class="flex flex-col gap-1 px-6 post-container">
           <a style="<%- '--stagger:' + index %>" href="<%- url_for(post.path) %>">
             <!-- Post Title -->
             <header>
-              <h2 class="post-title font-bold text-lg text-zinc-600 dark:text-zinc-300 dark:hover:text-[#de7441] hover:translate-x-2 transition-all">
+              <h2 class="post-title font-bold text-lg text-zinc-600 hover:translate-x-2 transition-all">
                 <%- post.title %>
               </h2>
             </header>
@@ -82,17 +86,19 @@
               </p>
             </section>
             <!-- Post statistics -->
-            <div class="flex flex-row items-center gap-4 text-sm text-zinc-500 dark:text-zinc-400">
-              <span class="flex flex-row items-center gap-1 group">
-                <iconify-icon class="group-hover:scale-125 group-hover:rotate-[10deg] transition-transform" width="18" icon="mingcute:file-new-fill" ></iconify-icon>
+            <div 
+              class="flex flex-wrap items-center gap-x-4 text-sm
+                text-zinc-500 dark:text-zinc-400">
+              <span class="flex flex-row w-max items-center gap-1 group">
+                <iconify-icon class="group-hover:scale-125 transition-transform" width="18" icon="mingcute:file-new-fill" ></iconify-icon>
                 <%- date(post.date, 'MMM DD, YYYY') %>
               </span>
-              <span class="flex flex-row items-center gap-1 group">
-                <iconify-icon class="group-hover:scale-125 group-hover:rotate-[10deg] transition-transform" width="18" icon="mingcute:edit-2-fill" ></iconify-icon>
+              <span class="flex flex-row w-max items-center gap-1 group">
+                <iconify-icon class="group-hover:scale-125 transition-transform" width="18" icon="mingcute:edit-2-fill" ></iconify-icon>
                 <%- date(post.updated, 'MMM DD, YYYY') %>
               </span>
-              <span class="flex flex-row items-center gap-1 group">
-                <iconify-icon class="group-hover:scale-125 group-hover:rotate-[10deg] transition-transform" width="18" icon="mingcute:book-6-fill" ></iconify-icon>
+              <span class="flex flex-row w-max items-center gap-1 group">
+                <iconify-icon class="group-hover:scale-125 transition-transform" width="18" icon="mingcute:book-6-fill" ></iconify-icon>
                 <%= wordcount(post.content) %> words, <%= min2read(post.content) %> min
               </span>
             </div>
