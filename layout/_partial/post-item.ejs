@@ -1,0 +1,64 @@
+<!-- One post item in a list -->
+<div class="flex flex-col gap-1 px-6 post-container">
+    <a class="group" href="<%- url_for(post.path) %>">
+        <!-- Post title -->
+        <header>
+            <h2 class="text-zinc-600 dark:text-zinc-300 font-bold text-xl
+          group-hover:translate-x-2 group-hover:text-[var(--c-theme)] transition-all">
+                <%- post.title %>
+            </h2>
+        </header>
+        <section class="mt-1 text-sm">
+            <p class="line-clamp-4">
+                <!-- Post excerpt -->
+                <% if (post.excerpt) { %>
+                    <div class="post-excerpt text-zinc-600 dark:text-zinc-300">
+                        <%- post.excerpt %>
+                    </div>
+                    <!-- Line sep -->
+                    <hr class="mt-1 h-[1px] bg-zinc-200 dark:bg-zinc-600 mr-1/2">
+                    </hr>
+                <% } %>
+            </p>
+        </section>
+    </a>
+    <!-- Post Statistics -->
+    <div class="flex flex-wrap items-center gap-x-2 text-sm text-zinc-700 dark:text-zinc-300 line-clamp-4">
+        <span class="flex flex-row items-center gap-1 group">
+            <iconify-icon class="group-hover:scale-125 transition-transform" width="16"
+                icon="mingcute:file-new-fill"></iconify-icon>
+            <time class="w-max">
+                <%- date(post.date, 'YYYY-MM-DD' ) %>
+            </time>
+        </span>
+        <span class="flex flex-row items-center gap-1 group">
+            <iconify-icon class="group-hover:scale-125 transition-transform" width="16"
+                icon="mingcute:edit-2-fill"></iconify-icon>
+            <time class="w-max">
+                <%= date(post.updated, 'YYYY-MM-DD' ) %>
+            </time>
+        </span>
+        <span class="flex flex-row items-center gap-1 group">
+            <iconify-icon class="group-hover:scale-125 transition-transform" width="16"
+                icon="mingcute:book-6-fill"></iconify-icon>
+            <p class="w-max">
+                <%= wordcount(post.content) %> words, <%= min2read(post.content) %> min
+            </p>
+        </span>
+        <!-- Categories -->
+        <span class="flex flex-row items-center gap-1 group">
+            <% if (post.categories && post.categories.length) { %>
+                <iconify-icon class="group-hover:scale-125 group-hover:rotate-[10deg] transition-transform" width="16"
+                    icon="mingcute:classify-2-fill" class="mr-0">
+                </iconify-icon>
+                <% post.categories.forEach(function (item) { %>
+                    <a class="underline underline-offset-2" href="<%- url_for(item.path) %>"><%- item.name %></a>
+                <% }); %>
+            <% } %>
+        </span>
+        <!-- Tags -->
+    </div>
+    <% if (show_tags) { %>
+        <%- partial('tag-list', {tags: post.tags}) %>
+    <% } %>
+</div>

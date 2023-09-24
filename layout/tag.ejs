@@ -28,7 +28,13 @@ layout: tag
       <div class="text-xl align-middle">
         Tag:
       </div>
-      <div class="bg-gray-100 dark:bg-zinc-800 px-2 py-1 text-xl rounded-md transition-colors">
+      <div 
+      class="bg-gray-100 
+        dark:bg-transparent
+        dark:border-[1px]
+        dark:border-zinc-300
+        px-3 py-1 text-xl rounded-full
+        drop-shadow">
         #<%-page.tag%>
       </div>
   </div>
@@ -40,15 +46,27 @@ layout: tag
       <iconify-icon width="30" icon="mingcute:tag-fill"></iconify-icon>
       <h2 class="font-bold text-2xl">Tags</h2>
     </div>
-    <div class="tags-container flex flex-wrap gap-2">
+    <div class="tags-container flex flex-wrap gap-1">
       <% site.tags.sort('length', 'desc').each(item => { %>
         <a href="<%-url_for(item.path)%>"
-          class="transition-all hover:scale-110 hover:rotate-[3deg] bg-gray-100
-            dark:bg-zinc-800 hover:bg-gray-200 hover:dark:bg-zinc-700
-            px-2 py-1 rounded-md hover:drop-shadow-lg drop-shadow hover:z-10"
-          href="<%-url_for(item.path)%>">
-          <%- item.name%>
-          <span class="text-gray-400 px-1 text-xs">×<%-item.length%></span>
+          class="transition-transform
+            bg-zinc-100
+            dark:bg-transparent
+            hover:bg-zinc-200
+            hover:dark:bg-zinc-200
+            dark:border-[1px]
+            dark:border-zinc-200
+            dark:hover:border-zinc-300
+            px-[8px]
+            py-[4px]
+            dark:px-[7px]
+            dark:py-[3px]
+            rounded-full
+            drop-shadow
+            hover:z-10"
+          href="<%- url_for(item.path) %>">
+          #<%- item.name %>
+          <span class="text-zinc-400 pr-1 text-sm">×<%- item.length %></span>
         </a>
       <% }) %>
     </div>

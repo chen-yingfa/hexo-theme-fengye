@@ -8,7 +8,7 @@
           src="<%- theme.portrait %>" alt="<%- config.title %>" 
         />
         <!-- Site title -->
-        <h1 class="site-title text-4xl mt-4 font-extrabold text-gray-800 dark:text-zinc-200">
+        <h1 class="site-title text-4xl mt-4 font-black text-gray-800 dark:text-zinc-200">
           <%= config.title %>
         </h1>
         <!-- Sub-title -->
@@ -21,7 +21,7 @@
             <p>Beijing 北京</p>
           </span>
           <a href="/pdf/cv.pdf" class="flex flex-row items-center gap-1 group">
-            <iconify-icon class="transition-all group-hover:rotate-[8deg] group-hover:scale-125" width="18" icon="mingcute:document-fill"></iconify-icon>
+            <iconify-icon class="transition-transform group-hover:rotate-[8deg] group-hover:scale-125" width="18" icon="mingcute:document-fill"></iconify-icon>
             <p>CV 简历 (Dec, 2022)</p>
           </a>
         </div>
@@ -43,14 +43,14 @@
   <!-- 分割线 -->
   <div class="flex flex-col items-center justify-center0">
     <hr class="w-1/2 my-8 h-[1px] bg-gray-200 dark:bg-zinc-700 mr-1/2"></hr>
-    <div class="flex flex-row items-center gap-2 text-zinc-300 dark:text-zinc-600">
+    <div class="flex flex-row items-center gap-2 text-zinc-400 dark:text-zinc-500">
       <iconify-icon width="28" icon="mingcute:news-fill"></iconify-icon>
       <p class="text-center text-3xl">Recent Works</p>
     </div>
   </div>
 
   <!-- List of featured posts -->
-  <section class="flex flex-wrap items-center py-8 max-w-prose mx-auto gap-12 grid grid-cols-1">
+  <section class="flex flex-wrap items-center py-8 max-w-prose mx-auto gap-8 grid grid-cols-1">
     <% var last_year = ''; %>
     <% site.posts.each(function (post, index) { %>
       <% if (post.featured) { %>
@@ -59,51 +59,15 @@
         <% if(last_year !== cur_year){ %>
           <div class="relative pointer-events-none">
             <div class="absolute -top-6 w-[100%]">
-              <p class="text-clip overflow-hidden -translate-x-2 text-9xl font-extrabold opacity-10">
+              <p class="text-clip overflow-hidden -translate-x-2 text-9xl
+                font-black opacity-20">
                 <%- cur_year %>
               </p>
             </div>
           </div>
         <% last_year = cur_year; } %>
         <!-- The post -->
-        <div class="flex flex-col gap-1 px-6 post-container">
-          <a style="<%- '--stagger:' + index %>" href="<%- url_for(post.path) %>">
-            <!-- Post Title -->
-            <header>
-              <h2 class="post-title font-bold text-lg text-zinc-600 hover:translate-x-2 transition-all">
-                <%- post.title %>
-              </h2>
-            </header>
-            <section class="text-zinc-500 dark:text-zinc-400 text-sm time">
-              <p class="line-clamp-4">
-                <% if (post.excerpt) { %>
-                  <div class="py-2">
-                    <%- post.excerpt %>
-                  </div>
-                  <!-- Line sep -->
-                  <!-- <hr class="w-1/4 h-[1px] bg-zinc-200 dark:bg-zinc-700"></hr> -->
-                <% } %>
-              </p>
-            </section>
-            <!-- Post statistics -->
-            <div 
-              class="flex flex-wrap items-center gap-x-4 text-sm
-                text-zinc-500 dark:text-zinc-400">
-              <span class="flex flex-row w-max items-center gap-1 group">
-                <iconify-icon class="group-hover:scale-125 transition-transform" width="18" icon="mingcute:file-new-fill" ></iconify-icon>
-                <%- date(post.date, 'MMM DD, YYYY') %>
-              </span>
-              <span class="flex flex-row w-max items-center gap-1 group">
-                <iconify-icon class="group-hover:scale-125 transition-transform" width="18" icon="mingcute:edit-2-fill" ></iconify-icon>
-                <%- date(post.updated, 'MMM DD, YYYY') %>
-              </span>
-              <span class="flex flex-row w-max items-center gap-1 group">
-                <iconify-icon class="group-hover:scale-125 transition-transform" width="18" icon="mingcute:book-6-fill" ></iconify-icon>
-                <%= wordcount(post.content) %> words, <%= min2read(post.content) %> min
-              </span>
-            </div>
-          </a>
-        </div>
+        <%- partial('_partial/post-item', {post: post, show_tags: false}) %>
       <% } %>
     <% }) %>
   </section>

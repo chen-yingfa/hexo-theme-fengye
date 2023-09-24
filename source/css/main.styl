@@ -8,6 +8,7 @@
   --c-scrollbar: #d9d9d9
   --c-scrollbar-hover: #bbbbbb
   --c-sep: #d1d5db
+  --c-code-language: #9ca3af
 }
 
 html.dark
@@ -17,6 +18,7 @@ html.dark
   --c-scrollbar: #333333
   --c-scrollbar-hover: #555555
   --c-sep: #3f3f46
+  --c-code-language: #8c939f
 
 a
   color: var(--c-theme)
@@ -196,9 +198,13 @@ li.task-list-item .task-list-item-checkbox
     color: var(--c-theme)
     text-decoration: line-through
 
-.post-title:hover
-  color: var(--c-theme)
+.post-excerpt
+  a:hover
+    color: var(--c-theme)
 
-.post-excerpt:hover > a {
-  color: var(--c-theme)
-}
+.code-language
+  font-size: 0.8rem
+  color: var(--c-code-language)
+  margin-left: 1rem
+  margin-bottom: 0.5rem
+  display: block

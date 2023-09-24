@@ -74,7 +74,7 @@ function registerGoTop() {
 function registerCopyCode() {
   $("figure.highlight").each(function () {
     const copyIcon = $(
-      "<iconify-icon id='copy-icon' width='18' icon='mingcute:copy-fill'></iconify-icon>"
+      "<iconify-icon class=\"dark:border-zinc-500 dark:border-[1px] hover:bg-zinc-200 dark:hover:bg-zinc-700 transform-all hover:scale-110\" id='copy-icon' width='18' icon='mingcute:copy-fill'></iconify-icon>"
     );
     const leftOffset = 25;
     // left
@@ -118,7 +118,7 @@ function registerCopyCode() {
       ta.readOnly = false;
       var result = document.execCommand("copy");
       // change icon
-      $(this).attr("icon", result ? "carbon:checkmark" : "carbon:error");
+      $(this).attr("icon", result ? "mingcute:check-fill" : "mingcute:warning-fill");
       ta.blur(); // For iOS
       // blur
       $(copyIcon).blur();
@@ -129,7 +129,7 @@ function registerCopyCode() {
       document.body.removeChild(ta);
       // setTimeout change icon
       setTimeout(() => {
-        $(this).attr("icon", "carbon:copy");
+        $(this).attr("icon", "mingcute:copy-fill");
       }, 1000); // 1s
     });
 
@@ -141,6 +141,18 @@ function registerCopyCode() {
         $(copyIcon).css("left", `${iconLeft}px`);
       }
     });
+  });
+}
+
+function addCodeLanguage() {
+  const code = document.querySelectorAll("figure.highlight");
+  code.forEach((item) => {
+    const classList = item.classList;
+    const language = classList[1];
+    const languageSpan = document.createElement("span");
+    languageSpan.innerHTML = language;
+    languageSpan.classList.add("code-language");
+    item.prepend(languageSpan);
   });
 }
 
@@ -157,6 +169,7 @@ $(document).ready(function () {
   if ($("#article-title").length > 0) {
     registerHeaderPageTitle();
     registerCopyCode();
+    addCodeLanguage();
     changeFootenoteBackref();
   }
 });
