@@ -74,16 +74,22 @@ function registerGoTop() {
 function registerCopyCode() {
   $("figure.highlight").each(function () {
     const copyIcon = $(
-      "<iconify-icon class=\"copy-icon dark:border-zinc-500 dark:border-[1px] hover:bg-zinc-200 dark:hover:bg-zinc-700 transform-all hover:scale-110\" width='18' icon='mingcute:copy-fill'></iconify-icon>"
+      `<iconify-icon 
+        class="copy-icon 
+        hover:bg-zinc-200 
+        dark:hover:bg-zinc-700"
+        width="20"
+        icon="mingcute:copy-fill">
+      </iconify-icon>`
     );
     const leftOffset = 25;
     // left
     const left = $(this).width() - leftOffset;
     // set style
     // $(copyIcon).css("background-color", "#fff");
-    $(copyIcon).css("box-shadow", "0 0 5px rgba(0, 0, 0, 0.3)");
-    $(copyIcon).css("border-radius", "3px");
-    $(copyIcon).css("padding", "4px");
+    // $(copyIcon).css("box-shadow", "0 0 5px rgba(0, 0, 0, 0.3)");
+    // $(copyIcon).css("border-radius", "3px");
+    // $(copyIcon).css("padding", "4px");
     // add icon
     $(this).append(copyIcon);
     // copy code

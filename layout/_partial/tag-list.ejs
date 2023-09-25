@@ -3,14 +3,19 @@
   <% if (tags && tags.length) { %>
     <% tags.forEach(function (tag) { %>
       <a href="<%- url_for(tag.path) %>" 
-        class="text-zinc-500 dark:text-zinc-400 bg-zinc-100
-          hover:bg-zinc-200
+        class="
+          text-[var(--c-70)]
+          border-[1px]
+          border-[var(--c-sep)]
+          bg-[var(--c-20)]
+          hover:bg-[var(--c-30)]
           dark:bg-transparent 
-          dark:border-[1px]
-          dark:border-zinc-300 dark:hover:bg-zinc-200 dark:hover:text-zinc-800
-          px-[6px] py-[3px]
-          text-sm rounded-full 
-          hover:drop-shadow">
+          dark:hover:bg-[var(--c-80)]
+          dark:hover:text-[var(--c-20)]
+          px-[6px] py-[2px]
+          text-sm
+          rounded-full 
+        ">
         #<%- tag.name %>
       </a>
     <% }); %>
