@@ -31,27 +31,30 @@ body
   --c-scrollbar: #d9d9d9
   --c-scrollbar-hover: #bbbbbb
   --c-sep: #e1e4e8
+  --c-sep-2: #d1d4d8
   --c-code-language: #9ca3af
 }
 
 html.dark
-  --c-theme: #3478f6
+  --c-theme: #4688f8
   --c-0: #181818
   --c-10: #1f1f1f
   --c-20: #282828
-  --c-30: #333333
-  --c-40: #3f3f46
-  --c-50: #52525b
-  --c-60: #6b7280
-  --c-70: #8c939f
-  --c-80: #b0b8c1
-  --c-90: #d9d9d9
-  --c-100: #eeeeee
+  --c-30: #404244
+  --c-40: #5e606b
+  --c-50: #7d7e80
+  --c-60: #909495
+  --c-70: #bbbebf
+  --c-80: #c9cbcf
+  --c-80: #d9d9d9
+  --c-90: #e5e5e5
+  --c-100: #ffffff
   --c-text: #eeeeee
   --c-bg-code: #111111
   --c-scrollbar: #333333
   --c-scrollbar-hover: #555555
-  --c-sep: #3f3f46
+  --c-sep: #5f6063
+  --c-sep-2: #818488
   --c-code-language: #8c939f
 
 header
@@ -240,8 +243,10 @@ li.task-list-item .task-list-item-checkbox
     text-decoration: line-through
 
 .post-excerpt
-  a:hover
-    color: var(--c-theme)
+  a
+    text-decoration: underline
+    &:hover
+      color: var(--c-theme)
 
 
 figure.highlight
@@ -268,7 +273,7 @@ figure.highlight
 
   .code-language
     font-size: 0.8rem
-    color: var(--c-40)
+    color: var(--c-50)
     background-color: var(--c-bg-code)
     display: block
   .copy-icon
@@ -278,7 +283,7 @@ figure.highlight
     height: 30px
     background-color: var(--c-bg-code)
     border: 1px solid var(--c-sep)
-    color: var(--c-70)
+    color: var(--c-80)
     position: absolute
     cursor: pointer
     border-radius: 4px

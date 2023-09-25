@@ -12,11 +12,11 @@
             <p class="line-clamp-4">
                 <!-- Post excerpt -->
                 <% if (post.excerpt) { %>
-                    <div class="post-excerpt text-zinc-600 dark:text-zinc-300">
+                    <div class="post-excerpt text-[var(--c-60)]">
                         <%- post.excerpt %>
                     </div>
                     <!-- Line sep -->
-                    <hr class="mt-2 h-[1px] bg-zinc-200 dark:bg-zinc-600 mr-1/2">
+                    <hr class="mt-2 h-[1px] bg-[var(--c-sep-2)] mr-1/2">
                     </hr>
                 <% } %>
             </p>
@@ -48,7 +48,9 @@
         <!-- Categories -->
         <span class="flex flex-row items-center gap-1 group">
             <% if (post.categories && post.categories.length) { %>
-                <iconify-icon class="group-hover:scale-125 group-hover:rotate-[10deg] transition-transform" width="16"
+                <iconify-icon class="
+                    group-hover:scale-125
+                    transition-transform group-hover:text-[var(--c-theme)]" width="16"
                     icon="mingcute:classify-2-fill" class="mr-0">
                 </iconify-icon>
                 <% post.categories.forEach(function (item) { %>
