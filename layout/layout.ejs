@@ -8,15 +8,20 @@
     font-arial
     bg-[var(--c-0)]
     text-[var(--c-80)]
-    relative">
+  ">
   <%- partial('_partial/header', {cache: true}) %>
   <main>
     <%- body %>
   </main>
   <%- partial('_partial/footer', {cache: true}) %>
-  <div class="back-to-top box-border fixed right-6 z-1024 -bottom-20 rounded py-1 px-1 bg-slate-900 opacity-60 text-white cursor-pointer text-center dark:bg-slate-600">
+  <div class="back-to-top box-border fixed right-6 z-1024 -bottom-20
+    rounded py-1 px-1 bg-[var(--c-20)] opacity-80 text-[var(--c-80)]
+    border-[1px] border-[var(--c-sep)]
+    cursor-pointer text-center
+    drop-shadow
+  ">
     <span class="flex justify-center items-center text-sm">
-      <iconify-icon width="18" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
+      <iconify-icon width="18" icon="mingcute:arrow-up-fill" id="go-top"></iconify-icon>
       <span id="scrollpercent"><span>0</span> %</span>
     </span>
   </div>

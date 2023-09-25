@@ -1,14 +1,16 @@
 <header
   class="
-    w-full pl-1 pr-2 py-1
+    w-full
+    m-0
+    px-3
+    py-1
     z-10
-    backdrop-blur-xl
-    backdrop-saturate-150
     border-b
-    bg-[var(--c-10)]
+    border-[1px]
+    bg-[var(--c-20)]
     border-[var(--c-sep)]
   ">
-  <div class="max-auto">
+  <div>
     <!-- The navigation bar -->
     <nav class="
       flex flex-row items-center
@@ -63,7 +65,9 @@
           <% } %>
           <!-- Dark/light toggle icon -->
           <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
-            <iconify-icon class="transition-transform hover:rotate-[45deg] hover:scale-125" width="20" icon="" id="theme-icon"></iconify-icon>
+            <iconify-icon class="transition-transform hover:rotate-[45deg]
+              hover:scale-125" width="20" icon="" id="theme-icon">
+            </iconify-icon>
           </a>
         </div>
         <!-- Icon for dropout menu on small screens -->
@@ -72,7 +76,9 @@
             <iconify-icon width="20" icon="mingcute:menu-fill" class="transition-transform hover:scale-125 hover:rotate-[5deg]"></iconify-icon>
           </a>
           <a class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
-            <iconify-icon width="20" icon="mingcute:close-circle-fill" class="transition-transform hover:scale-125 hover:rotate-[80deg]"></iconify-icon>
+            <iconify-icon width="20" icon="mingcute:close-circle-fill"
+              class="transition-transform hover:scale-125 hover:rotate-[80deg]">
+            </iconify-icon>
           </a>
         </div>
       </div>

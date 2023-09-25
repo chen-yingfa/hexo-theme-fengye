@@ -23,7 +23,7 @@ layout: tag
 -->
 <% if(is_tag()){ %>
   <!-- 已经选择了一个tag，显示一个 tag 的所有 post -->
-  <div>
+  <div class="mt-6">
     <div class="flex flex-wrap gap-2 justify-center items-center">
       <div class="text-xl align-middle">
         Tag:
@@ -54,6 +54,7 @@ layout: tag
             flex-row
             items-center
             text-[var(--c-70)]
+            dark:text-[var(--c-80)]
             border-[1px]
             border-[var(--c-sep)]
             bg-[var(--c-20)]
@@ -62,12 +63,13 @@ layout: tag
             dark:hover:bg-[var(--c-80)]
             dark:hover:text-[var(--c-20)]
             px-[8px]
-            py-[2px]
+            py-[1px]
             rounded-full
             hover:z-10"
           href="<%- url_for(item.path) %>">
           #<%- item.name %>
-          <span class="text-zinc-400 pl-1 text-sm">×<%- item.length %></span>
+          <span class="text-[var(--c-50)] dark:text-[var(--c-60)] hover:text-[var(--c-60)] pl-1
+            text-sm">×<%- item.length %></span>
         </a>
       <% }) %>
     </div>
