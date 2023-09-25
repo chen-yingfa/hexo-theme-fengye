@@ -74,16 +74,12 @@ function registerGoTop() {
 function registerCopyCode() {
   $("figure.highlight").each(function () {
     const copyIcon = $(
-      "<iconify-icon class=\"dark:border-zinc-500 dark:border-[1px] hover:bg-zinc-200 dark:hover:bg-zinc-700 transform-all hover:scale-110\" id='copy-icon' width='18' icon='mingcute:copy-fill'></iconify-icon>"
+      "<iconify-icon class=\"copy-icon dark:border-zinc-500 dark:border-[1px] hover:bg-zinc-200 dark:hover:bg-zinc-700 transform-all hover:scale-110\" width='18' icon='mingcute:copy-fill'></iconify-icon>"
     );
     const leftOffset = 25;
     // left
     const left = $(this).width() - leftOffset;
     // set style
-    $(copyIcon).css("position", "absolute");
-    $(copyIcon).css("left", `${left}px`);
-    $(copyIcon).css("top", `8px`);
-    $(copyIcon).css("cursor", "pointer");
     // $(copyIcon).css("background-color", "#fff");
     $(copyIcon).css("box-shadow", "0 0 5px rgba(0, 0, 0, 0.3)");
     $(copyIcon).css("border-radius", "3px");
@@ -159,7 +155,7 @@ function addCodeLanguage() {
 function changeFootenoteBackref() {
   const backref = document.querySelectorAll(".footnote-backref");
   backref.forEach((item) => {
-    item.innerHTML = "<iconify-icon icon='mingcute:back-fill'></iconify-icon>";
+    item.innerHTML = `<iconify-icon class="transition-transform hover:-translate-y-[1px] hover:scale-110" icon="mingcute:arrow-up-fill"></iconify-icon>`;
   });
 }
 

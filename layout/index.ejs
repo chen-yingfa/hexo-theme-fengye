@@ -50,26 +50,11 @@
   </div>
 
   <!-- List of featured posts -->
-  <section class="flex flex-wrap items-center py-8 max-w-prose mx-auto gap-8 grid grid-cols-1">
-    <% var last_year = ''; %>
-    <% site.posts.each(function (post, index) { %>
-      <% if (post.featured) { %>
-        <!-- Large year background -->
-        <% var cur_year = post.date.year(); %>
-        <% if(last_year !== cur_year){ %>
-          <div class="relative pointer-events-none">
-            <div class="absolute -top-6 w-[100%]">
-              <p class="text-clip overflow-hidden -translate-x-2 text-9xl
-                font-black opacity-20">
-                <%- cur_year %>
-              </p>
-            </div>
-          </div>
-        <% last_year = cur_year; } %>
-        <!-- The post -->
-        <%- partial('_partial/post-item', {post: post, show_tags: false}) %>
-      <% } %>
-    <% }) %>
-  </section>
+  <%- partial('_partial/post-list',
+    {
+      posts: page.posts.filter(post => post.featured), 
+      show_tags: false
+    }
+  ) %>
 
 </div>

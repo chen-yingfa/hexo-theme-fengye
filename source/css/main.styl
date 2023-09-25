@@ -4,7 +4,9 @@
 :root {
   --c-theme: #3478f6
   --c-bg: #ffffff
-  --c-bg-code: #ebebef
+  --c-text: #444444
+  --c-bg-code: #f5f5f6
+  --c-code-line-number: #bbb
   --c-scrollbar: #d9d9d9
   --c-scrollbar-hover: #bbbbbb
   --c-sep: #d1d5db
@@ -14,6 +16,7 @@
 html.dark
   --c-theme: #3478f6
   --c-bg: #212121
+  --c-text: #eeeeee
   --c-bg-code: #3f3f46
   --c-scrollbar: #333333
   --c-scrollbar-hover: #555555
@@ -133,6 +136,9 @@ hr
   color: var(--c-bg)
 
 .prose
+  h2
+    margin-top: 1.0em
+    margin-bottom: 0.6em
   p
     margin: 0.8rem 0px
     line-height: 1.5
@@ -156,6 +162,25 @@ hr
     padding: 0.2em 0.3em
     font-size: 0.9em
     font-weight: 400
+  figure.highlight
+    display: flex
+    flex-direction: column
+    table
+      width: 100%
+      min-width: 0
+    td.code
+      width: 100%
+      min-width: 0
+      overflow: scroll
+      border-radius: 12px
+      background-color: var(--c-bg-code)
+    .copy-icon
+      right: 22px
+      top: 30px
+      width: 26px
+      height: 26px
+      position: absolute
+      cursor: pointer
   a
     color: var(--c-theme)
     transition: color 0.2s ease-in-out
@@ -165,10 +190,12 @@ hr
   .footnotes
     font-size: 0.8rem
   .footnote-backref
-    color: var(--c-theme)
     text-decoration: none
     &:hover
       color: var(--c-theme)
+      transform: translateY(-3px)
+      transition-property: transform;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   .fancybox-img
     img:hover
       transform: scale(1.01)
@@ -205,6 +232,6 @@ li.task-list-item .task-list-item-checkbox
 .code-language
   font-size: 0.8rem
   color: var(--c-code-language)
-  margin-left: 1rem
+  padding-left: 0.5rem
   margin-bottom: 0.5rem
   display: block

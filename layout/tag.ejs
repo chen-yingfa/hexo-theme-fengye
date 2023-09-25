@@ -46,7 +46,7 @@ layout: tag
       <iconify-icon width="30" icon="mingcute:tag-fill"></iconify-icon>
       <h2 class="font-bold text-2xl">Tags</h2>
     </div>
-    <div class="tags-container flex flex-wrap gap-1">
+    <div class="tags-container flex flex-wrap gap-2">
       <% site.tags.sort('length', 'desc').each(item => { %>
         <a href="<%-url_for(item.path)%>"
           class="transition-transform
@@ -57,10 +57,10 @@ layout: tag
             dark:border-[1px]
             dark:border-zinc-200
             dark:hover:border-zinc-300
-            px-[8px]
-            py-[4px]
-            dark:px-[7px]
-            dark:py-[3px]
+            px-[6px]
+            py-[2px]
+            dark:px-[5px]
+            dark:py-[1px]
             rounded-full
             drop-shadow
             hover:z-10"
