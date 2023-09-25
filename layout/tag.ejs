@@ -21,7 +21,7 @@ date: 2019-06-09 09:56:49
 layout: tag
 ---
 -->
-<% if(is_tag()){ %>
+<% if (is_tag()) { %>
   <!-- 已经选择了一个tag，显示一个 tag 的所有 post -->
   <div class="mt-6">
     <div class="flex flex-wrap gap-2 justify-center items-center">
@@ -29,12 +29,13 @@ layout: tag
         Tag:
       </div>
       <div 
-      class="bg-gray-100 
+      class="
+        bg-[var(--c-20)]
         dark:bg-transparent
-        dark:border-[1px]
-        dark:border-zinc-300
-        px-2 py-[2px] text-xl rounded-full
-        drop-shadow">
+        border-[1px]
+        border-[var(--c-sep-2)]
+        px-2 py-[1px] text-xl rounded-full
+      ">
         #<%-page.tag%>
       </div>
   </div>

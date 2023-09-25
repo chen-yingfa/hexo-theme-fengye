@@ -2,11 +2,10 @@
   class="
     w-full
     m-0
-    px-3
+    px-1
     py-1
     z-10
-    border-b
-    border-[1px]
+    border-b-[1px]
     bg-[var(--c-20)]
     border-[var(--c-sep)]
   ">
@@ -36,7 +35,7 @@
         <%- page.title %>
       </div>
       <div class="flex-1"></div>
-      <div class="flex flex-row items-center h-full gap-1">
+      <div class="flex flex-row items-center h-full gap-2">
         <!-- Page links -->
         <div class="flex flex-row h-full gap-3 text-sm">
           <% for (var i in theme.nav){ %>
@@ -51,7 +50,7 @@
             <% } %>
         </div>
         <!-- Icons, for external links -->
-        <div class="flex items-center gap-2 ml-2">
+        <div class="flex items-center gap-2 mx-1">
           <% if (theme.links !== undefined) { %>
             <% for (var key in theme.links) { %>
               <a class="w-5 h-5 sm:flex" title="<%- key %>" href="<%= theme.links[key] %>">
