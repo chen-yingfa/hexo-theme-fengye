@@ -2,47 +2,46 @@
   class="
     w-full
     m-0
-    px-1
+    px-2
     py-1
     z-10
     border-b-[1px]
-    bg-[var(--c-20)]
-    border-[var(--c-sep)]
+    bg-[var(--c-10)]
+    border-[var(--c-border)]
   ">
   <div>
     <!-- The navigation bar -->
     <nav class="
       flex flex-row items-center
-      text-base gap-2 h-8 
-      text-zinc-800 
+      text-base
+      gap-2
+      h-8
+      text-[var(--c-100)]
       dark:text-zinc-200">
       <!-- Top-left logo and title -->
       <a href="<%- config.root %>">
-        <div class="flex flex-row items-center gap-1 w-max group pl-2">
+        <div class="flex flex-row items-center gap-1 w-max group">
+          <!-- Home icon
           <iconify-icon icon="mingcute:home-2-fill" width="20"
-            class="group-hover:scale-125 transition-transform"></iconify-icon>
+            class="group-hover:scale-125 transition-transform">
+          </iconify-icon> -->
           <!-- Site Title on the top left -->
-          <div class="title-container align-middle font-black group-hover:translate-x-1 transition-all">
+          <div class="title-container align-middle font-black pl-1
+            group-hover:translate-x-1 transition-transform">
             <%= config.title %>
           </div>
         </div>
       </a>
-      <!-- Post Title, shown when scrolled down -->
-      <div id="header-title"
-        class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium
-        whitespace-nowrap overflow-hidden overflow-ellipsis
-        text-zinc-600 dark:text-zinc:500">
-        <%- page.title %>
-      </div>
       <div class="flex-1"></div>
-      <div class="flex flex-row items-center h-full gap-2">
+      <!-- Right part, list of icons -->
+      <div class="flex flex-row items-center h-full gap-0">
         <!-- Page links -->
-        <div class="flex flex-row h-full gap-3 text-sm">
+        <div class="flex flex-row h-full gap-3 text-sm mr-3">
           <% for (var i in theme.nav){ %>
             <a
               href="<%- url_for(theme.nav[i]) %>"
               class="hidden sm:flex h-full flex flex-row items-center
-                hover:translate-y-[2px] transition-transform">
+                hover:translate-y-[2px] transition-transform hover:underline">
               <p>
                 <%= i %>
               </p>
@@ -50,12 +49,12 @@
             <% } %>
         </div>
         <!-- Icons, for external links -->
-        <div class="flex items-center gap-2 mx-1">
+        <div class="flex items-center gap-1">
           <% if (theme.links !== undefined) { %>
             <% for (var key in theme.links) { %>
               <a class="w-5 h-5 sm:flex" title="<%- key %>" href="<%= theme.links[key] %>">
                 <iconify-icon
-                  class="transition-transform hover:rotate-[10deg] hover:scale-125"
+                  class="transition-transform hover:scale-125"
                   width="20" 
                   icon="simple-icons:<%- key.toLowerCase() %>">
                 </iconify-icon>
@@ -72,7 +71,9 @@
         <!-- Icon for dropout menu on small screens -->
         <div class="flex items-center justify-center gap-1 mx-1 sm:hidden">
           <a class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
-            <iconify-icon width="20" icon="mingcute:menu-fill" class="transition-transform hover:scale-125 hover:rotate-[5deg]"></iconify-icon>
+            <iconify-icon width="20" icon="mingcute:menu-fill"
+              class="transition-transform hover:scale-125 hover:rotate-[5deg]">
+            </iconify-icon>
           </a>
           <a class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
             <iconify-icon width="20" icon="mingcute:close-circle-fill"

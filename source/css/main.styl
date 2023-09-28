@@ -1,16 +1,9 @@
 @import 'highlight.styl'
 
-html
-  width: 100%;
+html, body
+  width: 100%
   margin: 0px
   padding: 0px
-  overflow-x: hidden
-
-body
-  overflow-x: hidden
-  width: 100vw
-  padding: 0
-  margin: 0
 
 :root {
   --c-theme: #3478f6
@@ -30,13 +23,14 @@ body
   --c-code-line-number: #bbb
   --c-scrollbar: #d9d9d9
   --c-scrollbar-hover: #bbbbbb
+  --c-border: #d1d7dd
   --c-sep: #e1e4e8
   --c-sep-2: #d1d4d8
   --c-code-language: #9ca3af
 }
 
 html.dark
-  --c-theme: #4688f8
+  --c-theme: #477fef
   --c-0: #181818
   --c-10: #1f1f1f
   --c-20: #282828
@@ -47,12 +41,13 @@ html.dark
   --c-70: #bbbebf
   --c-80: #c9cbcf
   --c-80: #d9d9d9
-  --c-90: #e5e5e5
-  --c-100: #ffffff
+  --c-90: #e1e4e8
+  --c-100: #e7edf2
   --c-text: #eeeeee
   --c-bg-code: #111111
   --c-scrollbar: #333333
   --c-scrollbar-hover: #555555
+  --c-border: #d1d7dd
   --c-sep: #5f6063
   --c-sep-2: #818488
   --c-code-language: #8c939f
@@ -62,26 +57,10 @@ header
 
 a
   color: var(--c-theme)
-  transition: color 0.1s ease-in-out
+  // transition: color 0.1s ease-in-out
   &:hover
     color: var(--c-theme)
-
-a:hover
-  color: var(--c-theme)
-  cursor: pointer
-
-::-webkit-scrollbar-track
-  background-color: var(--c-0);
-
-
-::-webkit-scrollbar
-  width: 6px;
-  height: 6px;
-
-
-::-webkit-scrollbar-thumb
-    background-color: var(--c-scroll);
-    border-radius: 4px;
+    cursor: pointer
 
 .toc-list
   li
@@ -173,6 +152,7 @@ hr
   color: var(--c-0)
 
 .prose
+  color: var(--c-text)
   h2
     margin-top: 1.0em
     margin-bottom: 0.6em
@@ -215,11 +195,6 @@ hr
       transition-property: transform;
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   .fancybox-img
-    img:hover
-      transform: scale(1.01)
-      transition-property: transform;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      transition-duration: 200ms;
     img
       margin-bottom: 0.5rem
   .fancybox-alt

@@ -11,23 +11,23 @@
     <div class="flex flex-col gap-2 pt-4 md:pt-6">
       <!-- Title -->
       <div id="article-title" class="leading-snug">
-        <p class="text-3xl font-bold text-[var(--c-80)]"><%- page.title %></p>
+        <p class="text-3xl font-bold text-[var(--c-100)]"><%- page.title %></p>
       </div>
       <!-- Meta data -->
       <div>
-        <section class="flex flex-wrap items-center gap-x-2 text-sm text-zinc-500 dark:text-zinc-400">
+        <section class="flex flex-wrap items-center gap-x-2 text-sm text-[var(--c-100)]">
           <!-- Dates -->
           <span class="flex items-center gap-1 group">
-            <iconify-icon class="transition-all group-hover:scale-125" width="18" icon="mingcute:file-new-fill" ></iconify-icon>
+            <iconify-icon width="18" icon="mingcute:file-new-fill" ></iconify-icon>
             Created: <time class="w-max"><%- date(page.date, "YYYY-MM-DD") %></time>
           </span>
           <span class="flex items-center gap-1 group">
-            <iconify-icon class="transition-all group-hover:scale-125" width="18" icon="mingcute:edit-2-fill" ></iconify-icon>
+            <iconify-icon width="18" icon="mingcute:edit-2-fill" ></iconify-icon>
             Edited: <time class="w-max"><%- date(page.updated, "YYYY-MM-DD") %></time>
           </span>
           <!-- Word count -->
           <span class="flex items-center gap-1 group">
-            <iconify-icon class="transition-all group-hover:scale-125" width="18" icon="mingcute:book-6-fill" ></iconify-icon>
+            <iconify-icon width="18" icon="mingcute:book-6-fill" ></iconify-icon>
             <span><%= wordcount(page.content) %> words, <%= min2read(page.content) %> min</span>
           </span>
           <!-- Categories -->

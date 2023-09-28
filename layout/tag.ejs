@@ -24,7 +24,8 @@ layout: tag
 <% if (is_tag()) { %>
   <!-- 已经选择了一个tag，显示一个 tag 的所有 post -->
   <div class="mt-6">
-    <div class="flex flex-wrap gap-2 justify-center items-center">
+    <div class="flex flex-wrap gap-1 justify-center items-center">
+      <iconify-icon width="24" icon="mingcute:tag-fill"></iconify-icon>
       <div class="text-xl align-middle">
         Tag:
       </div>
@@ -33,7 +34,7 @@ layout: tag
         bg-[var(--c-20)]
         dark:bg-transparent
         border-[1px]
-        border-[var(--c-sep-2)]
+        border-[var(--c-border)]
         px-2 py-[1px] text-xl rounded-full
       ">
         #<%-page.tag%>
@@ -44,7 +45,7 @@ layout: tag
   <!-- 显示所有tag，让用户选择 -->
   <div class="flex flex-col gap-2 px-6 max-w-prose mx-auto md:px-0 mt-6">
     <div class="flex flex-row items-center gap-2">
-      <iconify-icon width="30" icon="mingcute:tag-fill"></iconify-icon>
+      <iconify-icon width="28" icon="mingcute:tag-fill"></iconify-icon>
       <h2 class="font-bold text-2xl">Tags</h2>
     </div>
     <div class="tags-container flex flex-wrap gap-1">
@@ -66,7 +67,8 @@ layout: tag
             px-[8px]
             py-[1px]
             rounded-full
-            hover:z-10"
+            hover:z-10
+          "
           href="<%- url_for(item.path) %>">
           #<%- item.name %>
           <span class="text-[var(--c-50)] dark:text-[var(--c-60)] hover:text-[var(--c-60)] pl-1
