@@ -2,7 +2,7 @@
   class="
     w-full
     m-0
-    px-2
+    px-3
     py-1
     z-10
     border-b-[1px]
@@ -13,92 +13,152 @@
     <!-- The navigation bar -->
     <nav class="
       flex flex-row items-center
-      text-base
       gap-2
-      h-8
+      h-[var(--h-header)]
       text-[var(--c-100)]
-      dark:text-zinc-200">
-      <!-- Top-left logo and title -->
+    ">
+      <!-- Left part -->
       <a href="<%- config.root %>">
         <div class="flex flex-row items-center gap-1 w-max group">
-          <!-- Home icon
-          <iconify-icon icon="mingcute:home-2-fill" width="20"
-            class="group-hover:scale-125 transition-transform">
-          </iconify-icon> -->
           <!-- Site Title on the top left -->
-          <div class="title-container align-middle font-black pl-1
+          <div class="text-xl title-container align-middle font-black pl-1
             group-hover:translate-x-1 transition-transform">
             <%= config.title %>
           </div>
         </div>
       </a>
       <div class="flex-1"></div>
-      <!-- Right part, list of icons -->
+      <!-- Right part -->
       <div class="flex flex-row items-center h-full gap-0">
         <!-- Page links -->
-        <div class="flex flex-row h-full gap-3 text-sm mr-3">
+        <div class="hidden sm:flex h-8 flex-row items-center gap-0 text-sm">
           <% for (var i in theme.nav){ %>
-            <a
-              href="<%- url_for(theme.nav[i]) %>"
-              class="hidden sm:flex h-full flex flex-row items-center
-                hover:translate-y-[2px] transition-transform hover:underline">
-              <p>
-                <%= i %>
-              </p>
-            </a>
+            <% var pageLink = theme.nav[i]; %>
+            <% if (typeof pageLink === 'object') { %>
+              <a
+                href="<%- url_for(theme.nav[i].path) %>"
+                class="
+                  flex flex-row items-center
+                  h-full
+                  hover:underline
+                  hover:bg-[var(--c-25)]
+                  p-1 rounded-lg
+                ">
+                <iconify-icon icon="<%- theme.nav[i].icon %>" width="22">
+                </iconify-icon>
+              </a>
+            <% } else { %>
+              <a
+                href="<%- url_for(theme.nav[i]) %>"
+                class="flex flex-row items-center
+                  h-full
+                  hover:underline
+                  p-1 rounded
+                ">
+                <p>
+                  <%= i %>
+                </p>
+              </a>
             <% } %>
+          <% } %>
+          <!-- Separation line -->
+          <div class="h-8 w-[1px] bg-[var(--c-border)] mx-1"></div>
         </div>
-        <!-- Icons, for external links -->
-        <div class="flex items-center gap-1">
+        <!-- Icons on the right -->
+        <div class="flex flex-row items-center h-full">
           <% if (theme.links !== undefined) { %>
             <% for (var key in theme.links) { %>
-              <a class="w-5 h-5 sm:flex" title="<%- key %>" href="<%= theme.links[key] %>">
+              <% var link = theme.links[key] %>
+              <% if (typeof link === 'object') { %>
+                <% var link = theme.links[key].link; %>
+                <% var icon = theme.links[key].icon; %>
+              <% } else { %>
+                <% var link = theme.links[key]; %>
+                <% var icon = "simple-icons:" + key.toLowerCase(); %>
+              <% } %>
+              <a class="hover:bg-[var(--c-30)] rounded-lg p-1 h-full flex flex-row items-center group" title="<%- key %>" href="<%= link %>">
                 <iconify-icon
-                  class="transition-transform hover:scale-125"
-                  width="20" 
-                  icon="simple-icons:<%- key.toLowerCase() %>">
+                  width="24"
+                  icon="<%- icon %>">
                 </iconify-icon>
               </a>
             <% } %>
           <% } %>
           <!-- Dark/light toggle icon -->
-          <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
-            <iconify-icon class="transition-transform hover:rotate-[45deg]
-              hover:scale-125" width="20" icon="" id="theme-icon">
+          <a class="flex group p-1" title="toggle theme" id="toggle-dark">
+            <iconify-icon class="transition-transform group-hover:rotate-[45deg]
+            group-hover:scale-125 " width="24" icon="" id="theme-icon">
             </iconify-icon>
           </a>
-        </div>
-        <!-- Icon for dropout menu on small screens -->
-        <div class="flex items-center justify-center gap-1 mx-1 sm:hidden">
-          <a class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
-            <iconify-icon width="20" icon="mingcute:menu-fill"
-              class="transition-transform hover:scale-125 hover:rotate-[5deg]">
-            </iconify-icon>
-          </a>
-          <a class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
-            <iconify-icon width="20" icon="mingcute:close-circle-fill"
-              class="transition-transform hover:scale-125 hover:rotate-[80deg]">
-            </iconify-icon>
-          </a>
+          <!-- Icon for dropout menu on small screens -->
+          <div class="flex items-center justify-center gap-1 mx-1 sm:hidden">
+            <a class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
+              <iconify-icon width="22" icon="mingcute:menu-fill"
+                class="transition-transform hover:scale-125 hover:rotate-[5deg]">
+              </iconify-icon>
+            </a>
+            <a class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
+              <iconify-icon width="22" icon="mingcute:close-circle-fill"
+                class="transition-transform hover:scale-125 hover:rotate-[80deg]">
+              </iconify-icon>
+            </a>
+          </div>
         </div>
       </div>
     </nav>
   </div>
 </header>
 <!-- Dropdown menu on small screens -->
-<div id="menu-panel" class="h-0 overflow-hidden sm:hidden fixed w-full top-10 bottom-0 z-10">
+<div id="menu-panel"
+  class="
+    h-0
+    overflow-hidden
+    sm:hidden
+    w-full
+    z-10
+    rounded
+    border-[var(--c-border)]
+  ">
   <div id="menu-content"
-    class="drop-shadow-lg backdrop-blur-md backdrop-saturate-150 shadow-zinc-500/50 relative z-20 bg-white/80 dark:bg-zinc-900/80 px-6 sm:px-8 py-2 -translate-y-full transition-transform duration-200">
-    <ul class="nav flex flex-col sm:flex-row text-md font-medium">
+    class="
+      rounded-b-xl
+      border-b-[1px]
+      relative
+      z-20
+      bg-[var(--c-10)]
+      border-[var(--c-border)]
+      px-6
+      py-2
+      -translate-y-full
+      transition-transform
+      duration-200
+    ">
+    <div class="
+      nav flex
+      flex-col
+      sm:flex-row
+      text-md
+      font-bold
+      transition-transform
+    ">
       <% for (var i in theme.nav){ %>
-        <li class="nav-portfolio sm:mx-2 border-b sm:border-0 border-black/10 last:border-0 hover:text-main">
-          <a href="<%- url_for(theme.nav[i]) %>" class="flex h-12 sm:h-auto items-center hover:translate-x-2 transition-all">
-            <%= i %>
-          </a>
-        </li>
+        <a href="<%- url_for(theme.nav[i]) %>"
+          class="
+            flex
+            h-12
+            sm:h-auto
+            items-center
+            hover:translate-x-2
+            hover:underline
+            transition-transform
+            border-b-[1px]
+            last:border-0
+            border-[var(--c-border)]
+          "
+        >
+          <%= i %>
+        </a>
         <% } %>
-    </ul>
+    </div>
   </div>
-  <!-- Mask for making the page dark -->
-  <div class="mask z-10 bg-black/10 absolute inset-0"></div>
 </div>

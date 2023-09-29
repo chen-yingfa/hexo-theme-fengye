@@ -15,14 +15,14 @@
   </main>
   <%- partial('_partial/footer', {cache: true}) %>
   <div class="back-to-top box-border fixed right-6 z-1024 -bottom-20
-    rounded py-1 px-1 bg-[var(--c-20)] opacity-80 text-[var(--c-80)]
+    rounded py-1 px-2 bg-[var(--c-20)] opacity-80 text-[var(--c-80)]
     border-[1px] border-[var(--c-sep)]
     cursor-pointer text-center
     drop-shadow
   ">
     <span class="flex justify-center items-center text-sm">
-      <iconify-icon width="18" icon="mingcute:arrow-up-fill" id="go-top"></iconify-icon>
       <span id="scrollpercent"><span>0</span> %</span>
+      <iconify-icon width="18" icon="mingcute:arrow-to-up-fill" id="go-top"></iconify-icon>
     </span>
   </div>
   <%- partial('_partial/after-footer') %>

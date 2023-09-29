@@ -1,9 +1,12 @@
 <!-- One post item in a list -->
-<div class="flex flex-col gap-2 px-3 py-3 post-container rounded-lg border-[var(--c-sep)]">
+<div class="
+    flex flex-col gap-2 px-3 py-3 post-container
+    rounded-lg
+">
     <a class="group" href="<%- url_for(post.path) %>">
         <!-- Post title -->
         <header>
-            <h2 class="text-zinc-600 dark:text-zinc-300 font-bold text-xl
+            <h2 class="text-[var(--c-90)] font-bold text-xl
                 group-hover:translate-x-2 group-hover:text-[var(--c-theme)] 
                 transition-all group-hover:underline">
                 <%- post.title %>

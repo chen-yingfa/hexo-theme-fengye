@@ -75,11 +75,9 @@ function registerCopyCode() {
   $("figure.highlight").each(function () {
     const copyIcon = $(
       `<iconify-icon 
-        class="copy-icon 
-        hover:bg-zinc-200 
-        dark:hover:bg-zinc-700"
+        class="copy-icon"
         width="20"
-        icon="mingcute:copy-fill">
+        icon="mingcute:clipboard-fill">
       </iconify-icon>`
     );
     const leftOffset = 25;

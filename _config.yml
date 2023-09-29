@@ -2,8 +2,8 @@
 nav:
   # Home: /index
   Posts: /archives
-  Categories: /category
-  Tags: /tag
+  # Categories: /category
+  # Tags: /tag
   # Publications: /publications  # This renders `source/publications.md`
   # "About Me": /about  # This renders `source/about.md`
 

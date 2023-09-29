@@ -15,7 +15,15 @@
       </div>
       <!-- Meta data -->
       <div>
-        <section class="flex flex-wrap items-center gap-x-2 text-sm text-[var(--c-100)]">
+        <section class="
+          flex flex-wrap items-center gap-x-2 text-sm text-[var(--c-100)]">
+          <!-- Author -->
+          <% if (page.author !== undefined) { %>
+            <span class="flex items-center gap-1 group">
+              <iconify-icon width="18" icon="mingcute:user-edit-fill" ></iconify-icon>
+              <p><%- page.author %></p>
+            </span>
+          <% } %>
           <!-- Dates -->
           <span class="flex items-center gap-1 group">
             <iconify-icon width="18" icon="mingcute:file-new-fill" ></iconify-icon>
@@ -33,8 +41,9 @@
           <!-- Categories -->
           <% if (page.categories && page.categories.length) { %>
             <!-- <span class="text-gray-400">·</span> -->
-            <span class="flex items-center gap-1 group">
-              <iconify-icon class="transition-all group-hover:scale-125" width="18" icon="mingcute:classify-2-fill" class="mr-0"></iconify-icon>
+            <span class="flex flex-row items-center gap-1 group hover:underline">
+              <iconify-icon class="transition-all group-hover:scale-125 mr-0" width="18" icon="mingcute:classify-2-fill" />
+              </iconify-icon>
               <%- list_categories(page.categories, {
                 show_count: false,
                 class: 'article-category',
@@ -50,25 +59,43 @@
     </div>
   </header>
   <!-- content -->
-  <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
+  <article class="post-content prose m-auto dark:prose-invert">
     <%- page.content %>
   </article>
 
   <!-- prev and next -->
-  <div class="flex justify-between mt-4 pt-4 border-t border-zinc-200 dark:border-zinc-700 test-sm align-middle gap-2">
+  <div class="flex justify-between mt-4 pt-4
+    border-t border-[var(--c-sep)] text-sm
+    gap-2  text-[var(--c-60)]
+  ">
     <div>
       <% if (page.prev) { %>
-        <a href="<%- url_for(page.prev.path) %>" class="text-sm text-gray-400 hover:text-gray-500 hover:-translate-x-1 transition-all flex justify-center">
-          <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
+        <a href="<%- url_for(page.prev.path) %>"
+          class="
+            transition-all
+            flex justify-center
+            hover:-translate-x-1
+            hover:text-[var(--c-80)]
+          ">
+          <iconify-icon width="20" icon="mingcute:left-fill" data-inline="false">
+          </iconify-icon>
           <%- page.prev.title %>
         </a>
       <% } %>
     </div>
-    <div class="border-l border-1 border-gray-400 pl-2">
+    <div>
       <% if (page.next) { %>
-        <a href="<%- url_for(page.next.path) %>" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center hover:translate-x-1 transition-all">
+        <a href="<%- url_for(page.next.path) %>"
+          class="
+            flex 
+            justify-center
+            hover:translate-x-1 
+            transition-transform
+            hover:text-[var(--c-100)]
+          "
+        >
           <%- page.next.title %>
-          <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
+          <iconify-icon width="20" icon="mingcute:right-fill" data-inline="false"></iconify-icon>
         </a>
       <% } %>
     </div>

@@ -26,25 +26,29 @@ layout: category
 
 <% if (is_category()) { %>
   <!-- 已经选择了category，显示给定category的所有文章 -->
-  <div class="mt-6 flex flex-wrap items-center justify-center text-2xl h-8
-    dark:bg-zinc-900 px-4 border-1">
-    <iconify-icon width="28" icon="mingcute:classify-2-fill" class="mr-2"></iconify-icon>
-    <span>
-      <p>Category: <%-page.category%></span>
-    </span>
+  <div class="flex flex-col items-center">
+    <div class="mt-6 flex flex-row items-center gap-2
+      text-2xl h-8 px-4">
+      <iconify-icon width="28" icon="mingcute:classify-2-fill">
+      </iconify-icon>
+      <span>
+        <p>Category: <%-page.category%></p>
+      </span>
+    </div>
+    <%- partial('archive', {pagination: config.category, index: true}) %>
   </div>
-  <%- partial('archive', {pagination: config.category, index: true}) %>
 <% } else { %>
   <!-- 显示所有存在的 category -->
-  <div class="flex flex-col gap-2 px-6 max-w-prose mx-auto md:px-0 mt-6">
+  <div class="flex flex-col gap-2 px-6 max-w-prose mx-auto md:px-0 mt-6 text-[var(--c-100)]">
     <div class="flex flex-row items-center gap-2">
-      <iconify-icon width="30" icon="mingcute:classify-2-fill"></iconify-icon>
+      <iconify-icon width="30" icon="mingcute:classify-2-fill">
+      </iconify-icon>
       <h2 class="font-bold text-2xl">Categories</h2>
     </div>
     <div class="mt-2 flex flex-col">
       <% site.categories.forEach(category =>{ %>
         <a href="<%- url_for(category.path.toLowerCase()) %>" class="py-2 group">
-          <div class="flex flex-row gap-1 group-hover:translate-x-2 transition-all">
+          <div class="flex flex-row gap-1 group-hover:translate-x-2 transition-transform group-hover:underline">
             <p> <%- category.name %></p>
             <span>(<%- category.posts.length %>)</span>
           </div>

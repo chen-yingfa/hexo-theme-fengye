@@ -4,12 +4,14 @@ html, body
   width: 100%
   margin: 0px
   padding: 0px
+  text-underline-offset: 2px
 
 :root {
   --c-theme: #3478f6
   --c-0: #ffffff
   --c-10: #f6f8fa
   --c-20: #f3f4f6
+  --c-25: #e5e7eb
   --c-30: #e5e7eb
   --c-40: #d1d5db
   --c-50: #9ca3af
@@ -27,6 +29,7 @@ html, body
   --c-sep: #e1e4e8
   --c-sep-2: #d1d4d8
   --c-code-language: #9ca3af
+  --h-header: 40px
 }
 
 html.dark
@@ -34,6 +37,7 @@ html.dark
   --c-0: #181818
   --c-10: #1f1f1f
   --c-20: #282828
+  --c-25: #2e2e2e
   --c-30: #404244
   --c-40: #5e606b
   --c-50: #7d7e80
@@ -47,7 +51,7 @@ html.dark
   --c-bg-code: #111111
   --c-scrollbar: #333333
   --c-scrollbar-hover: #555555
-  --c-border: #d1d7dd
+  --c-border: #31363c
   --c-sep: #5f6063
   --c-sep-2: #818488
   --c-code-language: #8c939f
@@ -64,10 +68,10 @@ a
 
 .toc-list
   li
-    margin-bottom: 0.3rem
-
+    margin-top: 0.2rem
+    margin-bottom: 0.2rem
   ol
-    margin-top: 0.3rem
+    margin-top: 0.2rem
 
 
 .back-to-top:hover
@@ -110,19 +114,19 @@ a
 [data-animation-controller=false] [data-animate]
   animation: none;
 
-.slide-enter-content
-  counter-reset: enter-count
+// .slide-enter-content
+//   counter-reset: enter-count
 
-.slide-enter-content > *
-  --stagger: 0
-  --delay: 10ms
-  --start: 0ms
-  animation: enter 1s both 1
-  animation-delay: calc(var(--start) + var(--stagger) * var(--delay))
+// .slide-enter-content > *
+//   --stagger: 0
+//   --delay: 10ms
+//   --start: 0ms
+//   animation: enter 1s both 1
+//   animation-delay: calc(var(--start) + var(--stagger) * var(--delay))
 
-.slide-enter-content > p
-  counter-increment: enter-count
-  --stagger: counter(enter-count)
+// .slide-enter-content > p
+//   counter-increment: enter-count
+//   --stagger: counter(enter-count)
 
 .post-content
   hr.footnotes-sep
@@ -181,7 +185,11 @@ hr
     font-weight: 400
   a
     color: var(--c-theme)
+    text-underline-offset: 2px
     transition: color 0.2s ease-in-out
+    text-decoration: none
+    &:hover
+      text-decoration: underline
   blockquote
     ::before
       content: ''
@@ -230,21 +238,6 @@ figure.highlight
   background-color: var(--c-bg-code)
   border-radius: 10px
   border: 1px solid var(--c-sep)
-  &::-webkit-scrollbar
-    height: 4px              /* height of horizontal scrollbar ← You're missing this */
-    width: 0px               /* width of vertical scrollbar */
-    border: 1px solid red
-    color: green
-    padding: 4px
-    margin: 4px
-  
-  &::-webkit-scrollbar-thumb:horizontal
-    background-color: var(--c-50)
-    color: red
-
-  &::-webkit-scrollbar-track:horizontal
-    background-color: var(--c-bg-code)
-    color: red
 
   .code-language
     font-size: 0.8rem
@@ -257,12 +250,13 @@ figure.highlight
     width: 30px
     height: 30px
     background-color: var(--c-bg-code)
-    border: 1px solid var(--c-sep)
-    color: var(--c-80)
+    border: 1px solid var(--c-border)
+    color: var(--c-60)
     position: absolute
     cursor: pointer
     border-radius: 4px
     padding: 4px
     // box-shadow: 0 0px 4px rgba(0, 0, 0, 0.3)
     &:hover
-      background-color: var(--c-30)
+      background-color: var(--c-20)
+      transform: scale(1.1)
