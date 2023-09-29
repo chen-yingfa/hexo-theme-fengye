@@ -48,12 +48,16 @@ _config.yml
 ```yaml
 # Header
 nav:
-  Home: /index
+  # Home: /index
   Posts: /archives
-  Categories: /category
-  Tags: /tag
   Publications: /publications  # This renders `source/publications.md`
   "About Me": /about  # This renders `source/about.md`
+  Categories:
+    path: /category
+    icon: mingcute:classify-2-fill
+  Tags:
+    path: /tag
+    icon: mingcute:tag-fill
 
 email: "chenyingfa1999@qq.com"
 
