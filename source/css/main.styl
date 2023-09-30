@@ -8,6 +8,7 @@ html, body
 
 :root {
   --c-theme: #3478f6
+  --c-theme-2: #3058b6
   --c-0: #ffffff
   --c-10: #f6f8fa
   --c-20: #f3f4f6
@@ -29,11 +30,12 @@ html, body
   --c-sep: #e1e4e8
   --c-sep-2: #d1d4d8
   --c-code-language: #9ca3af
-  --h-header: 40px
+  --h-header: 48px
 }
 
 html.dark
-  --c-theme: #477fef
+  --c-theme: #5393d2
+  --c-theme-2: #415876
   --c-0: #181818
   --c-10: #1f1f1f
   --c-20: #282828
@@ -56,12 +58,9 @@ html.dark
   --c-sep-2: #818488
   --c-code-language: #8c939f
 
-header
-  padding: 0px 0px
-
 a
   color: var(--c-theme)
-  // transition: color 0.1s ease-in-out
+  transition: color 0.1s ease-in-out
   &:hover
     color: var(--c-theme)
     cursor: pointer
@@ -73,24 +72,19 @@ a
   ol
     margin-top: 0.2rem
 
-
-.back-to-top:hover
-  transform: scale(1.15) rotate(3deg)
-  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1))
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-
-
 .back-to-top
   -webkit-transform: translateZ(0)
   transition-property: bottom
   transition-duration: 0.2s
   transition-timing-function: ease-in-out
   transition-delay: 0s
-
-.back-to-top.back-to-top-on
-  bottom: 30px
+  &:hover
+    transform: scale(1.15)
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  &.back-to-top-on
+    bottom: 30px
 
 @keyframes enter
   0%
@@ -113,20 +107,6 @@ a
 
 [data-animation-controller=false] [data-animate]
   animation: none;
-
-// .slide-enter-content
-//   counter-reset: enter-count
-
-// .slide-enter-content > *
-//   --stagger: 0
-//   --delay: 10ms
-//   --start: 0ms
-//   animation: enter 1s both 1
-//   animation-delay: calc(var(--start) + var(--stagger) * var(--delay))
-
-// .slide-enter-content > p
-//   counter-increment: enter-count
-//   --stagger: counter(enter-count)
 
 .post-content
   hr.footnotes-sep
@@ -185,8 +165,6 @@ hr
     font-weight: 400
   a
     color: var(--c-theme)
-    text-underline-offset: 2px
-    transition: color 0.2s ease-in-out
     text-decoration: none
     &:hover
       text-decoration: underline
@@ -198,10 +176,7 @@ hr
   .footnote-backref
     text-decoration: none
     &:hover
-      color: var(--c-theme)
-      transform: translateY(-3px)
-      transition-property: transform;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: underline
   .fancybox-img
     img
       margin-bottom: 0.5rem

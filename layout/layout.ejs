@@ -14,11 +14,14 @@
     <%- body %>
   </main>
   <%- partial('_partial/footer', {cache: true}) %>
-  <div class="back-to-top box-border fixed right-6 z-1024 -bottom-20
-    rounded py-1 px-2 bg-[var(--c-20)] opacity-80 text-[var(--c-80)]
-    border-[1px] border-[var(--c-sep)]
-    cursor-pointer text-center
-    drop-shadow
+  <div class="back-to-top fixed right-6 z-1024 -bottom-20
+    rounded-lg
+    font-bold
+    py-1 px-2
+    bg-[var(--c-10)]
+    cursor-pointer
+    text-center
+    drop-shadow-md
   ">
     <span class="flex justify-center items-center text-sm">
       <span id="scrollpercent"><span>0</span> %</span>

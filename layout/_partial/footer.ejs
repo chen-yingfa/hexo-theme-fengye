@@ -1,9 +1,12 @@
-<footer class="flex flex-col h-40 items-center justify-center
+<footer class="flex flex-col h-40 mb-6 items-center justify-center
   text-[var(--c-50)] text-sm">
+  <div class="flex flex-row items-center mb-6">
+    <%- partial('_partial/social-list') %>
+  </div>
   <!-- busuanzi -->
   <%- partial('_plugins/busuanzi') %>
   <!-- copyright -->
-  <div class="flex items-center gap-2">
+  <div class="flex flex-row items-center gap-1">
     <a class="hover:underline"
       target="_blank"
       href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
@@ -11,22 +14,22 @@
       CC BY-NC-SA 4.0
     </a>
     <span>© 2023</span>
-    <iconify-icon width="16" icon="emojione-monotone:maple-leaf" ></iconify-icon>
     <a class="hover:underline"
-      href="https://github.com/chen-yingfa" 
-      target="_blank" 
-      rel="noopener noreferrer">陈英发</a>
+    href="https://github.com/chen-yingfa" 
+    target="_blank" 
+    rel="noopener noreferrer">陈英发</a>
   </div>
   <!-- powered by -->
-  <div class="flex items-center gap-2">
+  <div class="flex items-center gap-1">
     <span>Powered by</span>
-    <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
+    <a class="hover:underline" 
+    href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
     <span>&</span>
     <a href="https://github.com/chen-yingfa/hexo-theme-fengye" 
-      class="hover:underline"
-      target="_blank"
+    class="hover:underline"
+    target="_blank"
       rel="noopener noreferrer"
-    >
+      >
       枫叶 Fengye
     </a>
   </div>

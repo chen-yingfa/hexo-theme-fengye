@@ -1,0 +1,22 @@
+<% if (theme.links !== undefined) { %>
+    <% for (var key in theme.links) { %>
+        <% var link = theme.links[key] %>
+        <% if (typeof link === 'object') { %>
+            <% var link = theme.links[key].link; %>
+            <% var icon = theme.links[key].icon; %>
+        <% } else { %>
+            <% var link = theme.links[key]; %>
+            <% var icon = "simple-icons:" + key.toLowerCase(); %>
+        <% } %>
+        <a class="
+            hover:text-[var(--c-10)]
+            hover:bg-[var(--c-theme)]
+            rounded-lg
+            p-1
+            my-1
+            flex flex-row items-center
+            group" title="<%- key %>" href="<%= link %>">
+            <iconify-icon width="24" icon="<%- icon %>"></iconify-icon>
+        </a>
+    <% } %>
+<% } %>

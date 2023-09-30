@@ -159,7 +159,7 @@ function addCodeLanguage() {
 function changeFootenoteBackref() {
   const backref = document.querySelectorAll(".footnote-backref");
   backref.forEach((item) => {
-    item.innerHTML = `<iconify-icon class="transition-transform hover:-translate-y-[1px] hover:scale-110" icon="mingcute:arrow-up-fill"></iconify-icon>`;
+    item.innerHTML = `<iconify-icon icon="mingcute:back-fill" class="translate-y-[2px]"></iconify-icon>`;
   });
 }
 

@@ -25,24 +25,26 @@
             </span>
           <% } %>
           <!-- Dates -->
-          <span class="flex items-center gap-1 group">
-            <iconify-icon width="18" icon="mingcute:file-new-fill" ></iconify-icon>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="mingcute:add-circle-fill" ></iconify-icon>
             Created: <time class="w-max"><%- date(page.date, "YYYY-MM-DD") %></time>
           </span>
-          <span class="flex items-center gap-1 group">
-            <iconify-icon width="18" icon="mingcute:edit-2-fill" ></iconify-icon>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="mingcute:refresh-3-fill" ></iconify-icon>
             Edited: <time class="w-max"><%- date(page.updated, "YYYY-MM-DD") %></time>
           </span>
           <!-- Word count -->
-          <span class="flex items-center gap-1 group">
-            <iconify-icon width="18" icon="mingcute:book-6-fill" ></iconify-icon>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="mingcute:book-2-fill" ></iconify-icon>
             <span><%= wordcount(page.content) %> words, <%= min2read(page.content) %> min</span>
           </span>
           <!-- Categories -->
           <% if (page.categories && page.categories.length) { %>
             <!-- <span class="text-gray-400">·</span> -->
             <span class="flex flex-row items-center gap-1 group hover:underline">
-              <iconify-icon class="transition-all group-hover:scale-125 mr-0" width="18" icon="mingcute:classify-2-fill" />
+              <iconify-icon class="transition-all group-hover:scale-125 mr-0"
+                width="18"
+                icon="mingcute:classify-2-fill">
               </iconify-icon>
               <%- list_categories(page.categories, {
                 show_count: false,
