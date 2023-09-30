@@ -2,12 +2,12 @@
 <header class="
     flex flex-row items-center
     w-full
-    pr-3
+    pr-4
     z-10
     border-b-[1px]
     border-b-[var(--c-border)]
-    dark:border-[0px]
     dark:bg-[var(--c-0)]
+    dark:border-b-[var(--c-0)]
     gap-2
     h-[var(--h-header)]
     text-[var(--c-80)]
@@ -16,11 +16,11 @@
     <div class="overflow-hidden h-full flex flex-row items-center">
         <!-- Site Title on the top left -->
         <a href="<%- config.root %>" class="
+            whitespace-nowrap
             text-2xl
             text-[var(--c-theme)]
             hover:text-[var(--c-theme)]
-            pl-3
-            transition-colors
+            pl-4
             font-black
             bg-gradient-to-r from-cyan-500
             to-blue-500 bg-clip-text text-transparent
@@ -108,11 +108,10 @@
   ">
   <div id="menu-content"
     class="
-      rounded-b-2xl
       border-b-[1px]
       relative
       z-20
-      border-[var(--c-border)]
+      border-[var(--c-sep)]
       px-2
       py-2
       -translate-y-full

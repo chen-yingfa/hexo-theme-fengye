@@ -6,29 +6,32 @@
         <img class="rounded-3xl w-48 hover:scale-[1.04] transition-transform" src="<%- theme.portrait %>"
           alt="<%- config.title %>" />
       </a>
-      <!-- Site title -->
-      <h1 class="
-          site-title 
-          text-4xl 
-          bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent
-          mt-4 font-black text-[var(--c-80)]">
-        <%= config.title %>
-      </h1>
       <!-- Sub-title -->
       <p class="
-        text-2xl font-extrabold 
+        text-5xl font-extrabold text-center
         bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent
-        text-[var(--c-80)] mt-2">
+        text-[var(--c-80)] pt-6">
         <%= config.subtitle %>
       </p>
-      <div class="flex flex-row items-center gap-4 my-3 font-bold">
+      <!-- Site title -->
+      <h1 class="
+        site-title
+        text-center
+          text-4xl
+          bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent
+          py-2
+          font-black
+        ">
+        <%= config.title %>
+      </h1>
+      <div class="flex flex-wrap items-center justify-center gap-4 my-6 font-bold text-lg">
         <div class="flex flex-row items-center gap-1">
-          <iconify-icon width="20" icon="mingcute:building-1-fill"></iconify-icon>
+          <iconify-icon width="24" icon="mingcute:building-1-fill"></iconify-icon>
           <p>Beijing 北京</p>
         </div>
         <div class="flex flex-row items-center gap-1 group">
           <iconify-icon class="transition-transform
-                group-hover:scale-125" width="20" icon="mingcute:idcard-fill"></iconify-icon>
+                group-hover:scale-125" width="24" icon="mingcute:idcard-fill"></iconify-icon>
           <a href="/pdf/cv.pdf" class="group-hover:underline">
             CV 简历 (Dec, 2022)
           </a>
@@ -50,7 +53,7 @@
 
   <!-- 分割线 -->
   <div class="flex flex-col items-center justify-center0">
-    <hr class="w-1/2 mb-10 h-[1px] bg-[var(--c-sep-2)] mr-1/2">
+    <hr class="w-1/2 mb-10 h-[1px] bg-[var(--c-sep)] mr-1/2">
     </hr>
     <div class="flex flex-row items-center gap-2 text-[var(--c-50)]">
       <iconify-icon width="28" icon="mingcute:news-fill"></iconify-icon>

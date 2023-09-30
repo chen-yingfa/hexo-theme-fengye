@@ -31,11 +31,12 @@ layout: tag
       </div>
       <div 
       class="
-        bg-[var(--c-20)]
-        dark:bg-transparent
-        border-[1px]
-        border-[var(--c-border)]
-        px-2 py-[1px] text-xl rounded-full
+        tag
+        px-2
+        py-[1px]
+        text-xl
+        rounded-full
+        pointer-events-none
       ">
         #<%-page.tag%>
       </div>
@@ -43,7 +44,7 @@ layout: tag
   <%- partial('archive', {pagination: config.tag, index: true}) %>
 <% } else { %>
   <!-- 显示所有tag，让用户选择 -->
-  <div class="flex flex-col gap-2 px-6 max-w-prose mx-auto md:px-0 mt-6">
+  <div class="flex flex-col gap-2 px-6 max-w-prose mx-auto md:px-0 my-8">
     <div class="flex flex-row items-center gap-2">
       <iconify-icon width="28" icon="mingcute:tag-fill"></iconify-icon>
       <h2 class="font-bold text-2xl">Tags</h2>
@@ -52,27 +53,20 @@ layout: tag
       <% site.tags.sort('length', 'desc').each(item => { %>
         <a href="<%-url_for(item.path)%>"
           class="
-            flex
-            flex-row
-            items-center
-            text-[var(--c-70)]
-            dark:text-[var(--c-80)]
-            border-[1px]
-            border-[var(--c-sep)]
-            bg-[var(--c-20)]
-            hover:bg-[var(--c-30)]
-            dark:bg-transparent 
-            dark:hover:bg-[var(--c-80)]
-            dark:hover:text-[var(--c-20)]
+            tag
+            flex flex-row items-center
+            text-[16px]
             px-[8px]
-            py-[1px]
+            py-[2px]
             rounded-full
-            hover:z-10
+            drop-shadow-md
           "
           href="<%- url_for(item.path) %>">
           #<%- item.name %>
-          <span class="text-[var(--c-50)] dark:text-[var(--c-60)] hover:text-[var(--c-60)] pl-1
-            text-sm">×<%- item.length %></span>
+          <span class="text-[var(--c-50)] pl-1
+            text-sm">
+            ×<%- item.length %>
+          </span>
         </a>
       <% }) %>
     </div>

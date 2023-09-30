@@ -5,7 +5,6 @@
 </head>
 <body 
   class="
-    font-arial
     bg-[var(--c-0)]
     text-[var(--c-80)]
   ">
@@ -14,11 +13,16 @@
     <%- body %>
   </main>
   <%- partial('_partial/footer', {cache: true}) %>
-  <div class="back-to-top fixed right-6 z-1024 -bottom-20
+  <div class="
+    back-to-top
+    fixed right-6
+    z-1024
+    -bottom-20
     rounded-lg
     font-bold
     py-1 px-2
-    bg-[var(--c-10)]
+    text-[var(--c-80)]
+    bg-[var(--c-20)]
     cursor-pointer
     text-center
     drop-shadow-md

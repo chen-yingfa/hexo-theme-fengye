@@ -1,8 +1,8 @@
 <!-- css -->
 <%- css('lib/fancybox/fancybox.min.css') %>
-<%- css('lib/tocbot/tocbot.min.css') %>
-<!-- toc -->
-<% if (toc(page.content).length !== 0) { %>
+  <%- css('lib/tocbot/tocbot.min.css') %>
+    <!-- toc -->
+    <% if (toc(page.content).length !==0) { %>
   <%- partial('_partial/toc') %>
 <% } %>
 <section class="px-6 max-w-prose mx-auto md:px-0">
@@ -11,53 +11,60 @@
     <div class="flex flex-col gap-2 pt-4 md:pt-6">
       <!-- Title -->
       <div id="article-title" class="leading-snug">
-        <p class="text-3xl font-bold text-[var(--c-100)]"><%- page.title %></p>
+        <p class="text-3xl font-bold text-[var(--c-100)] mb-4"><%- page.title %></p>
       </div>
       <!-- Meta data -->
       <div>
         <section class="
-          flex flex-wrap items-center gap-x-2 text-sm text-[var(--c-100)]">
-          <!-- Author -->
-          <% if (page.author !== undefined) { %>
-            <span class="flex items-center gap-1 group">
-              <iconify-icon width="18" icon="mingcute:user-edit-fill" ></iconify-icon>
-              <p><%- page.author %></p>
+          flex flex-col gap-x-2 text-sm text-[var(--c-100)]">
+          <div class="flex flex-wrap items-center gap-x-2">
+            <!-- Dates -->
+            <div class="flex items-center gap-1">
+              <iconify-icon width="18" icon="mingcute:add-circle-fill" ></iconify-icon>
+              Created: <time class="w-max"><%- date(page.date, "YYYY-MM-DD") %></time>
+            </div>
+            <div class="flex items-center gap-1">
+              <iconify-icon width="18" icon="mingcute:refresh-3-fill" ></iconify-icon>
+              Edited: <time class="w-max"><%- date(page.updated, "YYYY-MM-DD") %></time>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-x-2">
+            <!-- Author -->
+            <% if (page.author !== undefined) { %>
+              <span class="flex items-center gap-1 group">
+                <iconify-icon width="18" icon="mingcute:user-edit-fill" ></iconify-icon>
+                <p><%- page.author %></p>
+              </span>
+            <% } %>
+
+            <!-- Word count -->
+            <span class="flex items-center gap-1">
+              <iconify-icon width="18" icon="mingcute:book-2-fill" ></iconify-icon>
+              <span><%= wordcount(page.content) %> words, <%= min2read(page.content) %> min</span>
             </span>
-          <% } %>
-          <!-- Dates -->
-          <span class="flex items-center gap-1">
-            <iconify-icon width="18" icon="mingcute:add-circle-fill" ></iconify-icon>
-            Created: <time class="w-max"><%- date(page.date, "YYYY-MM-DD") %></time>
-          </span>
-          <span class="flex items-center gap-1">
-            <iconify-icon width="18" icon="mingcute:refresh-3-fill" ></iconify-icon>
-            Edited: <time class="w-max"><%- date(page.updated, "YYYY-MM-DD") %></time>
-          </span>
-          <!-- Word count -->
-          <span class="flex items-center gap-1">
-            <iconify-icon width="18" icon="mingcute:book-2-fill" ></iconify-icon>
-            <span><%= wordcount(page.content) %> words, <%= min2read(page.content) %> min</span>
-          </span>
-          <!-- Categories -->
-          <% if (page.categories && page.categories.length) { %>
-            <!-- <span class="text-gray-400">·</span> -->
-            <span class="flex flex-row items-center gap-1 group hover:underline">
-              <iconify-icon class="transition-all group-hover:scale-125 mr-0"
-                width="18"
-                icon="mingcute:classify-2-fill">
-              </iconify-icon>
-              <%- list_categories(page.categories, {
-                show_count: false,
-                class: 'article-category',
-                style: 'none',
-                separator: '/'
-              }) %>
-            </span>
-          <% } %>
+            <!-- Categories -->
+            <% if (page.categories && page.categories.length) { %>
+              <!-- <span class="text-gray-400">·</span> -->
+              <span class="flex flex-row items-center gap-1 group hover:underline">
+                <iconify-icon class="transition-all group-hover:scale-125 mr-0"
+                  width="18"
+                  icon="mingcute:classify-2-fill">
+                </iconify-icon>
+                <%- list_categories(page.categories, {
+                  show_count: false,
+                  class: 'article-category',
+                  style: 'none',
+                  separator: '/'
+                }) %>
+              </span>
+            <% } %>
+          </div>
         </section>
       </div>
       <!-- tags -->
-      <%- partial('_partial/tag-list', {tags: page.tags}) %>
+      <div>
+        <%- partial('_partial/tag-list', {tags: page.tags}) %>
+      </div>
     </div>
   </header>
   <!-- content -->

@@ -16,19 +16,15 @@
                 <%- post.title %>
             </h2>
         </a>
-        <section class="mt-1 text-sm">
-            <p class="line-clamp-4">
-                <!-- Post excerpt -->
-                <% if (post.excerpt) { %>
-                    <div class="post-excerpt text-[var(--c-60)]">
-                        <%- post.excerpt -%>
-                    </div>
-                <% } %>
-            </p>
-        </section>
+        <!-- Post excerpt -->
+        <% if (post.excerpt) { %>
+            <div class="post-excerpt text-[var(--c-60)] text-sm line-clamp-3">
+                <%- post.excerpt -%>
+            </div>
+        <% } %>
         <!-- Post Statistics -->
         <div class="flex flex-wrap items-center gap-x-2 text-sm
-            text-[var(--c-70)] line-clamp-4">
+            text-[var(--c-70)]">
             <span class="flex flex-row items-center gap-1 group">
                 <iconify-icon width="16"
                     icon="mingcute:add-circle-fill"></iconify-icon>
