@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-0">
-  <div class="index-info-container pt-6 text-[var(--c-60)]">
+  <div class="index-info-container pt-6 text-[var(--c-70)]">
     <!-- Home page info, short text about me -->
     <div class="flex flex-col items-center">
       <a href="/about">
@@ -21,7 +21,7 @@
         text-[var(--c-80)] mt-2">
         <%= config.subtitle %>
       </p>
-      <div class="flex flex-row items-center gap-4 mt-3">
+      <div class="flex flex-row items-center gap-4 my-3 font-bold">
         <div class="flex flex-row items-center gap-1">
           <iconify-icon width="20" icon="mingcute:building-1-fill"></iconify-icon>
           <p>Beijing 北京</p>
@@ -47,22 +47,21 @@
       </div>
     </div>
   </div>
-</div>
 
-<!-- 分割线 -->
-<div class="flex flex-col items-center justify-center0">
-  <hr class="w-1/2 my-8 h-[1px] bg-[var(--c-sep-2)] mr-1/2">
-  </hr>
-  <div class="flex flex-row items-center gap-2 text-[var(--c-50)]">
-    <iconify-icon width="28" icon="mingcute:news-fill"></iconify-icon>
-    <p class="text-center text-3xl">Recent Works</p>
+  <!-- 分割线 -->
+  <div class="flex flex-col items-center justify-center0">
+    <hr class="w-1/2 mb-10 h-[1px] bg-[var(--c-sep-2)] mr-1/2">
+    </hr>
+    <div class="flex flex-row items-center gap-2 text-[var(--c-50)]">
+      <iconify-icon width="28" icon="mingcute:news-fill"></iconify-icon>
+      <p class="text-center text-3xl">Recent Works</p>
+    </div>
   </div>
+
+  <!-- List of featured posts -->
+  <%- partial('_partial/post-list',{ posts: site.posts.filter(post=> post.featured),
+    show_tags: false
+    }
+    ) %>
+
 </div>
-
-<!-- List of featured posts -->
-<%- partial('_partial/post-list',{ posts: site.posts.filter(post=> post.featured),
-  show_tags: false
-  }
-  ) %>
-
-  </div>
