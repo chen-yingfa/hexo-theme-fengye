@@ -33,7 +33,7 @@
     <!-- Right part -->
     <div class="flex flex-row items-center z-20 h-full">
         <!-- Page links -->
-        <div class="hidden sm:flex flex-row items-center h-full">
+        <div class="hidden sm:flex flex-row h-full">
             <% for (var i in theme.nav) { %>
                 <% var pageLink = theme.nav[i]; %>
                 <% if (typeof pageLink === 'object') { %>
@@ -52,12 +52,14 @@
                         hover:bg-[var(--c-20)]
                         hover:text-[var(--c-theme)]
                         transition-all
-                        p-2
+                        px-2
+                        py-1
                         my-1
                         rounded-lg
+                        group
                     ">
                     <% if (icon) { %>
-                        <iconify-icon icon="<%- icon %>" width="22">
+                        <iconify-icon class="group-hover:scale-125 transition-transform" icon="<%- icon %>" width="22">
                         </iconify-icon>
                     <% } %>
                     <% if (theme.nav[i].show_text) { %>
@@ -104,10 +106,12 @@
     w-full
     z-10
     rounded
-    drop-shadow-md
+    drop-shadow
   ">
   <div id="menu-content"
     class="
+      font-bold
+      text-xl
       border-b-[1px]
       relative
       z-20
@@ -117,15 +121,6 @@
       -translate-y-full
       transition-transform
       duration-200
-    ">
-    <div class="
-      nav
-      flex
-      flex-col
-      sm:flex-row
-      text-md
-      font-bold
-      transition-transform
     ">
       <% for (var i in theme.nav){ %>
         <% var pageLink = theme.nav[i]; %>
@@ -137,7 +132,7 @@
                 gap-2
                 h-12
                 hover:underline
-                hover:bg-[var(--c-10)]
+                hover:bg-[var(--c-20)]
                 px-3
                 py-1
                 rounded-lg
@@ -164,6 +159,5 @@
           </a>
         <% } %>
       <% } %>
-    </div>
   </div>
 </div>

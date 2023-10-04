@@ -59,7 +59,7 @@
                     </iconify-icon>
                     <% post.categories.forEach(function (item) { %>
                         <a class="underline underline-offset-2"
-                            href="<%- url_for(item.path) %>">
+                            href="<%- url_for(item.path.toLowerCase()) %>">
                             <%- item.name %>
                         </a>
                     <% }); %>
@@ -70,7 +70,7 @@
         <div>
             <% if (show_tags) { %>
                 <%- partial('tag-list', {tags: post.tags}) %>
-                <% } %>
+            <% } %>
         </div>
     </div>
 </div>
