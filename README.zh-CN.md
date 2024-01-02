@@ -31,7 +31,7 @@
 
 ```bash
 cd your-blog/themes
-git clone https://github.com/xbmlz/hexo-theme-fengye.git themes/fengye
+git clone https://github.com/xbmlz/hexo-theme-fengye.git fengye
 ```
 
 - Step 2: 在 `_config.yml` 将 `theme` 改成 `fengye`.

@@ -32,7 +32,7 @@ Minimalistic but powerful Hexo theme
 
 ```bash
 cd your-blog/themes
-git clone git@github.com:chen-yingfa/hexo-theme-fengye.git themes/fengye
+git clone git@github.com:chen-yingfa/hexo-theme-fengye.git fengye
 ```
 
 - Step 2: Modify `theme` setting in `_config.yml` to `fengye`.
