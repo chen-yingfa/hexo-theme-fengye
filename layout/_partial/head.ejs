@@ -37,6 +37,7 @@ if (is_archive()) {
 <link rel="icon" href="<%- url_for(theme.favicon) %>">
 <% } %>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"
@@ -46,6 +47,7 @@ if (is_archive()) {
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
 <%- css('css/main') %>
+<%- css('css/search') %>
 
 <%- js('lib/jquery.min.js') %>
 <%- js('lib/iconify-icon.min.js') %>

@@ -70,6 +70,9 @@
         </div>
         <!-- Icons on the right -->
         <div class="flex flex-row items-center">
+
+            <%- partial('_partial/search') %>
+
             <!-- Dark/light toggle icon -->
             <a class="flex group p-1" title="toggle theme" id="toggle-dark">
                 <iconify-icon class="transition-transform
@@ -96,31 +99,30 @@
     </div>
 </header>
 
-
 <!-- Dropdown menu on small screens -->
 <div id="menu-panel"
-  class="
-    h-0
-    overflow-hidden
-    sm:hidden
-    w-full
-    z-10
-    rounded
-  ">
-  <div id="menu-content"
     class="
-      font-bold
-      text-xl
-      border-b-[1px]
-      relative
-      z-20
-      border-[var(--c-sep)]
-      px-2
-      py-2
-      -translate-y-full
-      transition-transform
-      duration-200
+        h-0
+        overflow-hidden
+        sm:hidden
+        w-full
+        z-10
+        rounded
     ">
+  <div id="menu-content"
+        class="
+        font-bold
+        text-xl
+        border-b-[1px]
+        relative
+        z-20
+        border-[var(--c-sep)]
+        px-2
+        py-2
+        -translate-y-full
+        transition-transform
+        duration-200
+        ">
       <% for (var i in theme.nav){ %>
         <% var pageLink = theme.nav[i]; %>
         <% if (typeof pageLink === 'object') { %>
