@@ -3,25 +3,47 @@
     post-container
     px-3 py-3
 ">
-    <div class="post-data-container flex flex-col gap-2">
-        <!-- Post title -->
-        <a href="<%- url_for(post.path) %>">
-            <h2 class="
+    <div class="post-data-container flex flex-col gap-3">
+        <% if (post.thumbnail) { %>
+        <% var postDir = url_for(post.path); %>
+            <div class="flex flex-row gap-4 max-h-36">
+            <!-- Post thumbnail -->
+            <a href="<%- url_for(post.path) %>">
+                <img class="
+                    h-full
+                    max-w-48
+                    rounded-md
+                    object-cover
+                    transition-all
+                    hover:scale-105
+                    hover:shadow-md
+                    "
+                    src="<%- url_for(post.path) %><%-post.thumbnail %>"
+                    alt="<%- post.title %>">
+        <% } %>
+            <div class="flex flex-col gap-1">
+            <!-- Post title -->
+            <a href="<%- url_for(post.path) %>">
+                <h2 class="
                     text-[var(--c-80)]
                     font-bold
                     text-xl
                     hover:text-[var(--c-theme)]
                     transition-all
                     hover:underline">
-                <%- post.title %>
-            </h2>
-        </a>
+                    <%- post.title %>
+                </h2>
+            </a>
         <!-- Post excerpt -->
         <% if (post.excerpt) { %>
             <div class="post-excerpt text-[var(--c-60)] text-sm line-clamp-4">
                 <%- post.excerpt -%>
             </div>
+            <% } %>
+        <% if (post.thumbnail) { %>
+        </div>
         <% } %>
+    </div>
         <!-- Post Statistics -->
         <div class="flex flex-wrap items-center gap-x-2 text-sm
             text-[var(--c-70)]">

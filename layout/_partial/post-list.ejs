@@ -6,7 +6,8 @@
     <% if(last_year !== cur_year){ %>
       <div class="relative pointer-events-none h-[30px]">
         <div class="absolute -top-6 w-[100%]">
-          <p class="text-clip overflow-hidden -translate-x-3 text-9xl
+          <p class="
+            text-clip overflow-hidden -translate-x-3 text-9xl
             font-extrabold
             text-[var(--c-theme)]
             opacity-10
@@ -18,7 +19,7 @@
     <% last_year = cur_year; } %>
     <!-- The post -->
     <div class="w-full">
-      <%- partial('_partial/post-item', {post: post, show_tags: show_tags}) %>
+      <%- partial('_partial/post-list-item', {post: post, show_tags: show_tags}) %>
     </div>
   <% }) %>
 </section>

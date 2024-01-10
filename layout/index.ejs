@@ -62,9 +62,9 @@
   </div>
 
   <!-- List of featured posts -->
-  <%- partial('_partial/post-list',{ posts: site.posts.filter(post=> post.featured),
+  <%- partial('_partial/post-list', {
+    posts: page.posts.filter(post => post.featured),
     show_tags: false
-    }
-    ) %>
+  }) %>
 
 </div>

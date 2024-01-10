@@ -1,11 +1,45 @@
-<% if (page.total > 1){ %>
-  <nav class="pagination">
-      <%- paginator({
-          // prev_text: "&laquo; Prev",
-          // next_text: "Next &raquo;"
+<div class="border-t">
+<%  if (page.total > 1){ %>
+  <!-- <nav class="pagination"> -->
+  <div class="flex flex-row justify-center px-24 max-w-prose mx-auto py-4">
+
+    <% if (page.prev){ %>
+        <a class="rounded-md text-center shadow-md flex flex-row border-1 items-center justify-center pr-4 pl-2" href="<%- config.root %><%- page.prev_link %>" class="pagination-prev">
+          <iconify-icon width="20" icon="mingcute:left-fill" data-inline="false">
+          </iconify-icon>
+          Prev
+        </a>
+      <% } else { %> 
+        <div class="opacity-20 rounded-md text-center shadow-md flex flex-row border-1 items-center justify-center pr-4 pl-2">
+          <iconify-icon width="20" icon="mingcute:left-fill" data-inline="false">
+          </iconify-icon>
+          Prev
+        </div>
+        <%}%>
+      <div class="flex flex-grow text-center justify-center">
+        <div class="border-2 text-xl font-bold opacity-70 w-fit px-2 rounded-lg">
+          <p><%= page.current %></p>
+        </div>
+      </div>
+      <% if (page.next){ %>
+          <a class="rounded-md text-center justify-center border-1 shadow-md flex flex-row items-center pl-4 pr-2" href="<%- config.root %><%- page.next_link %>">
+            Next
+            <iconify-icon width="20" icon="mingcute:right-fill" data-inline="false">Next!</iconify-icon>
+          </a>
+        <% }  else { %>
+          <div class="opacity-20 rounded-md text-center justify-center border-1 shadow-md flex flex-row items-center pl-4 pr-2">
+            Next
+            <iconify-icon width="20" icon="mingcute:right-fill" data-inline="false">Next!</iconify-icon>
+          </div>
+          <% }  %>
+      </div>
+      <!-- <%- paginator({
+          //prev_text: "&laquo; Prev",
+          //next_text: "Next &raquo;"
           prev_next: false,
           end_size: 1,
           mid_size: 2,
-      }) %>
-  </nav>
-<% } %>
+      }) %> -->
+  <!-- </nav> -->
+  <% } %>
+</div>
