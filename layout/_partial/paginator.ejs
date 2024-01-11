@@ -4,7 +4,7 @@
   <div class="flex flex-row justify-center px-24 max-w-prose mx-auto py-4">
 
     <% if (page.prev){ %>
-        <a class="rounded-md text-center shadow-md flex flex-row border-1 items-center justify-center pr-4 pl-2" href="<%- config.root %><%- page.prev_link %>" class="pagination-prev">
+        <a class="hover:bg-gray-100 rounded-md text-center shadow-md flex flex-row border-1 items-center justify-center pr-4 pl-2" href="<%- config.root %><%- page.prev_link %>" class="pagination-prev">
           <iconify-icon width="20" icon="mingcute:left-fill" data-inline="false">
           </iconify-icon>
           Prev
@@ -22,7 +22,7 @@
         </div>
       </div>
       <% if (page.next){ %>
-          <a class="rounded-md text-center justify-center border-1 shadow-md flex flex-row items-center pl-4 pr-2" href="<%- config.root %><%- page.next_link %>">
+          <a class="hover:bg-gray-100 rounded-md text-center justify-center border-1 shadow-md flex flex-row items-center pl-4 pr-2" href="<%- config.root %><%- page.next_link %>">
             Next
             <iconify-icon width="20" icon="mingcute:right-fill" data-inline="false">Next!</iconify-icon>
           </a>

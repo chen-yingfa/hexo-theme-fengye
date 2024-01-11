@@ -50,7 +50,7 @@ layout: tag
       <h2 class="font-bold text-2xl">Tags</h2>
     </div>
     <div class="tags-container flex flex-wrap gap-1">
-      <% site.tags.sort('length', 'desc').each(item => { %>
+      <% site.tags.each(item => { %>
         <a href="<%-url_for(item.path)%>"
           class="
             tag
@@ -60,11 +60,22 @@ layout: tag
             py-[2px]
             rounded-full
             drop-shadow-md
+            border-[1px]
+            border-[var(--c-theme)]
+            text-[var(--c-theme)]
+            bg-[var(--c-0)]
+            dark:bg-[var(--c-0)]
+            dark:drop-shadow-none
+            hover:bg-[var(--c-theme)]
+            dark:hover:bg-[var(--c-theme)]
+            hover:text-[var(--c-text)]
           "
           href="<%- url_for(item.path) %>">
           #<%- item.name %>
           <span class="
             text-[var(--c-50)]
+            dark:text-[var(--c-70)]
+            hover:dark:text-[var(--c-80)]
             pl-1
             text-sm">
             ×<%- item.length %>

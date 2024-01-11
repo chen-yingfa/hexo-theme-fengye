@@ -7,9 +7,17 @@
           tag
           text-sm
           rounded-full
+          px-[5px]
+          border-[1px]
+          border-[var(--c-theme)]
+          text-[var(--c-theme)]
+          bg-[var(--c-0)]
+          dark:bg-[var(--c-0)]
           dark:drop-shadow-none
+          hover:bg-[var(--c-theme)]
+          hover:text-[var(--c-0)]
         ">
-        #<%- tag.name %>
+        <%- tag.name %>
       </a>
     <% }); %>
   <% } %>
