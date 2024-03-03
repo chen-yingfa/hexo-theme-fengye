@@ -1,31 +1,33 @@
 # Header
 nav:
   # Home: /index
-  Posts:
+  archives:
     path: ./archives
     icon: mingcute:inbox-fill
-    show_text: true
-  Publications:
+    text: Posts
+  publications:
     path: ./publications
     icon: mingcute:science-fill
-    show_text: true
+    text: Publications
   # Projects: /projects
-  About:
+  about:
     path: ./about
     icon: mingcute:user-info-fill
-    show_text: true
-  Categories:
+    text: About
+  categories:
     path: ./category
     icon: mingcute:classify-2-fill
-    show_icon: true
-  Tags:
+    text: Categories
+  tags:
     path: ./tag
     icon: mingcute:tag-fill
-    show_icon: true
-  Home:
+    text: Tags
+  home:
     path: ./index
     icon: mingcute:home-2-fill
-    show_icon: true
+
+  # To add a new page, use hexo new page, then add another entry below.
+  # Each entry MUST have a path.
 
 email: example@xxx.com
 

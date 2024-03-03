@@ -62,8 +62,8 @@
                         <iconify-icon class="group-hover:scale-125 transition-transform" icon="<%- icon %>" width="22">
                         </iconify-icon>
                     <% } %>
-                    <% if (theme.nav[i].show_text) { %>
-                        <p><%= i %></p>
+                    <% if (theme.nav[i].text) { %>
+                        <p><%= theme.nav[i].text %></p>
                     <% } %>
                 </a>
             <% } %>
