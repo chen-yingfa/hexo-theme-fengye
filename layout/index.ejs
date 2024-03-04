@@ -9,32 +9,32 @@
         </a>
       <% } %>
       <!-- Sub-title -->
-      <p class="
-        text-5xl font-extrabold text-center
-        bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent
-        text-[var(--c-80)] pt-6">
-        <%= config.subtitle %>
-      </p>
       <!-- Site title -->
       <h1 class="
         site-title
         text-center
-          text-4xl
+          text-5xl
           bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent
           py-2
           font-black
         ">
         <%= config.title %>
       </h1>
+      <p class="
+        text-3xl font-extrabold text-center
+        bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent
+        text-[var(--c-80)] pt-6">
+        <%= config.subtitle %>
+      </p>
       <div class="flex flex-wrap items-center justify-center gap-4 my-6 font-bold text-lg">
         <div class="flex flex-row items-center gap-1">
           <iconify-icon width="24" icon="mingcute:building-1-fill"></iconify-icon>
-          <p>Beijing</p>
+          <p><%= theme.my_location %></p>
         </div>
         <div class="flex flex-row items-center gap-1 group">
           <iconify-icon class="transition-transform
                 group-hover:scale-125" width="24" icon="mingcute:idcard-fill"></iconify-icon>
-          <a href="/pdf/cv.pdf" class="group-hover:underline">
+          <a href="<%= theme.cv_path %>" class="group-hover:underline">
             CV (Dec, 2022)
           </a>
         </div>
@@ -53,6 +53,7 @@
     </div>
   </div>
 
+  <% if (theme.show_featured_posts) { %>
   <!-- 分割线 -->
   <div class="flex flex-col items-center justify-center0">
     <hr class="w-1/2 mb-10 h-[1px] bg-[var(--c-sep)] mr-1/2">
@@ -65,8 +66,9 @@
 
   <!-- List of featured posts -->
   <%- partial('_partial/post-list', {
-    posts: page.posts.filter(post => post.featured),
+    posts: site.posts.filter(post => post.featured),
     show_tags: false
   }) %>
 
+  <% } %>
 </div>

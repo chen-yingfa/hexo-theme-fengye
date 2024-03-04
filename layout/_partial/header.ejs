@@ -75,22 +75,24 @@
 
             <!-- Dark/light toggle icon -->
             <a class="flex group p-1" title="toggle theme" id="toggle-dark">
-                <iconify-icon class="transition-transform
+                <iconify-icon
+                    class="transition-transform
                     group-hover:rotate-[45deg]
                     group-hover:scale-125
-                    group-hover:text-[var(--c-theme)]
-                    " width="24" icon="" id="theme-icon">
+                    group-hover:text-[var(--c-theme)]" 
+                    width="24"
+                    id="theme-icon">
                 </iconify-icon>
             </a>
             <!-- Icon for dropout menu on small screens -->
-            <div class="flex items-center justify-center gap-1 mx-1 sm:hidden">
-                <a class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
-                    <iconify-icon width="22" icon="mingcute:menu-fill"
+            <div class="flex p-1 mx-1 sm:hidden">
+                <a class="w-5 h-5" aria-hidden="true" id="open-menu">
+                    <iconify-icon width="24" icon="mingcute:menu-fill"
                         class="transition-transform hover:scale-125 hover:rotate-[5deg]">
                     </iconify-icon>
                 </a>
-                <a class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
-                    <iconify-icon width="22" icon="mingcute:close-circle-fill"
+                <a class="w-5 h-5 hidden" aria-hidden="true" id="close-menu">
+                    <iconify-icon width="24" icon="mingcute:close-circle-fill"
                         class="transition-transform hover:scale-125 hover:rotate-[80deg]">
                     </iconify-icon>
                 </a>
@@ -111,6 +113,10 @@
     ">
   <div id="menu-content"
         class="
+        flex
+        flex-row
+        justify-center
+        items-center
         font-bold
         text-xl
         border-b-[1px]

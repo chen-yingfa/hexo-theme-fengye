@@ -15,11 +15,11 @@ nav:
     icon: mingcute:user-info-fill
     text: About
   categories:
-    path: ./category
+    path: ./categories
     icon: mingcute:classify-2-fill
     text: Categories
   tags:
-    path: ./tag
+    path: ./tags
     icon: mingcute:tag-fill
     text: Tags
   home:
@@ -27,23 +27,35 @@ nav:
     icon: mingcute:home-2-fill
 
   # To add a new page, use hexo new page, then add another entry below.
-  # Each entry MUST have a path.
+  # Each entry MUST have a path. In addition, it will render icon and/or text
+  # if they are provided. It will be an empty button if none of these are 
+  # provided.
 
 email: example@xxx.com
+my_location: Beijing, China
+cv_path: /pdf/cv.pdf
+
+show_featured_posts: true
 
 # favicon
 favicon: /favicon.ico
 
 # logo
-portrait: /images/portrait.jpg  # Your profile image here
+portrait: /images/logo.svg  # Your profile image here
 show_profile_image: true
 
 # links
 links:
-  Github: https://github.com/chen-yingfa
-  ZhiHu: https://www.zhihu.com/people/chen-ying-fa-34
-  # Twitter:
-  # Weibo:
+  Github:
+    link: https://www.github.com/chen-yingfa
+    icon: mingcute:github-fill
+  ZhiHu:
+    link: https://www.zhihu.com/people/chen-ying-fa-34
+    icon: ri:zhihu-line
+  Twitter:
+    link: https://www.twitter.com/DonnyChan123
+    icon: mingcute:social-x-fill
+  # You can add more links below using the format above.
 
 # analytics
 google_analytics:

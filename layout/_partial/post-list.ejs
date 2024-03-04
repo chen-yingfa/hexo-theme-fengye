@@ -1,5 +1,7 @@
 <section class="px-2 py-8 max-w-prose mx-auto gap-4 grid grid-cols-1">
   <% var last_year = ''; var last_month = ''; var last_day = ''; %>
+  <!-- Sort posts by date -->
+  <% posts.data.sort((a, b) => b.date - a.date) %>
   <% posts.each(function (post, index) { %>
     <% var cur_year = post.date.year(); %>
     <!-- Large text showing the year in the background -->
