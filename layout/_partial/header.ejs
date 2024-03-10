@@ -12,10 +12,10 @@
     h-[var(--h-header)]
     text-[var(--c-80)]
 ">
-    <!-- Left part -->
-    <div class="overflow-hidden h-full flex flex-row items-center">
-        <!-- Site Title on the top left -->
-        <a href="<%- config.root %>" class="
+  <!-- Left part -->
+  <div class="overflow-hidden h-full flex flex-row items-center">
+    <!-- Site Title on the top left -->
+    <a href="<%- config.root %>" class="
             whitespace-nowrap
             text-2xl
             text-[var(--c-theme)]
@@ -25,27 +25,25 @@
             bg-gradient-to-r from-cyan-500
             to-blue-500 bg-clip-text text-transparent
           ">
-            <%= config.title %>
-        </a>
-    </div>
-    <!-- Div for pushing items to both sides -->
-    <div class="flex-1"></div>
-    <!-- Right part -->
-    <div class="flex flex-row items-center z-20 h-full">
-        <!-- Page links -->
-        <div class="hidden sm:flex flex-row h-full">
-            <% for (var i in theme.nav) { %>
-                <% var pageLink = theme.nav[i]; %>
-                <% if (typeof pageLink === 'object') { %>
-                    <% var path = theme.nav[i].path; %>
-                    <% var icon = theme.nav[i].icon; %>
-                <% } else { %>
-                    <% var path = theme.nav[i]; %>
-                    <% var icon = null; %>
-                <% } %>
-                <a
-                    href="<%= url_for(path) %>"
-                    class="
+      <%= config.title %>
+    </a>
+  </div>
+  <!-- Div for pushing items to both sides -->
+  <div class="flex-1"></div>
+  <!-- Right part -->
+  <div class="flex flex-row items-center z-20 h-full">
+    <!-- Page links -->
+    <div class="hidden sm:flex flex-row h-full">
+      <% for (var i in theme.nav) { %>
+      <% var pageLink = theme.nav[i]; %>
+      <% if (typeof pageLink === 'object') { %>
+      <% var path = theme.nav[i].path; %>
+      <% var icon = theme.nav[i].icon; %>
+      <% } else { %>
+      <% var path = theme.nav[i]; %>
+      <% var icon = null; %>
+      <% } %>
+      <a href="<%= url_for(path) %>" class="
                         flex flex-row items-center
                         gap-1
                         hover:underline
@@ -58,52 +56,46 @@
                         rounded-lg
                         group
                     ">
-                    <% if (icon) { %>
-                        <iconify-icon class="group-hover:scale-125 transition-transform" icon="<%- icon %>" width="22">
-                        </iconify-icon>
-                    <% } %>
-                    <% if (theme.nav[i].text) { %>
-                        <p><%= theme.nav[i].text %></p>
-                    <% } %>
-                </a>
-            <% } %>
-        </div>
-        <!-- Icons on the right -->
-        <div class="flex flex-row items-center">
+        <% if (icon) { %>
+        <iconify-icon class="group-hover:scale-125 transition-transform" icon="<%- icon %>" width="22">
+        </iconify-icon>
+        <% } %>
+        <% if (theme.nav[i].text) { %>
+        <p><%= theme.nav[i].text %></p>
+        <% } %>
+      </a>
+      <% } %>
+    </div>
+    <!-- Icons on the right -->
+    <div class="flex flex-row items-center">
 
-            <%- partial('_partial/search') %>
+      <!-- TODO: Add search icon here -->
 
-            <!-- Dark/light toggle icon -->
-            <a class="flex group p-1" title="toggle theme" id="toggle-dark">
-                <iconify-icon
-                    class="transition-transform
+      <!-- Dark/light toggle icon -->
+      <a class="flex group p-1" title="toggle theme" id="toggle-dark">
+        <iconify-icon class="transition-transform
                     group-hover:rotate-[45deg]
                     group-hover:scale-125
-                    group-hover:text-[var(--c-theme)]" 
-                    width="24"
-                    id="theme-icon">
-                </iconify-icon>
-            </a>
-            <!-- Icon for dropout menu on small screens -->
-            <div class="flex p-1 mx-1 sm:hidden">
-                <a class="w-5 h-5" aria-hidden="true" id="open-menu">
-                    <iconify-icon width="24" icon="mingcute:menu-fill"
-                        class="transition-transform hover:scale-125 hover:rotate-[5deg]">
-                    </iconify-icon>
-                </a>
-                <a class="w-5 h-5 hidden" aria-hidden="true" id="close-menu">
-                    <iconify-icon width="24" icon="mingcute:close-circle-fill"
-                        class="transition-transform hover:scale-125 hover:rotate-[80deg]">
-                    </iconify-icon>
-                </a>
-            </div>
-        </div>
+                    group-hover:text-[var(--c-theme)]" width="24" id="theme-icon">
+        </iconify-icon>
+      </a>
+      <!-- Icon for dropout menu on small screens -->
+      <div class="flex p-1 mx-1 sm:hidden">
+        <a class="w-5 h-5" aria-hidden="true" id="open-menu">
+          <iconify-icon width="24" icon="mingcute:menu-fill" class="transition-transform hover:scale-125 hover:rotate-[5deg]">
+          </iconify-icon>
+        </a>
+        <a class="w-5 h-5 hidden" aria-hidden="true" id="close-menu">
+          <iconify-icon width="24" icon="mingcute:close-circle-fill" class="transition-transform hover:scale-125 hover:rotate-[80deg]">
+          </iconify-icon>
+        </a>
+      </div>
     </div>
+  </div>
 </header>
 
 <!-- Dropdown menu on small screens -->
-<div id="menu-panel"
-    class="
+<div id="menu-panel" class="
         h-0
         overflow-hidden
         sm:hidden
@@ -111,8 +103,7 @@
         z-10
         rounded
     ">
-  <div id="menu-content"
-        class="
+  <div id="menu-content" class="
         flex
         flex-row
         justify-center
@@ -129,12 +120,10 @@
         transition-transform
         duration-200
         ">
-      <% for (var i in theme.nav){ %>
-        <% var pageLink = theme.nav[i]; %>
-        <% if (typeof pageLink === 'object') { %>
-          <a
-            href="<%- url_for(theme.nav[i].path) %>"
-            class="
+    <% for (var i in theme.nav){ %>
+    <% var pageLink = theme.nav[i]; %>
+    <% if (typeof pageLink === 'object') { %>
+    <a href="<%- url_for(theme.nav[i].path) %>" class="
                 flex flex-row items-center
                 gap-2
                 h-12
@@ -144,27 +133,25 @@
                 py-1
                 rounded-lg
             ">
-            <iconify-icon icon="<%- theme.nav[i].icon %>" width="22">
-            </iconify-icon>
-            <p>
-              <%= i %>
-            </p>
-          </a>
-        <% } else { %>
-          <a
-            href="<%- url_for(theme.nav[i]) %>"
-            class="flex flex-row items-center
+      <iconify-icon icon="<%- theme.nav[i].icon %>" width="22">
+      </iconify-icon>
+      <p>
+        <%= i %>
+      </p>
+    </a>
+    <% } else { %>
+    <a href="<%- url_for(theme.nav[i]) %>" class="flex flex-row items-center
               h-12
               hover:underline
               px-3
               py-1
               rounded-lg
             ">
-            <p>
-              <%= i %>
-            </p>
-          </a>
-        <% } %>
-      <% } %>
+      <p>
+        <%= i %>
+      </p>
+    </a>
+    <% } %>
+    <% } %>
   </div>
 </div>

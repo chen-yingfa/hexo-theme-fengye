@@ -1,7 +1,7 @@
 # Header
 nav:
   # Home: /index
-  archives:
+  posts:
     path: ./archives
     icon: mingcute:inbox-fill
     text: Posts
@@ -34,7 +34,6 @@ nav:
 email: example@xxx.com
 my_location: Beijing, China
 cv_path: /pdf/cv.pdf
-
 show_featured_posts: true
 
 # favicon
@@ -87,11 +86,6 @@ giscus:
   category:
   category_id:
   mapping:
-
-
-search:
-  enable: true
-  placeholder: 
 
 
 markdown:
