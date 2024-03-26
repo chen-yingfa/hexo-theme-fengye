@@ -13,12 +13,18 @@ Minimalistic but powerful Hexo theme
 
 <img src="source/images/Fengye.png">
 
+## Table of Contents
+
+- [Installation](#installation)
+- [How to Configure Pages](#how-to-configure-pages)
+- [How to Configure Footer](#footer-configuration)
+
 ## Features
 
 - 📦 Out of the box - Almost zero configuration.
 - 🎨 Automatically switched light and dark theme.
 - 💻 Auto fit Mobile and Screen responsively.
-- 💹 Baidu/Google Analytics
+<!-- - 💹 Baidu/Google Analytics -->
 - ⚗️ [MathJax Support](http://docs.mathjax.org/en/latest/)
 - ⚡️ [Mermaid Support](https://mermaid-js.github.io/mermaid)
 - 🖼️ [Fancybox Support](https://fancyapps.com/docs/ui/fancybox)
@@ -42,7 +48,7 @@ _config.yml
 + theme: fengye
 ```
 
-## Pages
+## How to Configure Pages
 
 Be default, I have included links to the following pages in the header bar, which are specified in the `_config.yml` file (the `nav` list).
 
@@ -79,7 +85,7 @@ tags:
 
 Run `hexo new page about` and `hexo new page publications` to create the about and publications page, respectively. You can also use custom paths for these pages, but you need to modify the `nav` list in the `_config.yml` file accordingly. Then just write the content of these two pages in Markdown in `_posts/about/index.md` and `_posts/publications/index.md`, respectively.
 
-## Home Page
+### Home Page
 
 The options to specify in the `_config.yml` file include:
 
@@ -91,7 +97,7 @@ The options to specify in the `_config.yml` file include:
 
 By default, this theme will show a list of featured posts in the home page below the description of the author. Featured posts are identified as posts with a `featured: true` entry in the frontmatter. To disable this, set `show_featured_posts: false` in the config file.
 
-## Footer
+## Footer Configuration
 
 Currently, the footer can only be modified by directly modifying the `fengye/layout/_partial/footer.ejs` source file, but I guess there is not much to change here.
 
