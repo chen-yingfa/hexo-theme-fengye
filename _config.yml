@@ -34,6 +34,7 @@ nav:
 email: example@xxx.com
 my_location: Beijing, China
 cv_path: /pdf/cv.pdf
+cv_last_update_date: Aug, 2024
 show_featured_posts: true
 
 # favicon
