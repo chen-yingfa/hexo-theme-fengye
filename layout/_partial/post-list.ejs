@@ -5,15 +5,20 @@
   <% posts.each(function (post, index) { %>
     <% var cur_year = post.date.year(); %>
     <!-- Large text showing the year in the background -->
-    <% if(last_year !== cur_year){ %>
+    <% if (last_year !== cur_year){ %>
       <div class="relative pointer-events-none h-[30px]">
         <div class="absolute -top-6 w-[100%]">
           <p class="
-            text-clip overflow-hidden -translate-x-3 text-9xl
+            text-clip
+            overflow-hidden
+            -translate-x-3
+            text-9xl
             font-extrabold
             text-[var(--c-theme)]
             opacity-10
-            dark:opacity-20">
+            dark:opacity-20
+            <%= config.theme_config.year_align_center ? 'text-center' : '' %>
+            ">
             <%- cur_year %>
           </p>
         </div>
