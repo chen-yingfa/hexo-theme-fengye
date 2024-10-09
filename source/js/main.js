@@ -163,10 +163,18 @@ function changeFootenoteBackref() {
   });
 }
 
+function setImageAlt() {
+  const images = document.querySelectorAll("img");
+  images.forEach((item) => {
+    item.alt = item.title;
+  });
+}
+
 $(document).ready(function () {
   registerMobileMenu();
   registerGoTop();
   if ($("#article-title").length > 0) {
+    setImageAlt();
     registerHeaderPageTitle();
     registerCopyCode();
     addCodeLanguage();
