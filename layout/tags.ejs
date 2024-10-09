@@ -1,28 +1,30 @@
 <!-- 
 This page has two versions, which is shown is based on whether current page
-is "tag".
+is "tags".
 
-  - url:'http://localhost:4000/tag/' return false.
-- url:'http://localhost:4000/tags/test/' return true.
+- url 'http://localhost:4000/tags/' return false.
+- url 'http://localhost:4000/tags/test/' return true.
 
-The '/tag/' page shows all tags and is where you land on when you click
+The '/tags/' page shows all tags and is where you land on when you click
 on the "Tags" in the navigation bar. Otherwise if you enter 'tags' by clicking on of the tag elements in some
 posts, and it shows all posts with that tag.
 
 To add a "Tags" page.
 
 1. hexo new page "tag"
-2. cd source/tag/index.md
+2. cd source/tags/index.md
 3. Add the following front matter.
 
 ---
-title: '''tag'''
+title: '''tags'''
 date: 2019-06-09 09:56:49
-layout: tag
+layout: tags
 ---
 -->
-<% if (is_tag()) { %>
+
+<% if (is_tag()) { console.log('test'); %>
   <!-- 已经选择了一个tag，显示一个 tag 的所有 post -->
+  <a>A tag post list</a>
   <div class="mt-6">
     <div class="flex flex-wrap gap-1 justify-center items-center">
       <iconify-icon width="24" icon="mingcute:tag-fill"></iconify-icon>
@@ -50,7 +52,7 @@ layout: tag
       <h2 class="font-bold text-2xl">Tags</h2>
     </div>
     <div class="tags-container flex flex-wrap gap-1 mt-2">
-      <% var tags = site.tags.sort((a, b) => b.length - a.length) %>
+      <% var tags = site.tags.sort('length', -1); %>
       <% tags.each(item => { %>
         <a href="<%-url_for(item.path)%>"
           class="
