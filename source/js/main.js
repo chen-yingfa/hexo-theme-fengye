@@ -174,7 +174,7 @@ $(document).ready(function () {
   registerMobileMenu();
   registerGoTop();
   if ($("#article-title").length > 0) {
-    setImageAlt();
+    // setImageAlt();
     registerHeaderPageTitle();
     registerCopyCode();
     addCodeLanguage();

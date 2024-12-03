@@ -1,11 +1,11 @@
 <div class="flex flex-col gap-0">
   <div class="index-info-container pt-6 text-[var(--c-70)]">
     <!-- Home page info, short text about me -->
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center justify-center">
       <% if (theme.show_profile_image) { %>
-      <a href="/about">
-        <img class="rounded-3xl w-48 hover:scale-[1.04] transition-transform" src="<%- theme.portrait %>"
-          alt="<%- config.title %>" />
+        <a href="/about">
+          <img class="rounded-3xl w-36 sm:w-48 hover:scale-[1.04] transition-transform" src="<%- theme.portrait %>"
+            alt="<%- config.title %>" />
         </a>
       <% } %>
       <!-- Site title -->
@@ -56,7 +56,7 @@
 
   <% if (theme.show_featured_posts) { %>
   <!-- 分割线 -->
-  <div class="flex flex-col items-center justify-center0">
+  <div class="flex flex-col items-center justify-center">
     <hr class="w-1/2 mb-10 h-[1px] bg-[var(--c-sep)] mr-1/2">
     </hr>
     <div class="flex flex-row items-center gap-2 text-[var(--c-50)]">
