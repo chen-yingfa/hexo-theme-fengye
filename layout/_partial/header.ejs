@@ -61,8 +61,8 @@
         <iconify-icon class="group-hover:scale-125 transition-transform" icon="<%- icon %>" width="22">
         </iconify-icon>
         <% } %>
-        <% if (theme.nav[i].show_name != false && theme.nav[i].name) { %>
-        <p><%= theme.nav[i].name %></p>
+        <% if (theme.nav[i].show_name != false && theme.nav[i].text) { %>
+        <p><%= theme.nav[i].text %></p>
         <% } %>
       </a>
       <% } %>
@@ -135,7 +135,7 @@
       <iconify-icon icon="<%- theme.nav[i].icon %>" width="22">
       </iconify-icon>
       <p>
-        <%= theme.nav[i].name %>
+        <%= theme.nav[i].text %>
       </p>
     </a>
     <% } else { %>
@@ -154,3 +154,4 @@
     <% } %>
   </div>
 </div>
+

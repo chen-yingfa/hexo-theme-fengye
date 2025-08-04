@@ -16,7 +16,7 @@
             text-[var(--c-theme)]
             opacity-10
             dark:opacity-20
-            <%= config.theme_config.year_align_center ? 'text-center' : '-translate-x-3' %>
+            <%= theme.year_align_center ? 'text-center' : '-translate-x-3' %>
             ">
             <%- cur_year %>
           </p>
@@ -29,3 +29,4 @@
     </div>
   <% }) %>
 </section>
+
